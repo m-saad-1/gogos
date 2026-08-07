@@ -11,13 +11,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="preload" as="image" href="./Images/Hero_image.png">
 </head>
 <body>
     <header class="navbar">
         <div class="container">
             <div class="nav-left">
                 <a href="#" class="logo">
-                    <img src="./Images/Logo.png" alt="Restaurante da Rosana Logo" class="header-logo">
+                    <img fetchpriority="high" decoding="sync" src="./Images/Logo.png" alt="Restaurante da Rosana Logo" class="header-logo">
                     <span style="font-size: 1.5rem; font-weight: 700;">Rosana<span style="color: var(--clr-primary);">.</span></span>
                 </a>
                 <span class="greeting">Olá, seja bem-vindo! 👋</span>
@@ -87,7 +88,7 @@
         <!-- Hero Section -->
         <section class="hero refined-hero" id="home">
             <div class="hero-image-frame">
-                <img src="./Images/Hero_image.png" alt="Restaurante da Rosana Hero" class="hero-full-img">
+                <img fetchpriority="high" decoding="sync" src="./Images/Hero_image.png" alt="Restaurante da Rosana Hero" class="hero-full-img">
                 <a href="#cardapio" class="btn btn-primary hero-order-btn">Peça Agora</a>
             </div>
         </section>
@@ -100,23 +101,23 @@
                 <!-- Circular Category Strip -->
                 <div class="category-circles-wrapper">
                     <a href="#deals" class="category-circle-btn active" style="text-decoration:none;">
-                        <div class="circle-img"><img src="./Images/Deal.png" alt="Ofertas"></div>
+                        <div class="circle-img"><img loading="lazy" decoding="async" src="./Images/Deal.png" alt="Ofertas"></div>
                         <span class="circle-label">Ofertas</span>
                     </a>
                     <a href="#skewers" class="category-circle-btn" style="text-decoration:none;">
-                        <div class="circle-img"><img src="./Images/Grilled_skewers (1).png" alt="Espetinhos"></div>
+                        <div class="circle-img"><img loading="lazy" decoding="async" src="./Images/Grilled_skewers (1).png" alt="Espetinhos"></div>
                         <span class="circle-label">Espetinhos</span>
                     </a>
                     <a href="#soups" class="category-circle-btn" style="text-decoration:none;">
-                        <div class="circle-img"><img src="./Images/Soup.png" alt="Sopas"></div>
+                        <div class="circle-img"><img loading="lazy" decoding="async" src="./Images/Soup.png" alt="Sopas"></div>
                         <span class="circle-label">Sopas</span>
                     </a>
                     <a href="#drinks" class="category-circle-btn" style="text-decoration:none;">
-                        <div class="circle-img"><img src="./Images/Drink (1).png" alt="Bebidas"></div>
+                        <div class="circle-img"><img loading="lazy" decoding="async" src="./Images/Drink (1).png" alt="Bebidas"></div>
                         <span class="circle-label">Bebidas</span>
                     </a>
                     <a href="#desserts" class="category-circle-btn" style="text-decoration:none;">
-                        <div class="circle-img"><img src="./Images/Dessert.png" alt="Sobremesas"></div>
+                        <div class="circle-img"><img loading="lazy" decoding="async" src="./Images/Dessert.png" alt="Sobremesas"></div>
                         <span class="circle-label">Sobremesas</span>
                     </a>
                 </div>
@@ -128,7 +129,7 @@
                 <div class="menu-grid">
                     <div class="product-card">
                         <div class="card-badge badge-primary">MAIS VENDIDO</div>
-                        <div class="card-image"><img src="./Images/Deal (1).png" alt="Combo 1"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Deal (1).png" alt="Combo 1"></div>
                         <div class="card-content">
                             <div class="card-header"><h3>Combo da Rosana</h3></div>
                             <p class="card-desc">O combo perfeito para matar sua fome com muito sabor.</p>
@@ -140,7 +141,7 @@
                     </div>
                     <div class="product-card">
                         <div class="card-badge badge-danger">OFERTA</div>
-                        <div class="card-image"><img src="./Images/Deal (2).png" alt="Combo 2"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Deal (2).png" alt="Combo 2"></div>
                         <div class="card-content">
                             <div class="card-header"><h3>Super Combo</h3></div>
                             <p class="card-desc">Ideal para compartilhar. Tudo em dobro.</p>
@@ -151,7 +152,7 @@
                         </div>
                     </div>
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/Deal (3).png" alt="Combo 3"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Deal (3).png" alt="Combo 3"></div>
                         <div class="card-content">
                             <div class="card-header"><h3>Combo Família</h3></div>
                             <p class="card-desc">Uma explosão de sabor para a família toda aproveitar unida.</p>
@@ -163,7 +164,7 @@
                     </div>
                     <div class="product-card">
                         <div class="card-badge badge-primary">NOVO</div>
-                        <div class="card-image"><img src="./Images/Deal (4).png" alt="Combo 4"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Deal (4).png" alt="Combo 4"></div>
                         <div class="card-content">
                             <div class="card-header"><h3>Mega Combo</h3></div>
                             <p class="card-desc">O maior combo da casa com acompanhamentos especiais.</p>
@@ -174,7 +175,7 @@
                         </div>
                     </div>
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/Deal (5).png" alt="Combo 5"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Deal (5).png" alt="Combo 5"></div>
                         <div class="card-content">
                             <div class="card-header"><h3>Trio Parada Dura</h3></div>
                             <p class="card-desc">Três delícias diferentes em uma única embalagem especial.</p>
@@ -185,7 +186,7 @@
                         </div>
                     </div>
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/Deal (6).png" alt="Combo 6"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Deal (6).png" alt="Combo 6"></div>
                         <div class="card-content">
                             <div class="card-header"><h3>Combo Casal</h3></div>
                             <p class="card-desc">Perfeito para dividir com quem você ama.</p>
@@ -203,7 +204,7 @@
                 </div>
                 <div class="menu-grid">
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/Grilled_skewers (1).png" alt="Espetinho 1"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Grilled_skewers (1).png" alt="Espetinho 1"></div>
                         <div class="card-content">
                             <div class="card-header"><h3>Espetinho Misto</h3></div>
                             <p class="card-desc">Delicioso espetinho misto com carnes selecionadas.</p>
@@ -214,7 +215,7 @@
                         </div>
                     </div>
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/Grilled_skewers (2).png" alt="Espetinho 2"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Grilled_skewers (2).png" alt="Espetinho 2"></div>
                         <div class="card-content">
                             <div class="card-header"><h3>Espetinho de Frango</h3></div>
                             <p class="card-desc">Espetinho de frango suculento com tempero da casa.</p>
@@ -232,7 +233,7 @@
                 </div>
                 <div class="menu-grid">
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/Soup.png" alt="Sopa"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Soup.png" alt="Sopa"></div>
                         <div class="card-content">
                             <div class="card-header"><h3>Sopa Cremosa</h3></div>
                             <p class="card-desc">Sopa cremosa especial da casa, perfeita para dias frios.</p>
@@ -250,7 +251,7 @@
                 </div>
                 <div class="menu-grid">
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/Drink (1).png" alt="Bebida 1"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Drink (1).png" alt="Bebida 1"></div>
                         <div class="card-content">
                             <div class="card-header"><h3>Suco Natural</h3></div>
                             <p class="card-desc">Suco natural refrescante e geladinho.</p>
@@ -261,7 +262,7 @@
                         </div>
                     </div>
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/Drink (2).png" alt="Bebida 2"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Drink (2).png" alt="Bebida 2"></div>
                         <div class="card-content">
                             <div class="card-header"><h3>Refrigerante Lata</h3></div>
                             <p class="card-desc">Sua bebida favorita na medida certa.</p>
@@ -279,7 +280,7 @@
                 </div>
                 <div class="menu-grid">
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/Dessert (1).png" alt="Sobremesa 1"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Dessert (1).png" alt="Sobremesa 1"></div>
                         <div class="card-content">
                             <div class="card-header"><h3>Pudim Tradicional</h3></div>
                             <p class="card-desc">O clássico pudim com calda de caramelo.</p>
@@ -290,7 +291,7 @@
                         </div>
                     </div>
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/Dessert (2).png" alt="Sobremesa 2"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Dessert (2).png" alt="Sobremesa 2"></div>
                         <div class="card-content">
                             <div class="card-header"><h3>Torta de Chocolate</h3></div>
                             <p class="card-desc">Torta cremosa de chocolate para os amantes de cacau.</p>
@@ -301,7 +302,7 @@
                         </div>
                     </div>
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/Dessert (3).png" alt="Sobremesa 3"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Dessert (3).png" alt="Sobremesa 3"></div>
                         <div class="card-content">
                             <div class="card-header"><h3>Mousse de Maracujá</h3></div>
                             <p class="card-desc">Mousse refrescante com o toque cítrico perfeito.</p>
@@ -312,7 +313,7 @@
                         </div>
                     </div>
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/Dessert (4).png" alt="Sobremesa 4"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Dessert (4).png" alt="Sobremesa 4"></div>
                         <div class="card-content">
                             <div class="card-header"><h3>Sorvete da Casa</h3></div>
                             <p class="card-desc">Sorvete artesanal com coberturas à sua escolha.</p>
@@ -339,12 +340,12 @@
                 </div>
                 <a href="offers.html" style="display: block; text-decoration: none;">
                     <div class="hero-image-frame" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                        <img src="./Images/Offer (1).png" alt="Oferta 1" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
+                        <img loading="lazy" decoding="async" src="./Images/Offer (1).png" alt="Oferta 1" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
                     </div>
                 </a>
                 <a href="offers.html" style="display: block; text-decoration: none;">
                     <div class="hero-image-frame" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                        <img src="./Images/Offer (2).png" alt="Oferta 2" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
+                        <img loading="lazy" decoding="async" src="./Images/Offer (2).png" alt="Oferta 2" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
                     </div>
                 </a>
             </div>
@@ -434,30 +435,30 @@
                     <p style="color: #666; font-size: 1.05rem;">Um pouco do nosso ambiente e pratos deliciosos</p>
                 </div>
                 <div class="gallery-grid">
-                    <div class="gallery-item"><video class="lightbox-trigger" autoplay muted loop playsinline style="width: 100%; border-radius: var(--border-radius);"><source src="./Gallery/2026-07-12_20-00-02_UTC_2.mp4" type="video/mp4"></video></div>
-                    <div class="gallery-item"><video class="lightbox-trigger" autoplay muted loop playsinline style="width: 100%; border-radius: var(--border-radius);"><source src="./Gallery/2026-06-29_13-58-59_UTC.mp4" type="video/mp4"></video></div>
-                    <div class="gallery-item"><img src="./Gallery/Gallery (9).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
-                    <div class="gallery-item"><img src="./Gallery/Gallery (8).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
-                    <div class="gallery-item"><img src="./Gallery/Gallery (7).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
-                    <div class="gallery-item"><img src="./Gallery/Gallery (6).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
-                    <div class="gallery-item"><img src="./Gallery/Gallery (5).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
-                    <div class="gallery-item"><img src="./Gallery/Gallery (4).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><video preload="metadata" class="lightbox-trigger" autoplay muted loop playsinline style="width: 100%; border-radius: var(--border-radius);"><source src="./Gallery/2026-07-12_20-00-02_UTC_2.mp4" type="video/mp4"></video></div>
+                    <div class="gallery-item"><video preload="metadata" class="lightbox-trigger" autoplay muted loop playsinline style="width: 100%; border-radius: var(--border-radius);"><source src="./Gallery/2026-06-29_13-58-59_UTC.mp4" type="video/mp4"></video></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (9).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (8).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (7).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (6).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (5).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (4).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
                 </div>
-                    <div class="gallery-item"><video class="lightbox-trigger" autoplay muted loop playsinline style="width: 100%; border-radius: var(--border-radius);"><source src="./Gallery/2026-06-29_13-58-59_UTC.mp4" type="video/mp4"></video></div>
-                    <div class="gallery-item"><img src="./Gallery/Gallery (9).jpg" alt="Galeria Instagram" class="lightbox-trigger"></div>
-                    <div class="gallery-item"><img src="./Gallery/Gallery (8).jpg" alt="Galeria Instagram" class="lightbox-trigger"></div>
-                    <div class="gallery-item"><img src="./Gallery/Gallery (7).jpg" alt="Galeria Instagram" class="lightbox-trigger"></div>
-                    <div class="gallery-item"><img src="./Gallery/Gallery (6).jpg" alt="Galeria Instagram" class="lightbox-trigger"></div>
-                    <div class="gallery-item"><img src="./Gallery/Gallery (5).jpg" alt="Galeria Instagram" class="lightbox-trigger"></div>
-                    <div class="gallery-item"><img src="./Gallery/Gallery (4).jpg" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><video preload="metadata" class="lightbox-trigger" autoplay muted loop playsinline style="width: 100%; border-radius: var(--border-radius);"><source src="./Gallery/2026-06-29_13-58-59_UTC.mp4" type="video/mp4"></video></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (9).jpg" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (8).jpg" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (7).jpg" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (6).jpg" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (5).jpg" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (4).jpg" alt="Galeria Instagram" class="lightbox-trigger"></div>
                 </div>
-                    <div class="gallery-item"><img src="./Images/Gallery (6).avif" alt="Galeria Imagem 2" class="lightbox-trigger"></div>
-                    <div class="gallery-item"><img src="./Images/Gallery (23).avif" alt="Galeria Imagem 3" class="lightbox-trigger"></div>
-                    <div class="gallery-item"><img src="./Images/Gallery (9).avif" alt="Galeria Imagem 4" class="lightbox-trigger"></div>
-                    <div class="gallery-item"><img src="./Images/Gallery (12).avif" alt="Galeria Imagem 5" class="lightbox-trigger"></div>
-                    <div class="gallery-item"><img src="./Images/Gallery (2).avif" alt="Galeria Imagem 6" class="lightbox-trigger"></div>
-                    <div class="gallery-item"><img src="./Images/Gallery (20).avif" alt="Galeria Imagem 7" class="lightbox-trigger"></div>
-                    <div class="gallery-item"><img src="./Images/Gallery (4).avif" alt="Galeria Imagem 8" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Images/Gallery (6).avif" alt="Galeria Imagem 2" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Images/Gallery (23).avif" alt="Galeria Imagem 3" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Images/Gallery (9).avif" alt="Galeria Imagem 4" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Images/Gallery (12).avif" alt="Galeria Imagem 5" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Images/Gallery (2).avif" alt="Galeria Imagem 6" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Images/Gallery (20).avif" alt="Galeria Imagem 7" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Images/Gallery (4).avif" alt="Galeria Imagem 8" class="lightbox-trigger"></div>
                 </div>
                 <div style="text-align: center; margin-top: 2.5rem;">
                     <a href="gallery.html" class="btn btn-outline" style="border-radius: 50px;">Ver Galeria Completa</a>
@@ -470,7 +471,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo" style="color: white; font-size: 2rem; display: flex; align-items: center; gap: 0.5rem;"><img src="./Images/Logo.png" alt="Logo" style="height: 80px; width: auto;">da Rosana<span style="color: var(--clr-primary);">.</span></a>
+                    <a href="index.html" class="logo" style="color: white; font-size: 2rem; display: flex; align-items: center; gap: 0.5rem;"><img fetchpriority="high" decoding="sync" src="./Images/Logo.png" alt="Logo" style="height: 80px; width: auto;">da Rosana<span style="color: var(--clr-primary);">.</span></a>
                     <p>O verdadeiro sabor do Brasil na sua mesa. Tradição, qualidade e atendimento premium.</p>
                 </div>
                 <div class="footer-links">
@@ -537,10 +538,10 @@
     <!-- Global Lightbox -->
     <div id="lightbox" class="lightbox">
         <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
+        <img loading="lazy" decoding="async" class="lightbox-content" id="lightbox-img">
     </div>
 
-    <script src="./js/script.js"></script>
+    <script src="./js/script.js" defer></script>
 
     <!-- Chatbot Assistant -->
     <div class="chatbot-widget">

@@ -16,7 +16,7 @@
         <div class="container">
             <div class="nav-left">
                 <a href="index.html" class="logo">
-                    <img src="./Images/Logo.png" alt="Restaurante da Rosana Logo" class="header-logo">
+                    <img fetchpriority="high" decoding="sync" src="./Images/Logo.png" alt="Restaurante da Rosana Logo" class="header-logo">
                     <span style="font-size: 1.5rem; font-weight: 700;">Rosana<span style="color: var(--clr-primary);">.</span></span>
                 </a>
                 <span class="greeting">Olá, seja bem-vindo! 👋</span>
@@ -72,7 +72,7 @@
                     <p style="font-size: 1.1rem; color: #555; margin-bottom: 3rem; line-height: 1.8;"><strong style="color: var(--clr-text-primary);">Nossa Missão:</strong> Proporcionar uma experiência gastronômica inesquecível, celebrando os sabores do Brasil em um ambiente acolhedor e familiar.</p>
                     
                     <div class="about-image" style="position: relative; margin-bottom: 4rem;">
-                        <img src="./Images/About.avif" alt="Interior do Restaurante da Rosana" style="border-radius: 24px; width: 100%; box-shadow: 0 25px 50px rgba(0,0,0,0.15); display: block; position: relative; z-index: 2;">
+                        <img loading="lazy" decoding="async" src="./Images/About.avif" alt="Interior do Restaurante da Rosana" style="border-radius: 24px; width: 100%; box-shadow: 0 25px 50px rgba(0,0,0,0.15); display: block; position: relative; z-index: 2;">
                         <div style="position: absolute; top: -15px; left: -15px; right: 15px; bottom: 15px; border: 2px solid var(--clr-primary); border-radius: 24px; z-index: 1;"></div>
                     </div>
                     
@@ -91,7 +91,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo" style="color: white; font-size: 2rem; display: flex; align-items: center; gap: 0.5rem;"><img src="./Images/Logo.png" alt="Logo" style="height: 80px; width: auto;">da Rosana<span style="color: var(--clr-primary);">.</span></a>
+                    <a href="index.html" class="logo" style="color: white; font-size: 2rem; display: flex; align-items: center; gap: 0.5rem;"><img fetchpriority="high" decoding="sync" src="./Images/Logo.png" alt="Logo" style="height: 80px; width: auto;">da Rosana<span style="color: var(--clr-primary);">.</span></a>
                     <p>O verdadeiro sabor do churrasco brasileiro. Tradição, qualidade e um ambiente perfeito para a sua família.</p>
                 </div>
                 <div class="footer-links">
@@ -155,7 +155,7 @@
         <button class="btn btn-primary cart-view-btn">Ver Carrinho</button>
     </div>
 
-    <script src="./js/script.js"></script>
+    <script src="./js/script.js" defer></script>
 
     <!-- Chatbot Assistant -->
     <div class="chatbot-widget">

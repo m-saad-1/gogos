@@ -15,7 +15,7 @@
         <div class="container">
             <div class="nav-left">
                 <a href="index.html" class="logo">
-                    <img src="./Images/Logo.png" alt="Restaurante da Rosana Logo" class="header-logo">
+                    <img fetchpriority="high" decoding="sync" src="./Images/Logo.png" alt="Restaurante da Rosana Logo" class="header-logo">
                     <span style="font-size: 1.5rem; font-weight: 700;">Rosana<span style="color: var(--clr-primary);">.</span></span>
                 </a>
                 <span class="greeting">Olá, seja bem-vindo! 👋</span>
@@ -80,16 +80,16 @@
         <section class="offers-banners" id="ofertas" style="padding: 1rem 0 3rem;">
             <div class="container" style="display: flex; flex-direction: column; gap: 1rem;">
                 <div class="hero-image-frame" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                    <img src="./Images/Offer (1).png" alt="Oferta 1" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
+                    <img loading="lazy" decoding="async" src="./Images/Offer (1).png" alt="Oferta 1" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
                 </div>
                 <div class="hero-image-frame" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                    <img src="./Images/Offer (2).png" alt="Oferta 2" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
+                    <img loading="lazy" decoding="async" src="./Images/Offer (2).png" alt="Oferta 2" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
                 </div>
                 <div class="hero-image-frame" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                    <img src="./Images/Offer (3).png" alt="Oferta 3" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
+                    <img loading="lazy" decoding="async" src="./Images/Offer (3).png" alt="Oferta 3" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
                 </div>
                 <div class="hero-image-frame" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                    <img src="./Images/Offer (4).png" alt="Oferta 4" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
+                    <img loading="lazy" decoding="async" src="./Images/Offer (4).png" alt="Oferta 4" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
                 </div>
             </div>
         </section>
@@ -102,7 +102,7 @@
                 <div class="menu-grid">
                     <div class="product-card">
                         <div class="card-badge badge-primary">MAIS VENDIDO</div>
-                        <div class="card-image"><img src="./Images/Deal (1).png" alt="Deal 1"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Deal (1).png" alt="Deal 1"></div>
                         <div class="card-content">
                             <div class="card-header">
                                 <h3>Combo da Rosana</h3>
@@ -120,7 +120,7 @@
                     
                     <div class="product-card">
                         <div class="card-badge badge-danger">OFERTA</div>
-                        <div class="card-image"><img src="./Images/Deal (2).png" alt="Deal 2"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Deal (2).png" alt="Deal 2"></div>
                         <div class="card-content">
                             <div class="card-header">
                                 <h3>Super Combo</h3>
@@ -144,7 +144,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo" style="color: white; font-size: 2rem; display: flex; align-items: center; gap: 0.5rem;"><img src="./Images/Logo.png" alt="Logo" style="height: 80px; width: auto;">da Rosana<span style="color: var(--clr-primary);">.</span></a>
+                    <a href="index.html" class="logo" style="color: white; font-size: 2rem; display: flex; align-items: center; gap: 0.5rem;"><img fetchpriority="high" decoding="sync" src="./Images/Logo.png" alt="Logo" style="height: 80px; width: auto;">da Rosana<span style="color: var(--clr-primary);">.</span></a>
                     <p>O verdadeiro sabor do churrasco brasileiro. Tradição, qualidade e um ambiente perfeito para a sua família.</p>
                 </div>
                 <div class="footer-links">
@@ -211,10 +211,10 @@
     <!-- Global Lightbox -->
     <div id="lightbox" class="lightbox">
         <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
+        <img loading="lazy" decoding="async" class="lightbox-content" id="lightbox-img">
     </div>
 
-    <script src="./js/script.js"></script>
+    <script src="./js/script.js" defer></script>
 
     <!-- Chatbot Assistant -->
     <div class="chatbot-widget">
