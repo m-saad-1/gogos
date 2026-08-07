@@ -1,86 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cardápio - Restaurante da Rosana</title>
-    <link rel="icon" type="image/png" href="./Images/Logo.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-    <header class="navbar">
-        <div class="container">
-            <div class="nav-left">
-                <a href="index.html" class="logo">
-                    <img src="./Images/Logo.png" alt="Restaurante da Rosana Logo" class="header-logo">
-                    <span style="font-size: 1.5rem; font-weight: 700;">Rosana<span style="color: var(--clr-primary);">.</span></span>
-                </a>
-                <span class="greeting">Olá, seja bem-vindo! 👋</span>
-            </div>
-            
-            <nav class="nav-center">
-                <ul>
-                    <li class="mobile-hide"><a href="index.html">Início</a></li>
-                    <li class="mobile-hide"><a href="menu.html" class="active">Cardápio</a></li>
-                    <li><a href="reservations.html">Reservas</a></li>
-                    <li><a href="gallery.html">Galeria</a></li>
-                    <li><a href="about.html">Sobre</a></li>
-                    <li class="desktop-hide"><a href="contact.html">Contato</a></li>
-                    <li class="desktop-hide"><a href="contact.html#localizacao">Localização</a></li>
-                    <li class="desktop-hide"><a href="contact.html#horarios">Horário de Funcionamento</a></li>
-                </ul>
-                <div class="mobile-only-btn-wrapper" style="margin-top: 1.5rem; width: 100%; padding: 0 1rem; display: flex;">
-                    <a href="contact.html" class="btn btn-primary menu-contact-btn" style="width: 100%; text-align: center; border-radius: 50px; transition: all 0.3s ease;">Entre em Contato</a>
-                </div>
-            </nav>
-            
-            <div class="nav-right">
-                <div class="notification-wrapper" style="position: relative;">
-                    <button class="icon-btn" aria-label="Notificações" id="notification-btn">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-                    </button>
-                    <div class="notification-panel" id="notification-panel">
-                        <div class="notification-header">
-                            <h4>Notificações</h4>
-                            <span class="mark-read">Marcar todas como lidas</span>
-                        </div>
-                        <div class="notification-body empty">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:1rem;"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-                            <p style="margin: 0;">Nenhuma nova notificação</p>
-                        </div>
-                    </div>
-                </div>
-                <a href="cart.html" class="icon-btn" aria-label="Carrinho" style="text-decoration:none; color:inherit; display:flex;">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                    <span class="badge">0</span>
-                </a>
-                <button class="btn btn-primary header-order-btn">Fazer Pedido</button>
-                <button class="mobile-menu-btn" aria-label="Menu">
-                    <div class="hamburger-lines">
-                        <span class="line line1"></span>
-                        <span class="line line2"></span>
-                        <span class="line line3"></span>
-                    </div>
-                </button>
-            </div>
-        </div>
-    </header>
+import os
+import re
+import glob
 
-    <main>
-        <div class="mobile-search-bar" style="display: block; position: static; background: var(--clr-surface); padding-top: 2rem;">
-            <div class="container">
-                <div class="search-input-wrapper">
-                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                    <input type="text" placeholder="Buscar pratos...">
-                </div>
-            </div>
-        </div>
-        <section class="menu" id="cardapio" style="padding-top: 2rem;">
-            <div class="container">
-                <div class="category-circles-wrapper">
+base_dir = r"d:\WEB_DEVELOPMENT\Rosana_Restaurant"
+
+html_files = glob.glob(os.path.join(base_dir, "*.html"))
+
+new_menu_content = """<div class="category-circles-wrapper">
                     <a href="#deals" class="category-circle-btn active" style="text-decoration:none;">
                         <div class="circle-img"><img src="./Images/Deal.png" alt="Ofertas"></div>
                         <span class="circle-label">Ofertas</span>
@@ -304,116 +230,52 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                </div>
-            </div>
-        </section>
-    </main>
+                </div>"""
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo" style="color: white; font-size: 2rem; display: flex; align-items: center; gap: 0.5rem;"><img src="./Images/Logo.png" alt="Logo" style="height: 80px; width: auto;">da Rosana<span style="color: var(--clr-primary);">.</span></a>
-                    <p>O verdadeiro sabor do churrasco brasileiro. Tradição, qualidade e um ambiente perfeito para a sua família.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Links Rápidos</h4>
-                    <ul>
-                        <li><a href="index.html">Início</a></li>
-                        <li><a href="menu.html">Cardápio</a></li>
-                        <li><a href="reservations.html">Reservas</a></li>
-                        <li><a href="about.html">Sobre</a></li>
-                        <li class="desktop-hide"><a href="contact.html">Contato</a></li>
-                    </ul>
-                </div>
-                <div class="footer-hours">
-                    <h4>Horário de Funcionamento</h4>
-                    <ul>
-                        <li>Seg - Sex: 11h30 - 15h00 | 18h30 - 23h00</li>
-                        <li>Sáb - Dom: 11h30 - 23h30</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Restaurante da Rosana. Todos os direitos reservados.</p>
-                <div class="social-links">
-                    <a href="#">Instagram</a>
-                    <a href="#">Facebook</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+for html_file in html_files:
+    with open(html_file, 'r', encoding='utf-8') as f:
+        content = f.read()
 
-    <!-- Mobile Bottom Tab Bar -->
-    <nav class="mobile-tab-bar">
-        <a href="index.html" class="tab-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-            <span>Início</span>
-        </a>
-        <a href="menu.html" class="tab-item active">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-            <span>Cardápio</span>
-        </a>
-        <a href="offers.html" class="tab-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
-            <span>Ofertas</span>
-        </a>
-        <a href="orders.html" class="tab-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-            <span>Pedidos</span>
-        </a>
-        <a href="profile.html" class="tab-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            <span>Perfil</span>
-        </a>
-    </nav>
+    # 1. Global replacements for Logo
+    content = content.replace('Logo.avif', 'Logo.png')
+    
+    # 2. Specific replacements for index.html
+    if os.path.basename(html_file) == 'index.html':
+        content = content.replace('Hero_image.avif', 'Hero_image.png')
+        content = content.replace('Offer1.avif', 'Offer (1).png')
+        content = content.replace('Offer2.avif', 'Offer (2).png')
 
-    <!-- Floating Cart Summary (Mobile) -->
-    <div class="floating-cart-bar">
-        <div class="cart-info">
-            <span class="cart-count">3 itens</span>
-            <span class="cart-total">R$ 339,70</span>
-        </div>
-        <a href="cart.html" class="btn btn-primary cart-view-btn" style="text-decoration:none;">Ver Carrinho</a>
-    </div>
+    # 3. Specific replacements for offers.html
+    if os.path.basename(html_file) == 'offers.html':
+        content = content.replace('Offer1.avif', 'Offer (1).png')
+        content = content.replace('Offer2.avif', 'Offer (2).png')
+        content = content.replace('Offer3.avif', 'Offer (3).png')
+        content = content.replace('Offer4.avif', 'Offer (4).png')
+        content = content.replace('Deal1.avif', 'Deal (1).png')
+        content = content.replace('Deal2.avif', 'Deal (2).png')
 
-    <!-- Global Lightbox -->
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
-    </div>
+    # 4. Replace Menu content in menu.html and index.html
+    if os.path.basename(html_file) in ['menu.html', 'index.html']:
+        # We need to find the block to replace.
+        # It starts at <div class="category-circles-wrapper">
+        # And ends at the last </div> before closing </section> or <div style="text-align: center...
+        
+        start_pattern = r'<div class="category-circles-wrapper">'
+        
+        if os.path.basename(html_file) == 'menu.html':
+            end_pattern = r'(?<=</div>\s{4}</div>\s{12}</div>\s{16}</div>\n            </div>\n        </section>)'
+            # Actually a safer way is to use regex with DOTALL
+            pattern = r'<div class="category-circles-wrapper">.*?<!-- Category: Dessert -->.*?</div>\s*</div>\s*</div>\s*</div>'
+            # Let's match up to the end of the menu grid.
+            match = re.search(r'<div class="category-circles-wrapper">.*?(?:<div id="dessert".*?<div class="menu-grid">.*?</div>\s*</div>\s*</div>|<!-- Category: Dessert -->.*?<div class="menu-grid">.*?</div>\s*</div>\s*</div>)', content, re.DOTALL)
+            if match:
+                content = content[:match.start()] + new_menu_content + content[match.end():]
+        elif os.path.basename(html_file) == 'index.html':
+            match = re.search(r'<div class="category-circles-wrapper">.*?(?:<div id="dessert".*?<div class="menu-grid">.*?</div>\s*</div>\s*</div>|<!-- Category: Dessert -->.*?<div class="menu-grid">.*?</div>\s*</div>\s*</div>)', content, re.DOTALL)
+            if match:
+                content = content[:match.start()] + new_menu_content + content[match.end():]
 
-    <script src="./js/script.js"></script>
+    with open(html_file, 'w', encoding='utf-8') as f:
+        f.write(content)
 
-    <!-- Chatbot Assistant -->
-    <div class="chatbot-widget">
-        <button class="chatbot-toggle" aria-label="Abrir chat">
-            <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>
-        </button>
-        <div class="chatbot-container">
-            <div class="chatbot-header">
-                <div class="chatbot-title">
-                    <span class="chatbot-avatar">🤖</span>
-                    <div>
-                        <h4>Assistente da Rosana</h4>
-                        <span class="online-status">Online agora</span>
-                    </div>
-                </div>
-                <button class="chatbot-close">&times;</button>
-            </div>
-            <div class="chatbot-messages">
-                <div class="chat-message bot">
-                    <div class="msg-content">Olá! Bem-vindo ao Restaurante da Rosana. Como posso ajudar você hoje?</div>
-                </div>
-            </div>
-            <div class="chatbot-input">
-                <input type="text" placeholder="Digite sua mensagem..." id="chat-input-field">
-                <button id="chat-send-btn" aria-label="Enviar">
-                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                </button>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+print("Update completed.")

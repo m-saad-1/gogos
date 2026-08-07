@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante PontoBR - O Verdadeiro Sabor do Brasil</title>
-    <link rel="icon" type="image/png" href="./Images/Logo.avif">
+    <title>Restaurante da Rosana - O Verdadeiro Sabor do Brasil</title>
+    <link rel="icon" type="image/png" href="./Images/Logo.png">
     <meta name="description" content="Churrasco na brasa, peixes frescos e acompanhamentos com aquele gostinho de casa. Tradição e qualidade todos os dias.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,8 @@
         <div class="container">
             <div class="nav-left">
                 <a href="#" class="logo">
-                    <img src="./Images/Logo.avif" alt="Restaurante PontoBR Logo" class="header-logo">
+                    <img src="./Images/Logo.png" alt="Restaurante da Rosana Logo" class="header-logo">
+                    <span style="font-size: 1.5rem; font-weight: 700;">Rosana<span style="color: var(--clr-primary);">.</span></span>
                 </a>
                 <span class="greeting">Olá, seja bem-vindo! 👋</span>
             </div>
@@ -86,7 +87,7 @@
         <!-- Hero Section -->
         <section class="hero refined-hero" id="home">
             <div class="hero-image-frame">
-                <img src="./Images/Hero_image.avif" alt="Restaurante PontoBR Hero" class="hero-full-img">
+                <img src="./Images/Hero_image.png" alt="Restaurante da Rosana Hero" class="hero-full-img">
                 <a href="#cardapio" class="btn btn-primary hero-order-btn">Peça Agora</a>
             </div>
         </section>
@@ -99,31 +100,23 @@
                 <!-- Circular Category Strip -->
                 <div class="category-circles-wrapper">
                     <a href="#deals" class="category-circle-btn active" style="text-decoration:none;">
-                        <div class="circle-img"><img src="./Images/Deal1.avif" alt="Ofertas"></div>
+                        <div class="circle-img"><img src="./Images/Deal.png" alt="Ofertas"></div>
                         <span class="circle-label">Ofertas</span>
                     </a>
-                    <a href="#burgers" class="category-circle-btn" style="text-decoration:none;">
-                        <div class="circle-img"><img src="./Images/burger1.avif" alt="Burgers"></div>
-                        <span class="circle-label">Hambúrgueres</span>
+                    <a href="#skewers" class="category-circle-btn" style="text-decoration:none;">
+                        <div class="circle-img"><img src="./Images/Grilled_skewers (1).png" alt="Espetinhos"></div>
+                        <span class="circle-label">Espetinhos</span>
                     </a>
-                    <a href="#chicken" class="category-circle-btn" style="text-decoration:none;">
-                        <div class="circle-img"><img src="./Images/Chicken.avif" alt="Chicken"></div>
-                        <span class="circle-label">Chicken</span>
+                    <a href="#soups" class="category-circle-btn" style="text-decoration:none;">
+                        <div class="circle-img"><img src="./Images/Soup.png" alt="Sopas"></div>
+                        <span class="circle-label">Sopas</span>
                     </a>
-                    <a href="#rice" class="category-circle-btn" style="text-decoration:none;">
-                        <div class="circle-img"><img src="./Images/Rice.avif" alt="Rice"></div>
-                        <span class="circle-label">Arroz</span>
-                    </a>
-                    <a href="#fries" class="category-circle-btn" style="text-decoration:none;">
-                        <div class="circle-img"><img src="./Images/Fries1.avif" alt="Fries"></div>
-                        <span class="circle-label">Porções</span>
-                    </a>
-                    <a href="#drink" class="category-circle-btn" style="text-decoration:none;">
-                        <div class="circle-img"><img src="./Images/Drink.avif" alt="Drink"></div>
+                    <a href="#drinks" class="category-circle-btn" style="text-decoration:none;">
+                        <div class="circle-img"><img src="./Images/Drink (1).png" alt="Bebidas"></div>
                         <span class="circle-label">Bebidas</span>
                     </a>
-                    <a href="#dessert" class="category-circle-btn" style="text-decoration:none;">
-                        <div class="circle-img"><img src="./Images/dessert.avif" alt="Dessert"></div>
+                    <a href="#desserts" class="category-circle-btn" style="text-decoration:none;">
+                        <div class="circle-img"><img src="./Images/Dessert.png" alt="Sobremesas"></div>
                         <span class="circle-label">Sobremesas</span>
                     </a>
                 </div>
@@ -135,9 +128,9 @@
                 <div class="menu-grid">
                     <div class="product-card">
                         <div class="card-badge badge-primary">MAIS VENDIDO</div>
-                        <div class="card-image"><img src="./Images/Deal1.avif" alt="Deal 1"></div>
+                        <div class="card-image"><img src="./Images/Deal (1).png" alt="Combo 1"></div>
                         <div class="card-content">
-                            <div class="card-header"><h3>Combo PontoBR</h3></div>
+                            <div class="card-header"><h3>Combo da Rosana</h3></div>
                             <p class="card-desc">O combo perfeito para matar sua fome com muito sabor.</p>
                             <div class="card-footer">
                                 <span class="price">R$ 45,90</span>
@@ -147,7 +140,7 @@
                     </div>
                     <div class="product-card">
                         <div class="card-badge badge-danger">OFERTA</div>
-                        <div class="card-image"><img src="./Images/Deal2.avif" alt="Deal 2"></div>
+                        <div class="card-image"><img src="./Images/Deal (2).png" alt="Combo 2"></div>
                         <div class="card-content">
                             <div class="card-header"><h3>Super Combo</h3></div>
                             <p class="card-desc">Ideal para compartilhar. Tudo em dobro.</p>
@@ -157,123 +150,74 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Category: Burgers -->
-                <div id="burgers" style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0 1rem; scroll-margin-top: 100px;">
-                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--clr-text-primary); margin: 0;">Hambúrgueres</h3>
-                </div>
-                <div class="menu-grid">
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/burger1.avif" alt="Burger 1"></div>
+                        <div class="card-image"><img src="./Images/Deal (3).png" alt="Combo 3"></div>
                         <div class="card-content">
-                            <div class="card-header"><h3>Classic Burger</h3></div>
-                            <p class="card-desc">Hambúrguer artesanal, queijo derretido, salada fresca e molho especial.</p>
+                            <div class="card-header"><h3>Combo Família</h3></div>
+                            <p class="card-desc">Uma explosão de sabor para a família toda aproveitar unida.</p>
                             <div class="card-footer">
-                                <span class="price">R$ 32,90</span>
+                                <span class="price">R$ 119,90</span>
                                 <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
                             </div>
                         </div>
                     </div>
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/burger2.avif" alt="Burger 2"></div>
+                        <div class="card-badge badge-primary">NOVO</div>
+                        <div class="card-image"><img src="./Images/Deal (4).png" alt="Combo 4"></div>
                         <div class="card-content">
-                            <div class="card-header"><h3>Bacon Supreme</h3></div>
-                            <p class="card-desc">Hambúrguer duplo com muito bacon crocante e cheddar.</p>
+                            <div class="card-header"><h3>Mega Combo</h3></div>
+                            <p class="card-desc">O maior combo da casa com acompanhamentos especiais.</p>
                             <div class="card-footer">
-                                <span class="price">R$ 42,90</span>
-                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Category: Chicken -->
-                <div id="chicken" style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0 1rem; scroll-margin-top: 100px;">
-                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--clr-text-primary); margin: 0;">Chicken</h3>
-                </div>
-                <div class="menu-grid">
-                    <div class="product-card">
-                        <div class="card-image"><img src="./Images/Chicken.avif" alt="Chicken"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Frango Crocante</h3></div>
-                            <p class="card-desc">Pedaços de frango empanados e fritos, super crocantes por fora e suculentos por dentro.</p>
-                            <div class="card-footer">
-                                <span class="price">R$ 38,90</span>
-                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Category: Rice -->
-                <div id="rice" style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0 1rem; scroll-margin-top: 100px;">
-                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--clr-text-primary); margin: 0;">Arroz</h3>
-                </div>
-                <div class="menu-grid">
-                    <div class="product-card">
-                        <div class="card-image"><img src="./Images/Rice.avif" alt="Rice"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Arroz Especial</h3></div>
-                            <p class="card-desc">Arroz soltinho com temperos da casa e legumes frescos.</p>
-                            <div class="card-footer">
-                                <span class="price">R$ 25,90</span>
+                                <span class="price">R$ 65,90</span>
                                 <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
                             </div>
                         </div>
                     </div>
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/Rice1.avif" alt="Rice 1"></div>
+                        <div class="card-image"><img src="./Images/Deal (5).png" alt="Combo 5"></div>
                         <div class="card-content">
-                            <div class="card-header"><h3>Risoto Cremoso</h3></div>
-                            <p class="card-desc">Risoto incrivelmente cremoso com queijo parmesão.</p>
+                            <div class="card-header"><h3>Trio Parada Dura</h3></div>
+                            <p class="card-desc">Três delícias diferentes em uma única embalagem especial.</p>
                             <div class="card-footer">
-                                <span class="price">R$ 39,90</span>
+                                <span class="price">R$ 78,90</span>
                                 <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
                             </div>
                         </div>
                     </div>
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/Rice2.avif" alt="Rice 2"></div>
+                        <div class="card-image"><img src="./Images/Deal (6).png" alt="Combo 6"></div>
                         <div class="card-content">
-                            <div class="card-header"><h3>Arroz de Forno</h3></div>
-                            <p class="card-desc">Clássico arroz de forno gratinado com queijo e presunto.</p>
+                            <div class="card-header"><h3>Combo Casal</h3></div>
+                            <p class="card-desc">Perfeito para dividir com quem você ama.</p>
                             <div class="card-footer">
-                                <span class="price">R$ 34,90</span>
+                                <span class="price">R$ 55,90</span>
                                 <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Category: Fries -->
-                <div id="fries" style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0 1rem; scroll-margin-top: 100px;">
-                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--clr-text-primary); margin: 0;">Porções</h3>
+                <!-- Category: Espetinhos -->
+                <div id="skewers" style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0 1rem; scroll-margin-top: 100px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--clr-text-primary); margin: 0;">Espetinhos</h3>
                 </div>
                 <div class="menu-grid">
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/Fries1.avif" alt="Fries"></div>
+                        <div class="card-image"><img src="./Images/Grilled_skewers (1).png" alt="Espetinho 1"></div>
                         <div class="card-content">
-                            <div class="card-header"><h3>Fritas Rústicas</h3></div>
-                            <p class="card-desc">Batatas fritas rústicas, douradas e crocantes, acompanhadas de molho da casa.</p>
+                            <div class="card-header"><h3>Espetinho Misto</h3></div>
+                            <p class="card-desc">Delicioso espetinho misto com carnes selecionadas.</p>
                             <div class="card-footer">
-                                <span class="price">R$ 22,90</span>
+                                <span class="price">R$ 15,90</span>
                                 <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Category: Drink -->
-                <div id="drink" style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0 1rem; scroll-margin-top: 100px;">
-                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--clr-text-primary); margin: 0;">Bebidas</h3>
-                </div>
-                <div class="menu-grid">
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/Drink.avif" alt="Drink"></div>
+                        <div class="card-image"><img src="./Images/Grilled_skewers (2).png" alt="Espetinho 2"></div>
                         <div class="card-content">
-                            <div class="card-header"><h3>Bebida Refrescante</h3></div>
-                            <p class="card-desc">Sucos naturais geladinhos para acompanhar sua refeição.</p>
+                            <div class="card-header"><h3>Espetinho de Frango</h3></div>
+                            <p class="card-desc">Espetinho de frango suculento com tempero da casa.</p>
                             <div class="card-footer">
                                 <span class="price">R$ 12,90</span>
                                 <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
@@ -282,26 +226,107 @@
                     </div>
                 </div>
 
-                <!-- Category: Dessert -->
-                <div id="dessert" style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0 1rem; scroll-margin-top: 100px;">
+                <!-- Category: Sopas -->
+                <div id="soups" style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0 1rem; scroll-margin-top: 100px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--clr-text-primary); margin: 0;">Sopas</h3>
+                </div>
+                <div class="menu-grid">
+                    <div class="product-card">
+                        <div class="card-image"><img src="./Images/Soup.png" alt="Sopa"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Sopa Cremosa</h3></div>
+                            <p class="card-desc">Sopa cremosa especial da casa, perfeita para dias frios.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 25,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Bebidas -->
+                <div id="drinks" style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0 1rem; scroll-margin-top: 100px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--clr-text-primary); margin: 0;">Bebidas</h3>
+                </div>
+                <div class="menu-grid">
+                    <div class="product-card">
+                        <div class="card-image"><img src="./Images/Drink (1).png" alt="Bebida 1"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Suco Natural</h3></div>
+                            <p class="card-desc">Suco natural refrescante e geladinho.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 12,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img src="./Images/Drink (2).png" alt="Bebida 2"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Refrigerante Lata</h3></div>
+                            <p class="card-desc">Sua bebida favorita na medida certa.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 6,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Sobremesas -->
+                <div id="desserts" style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0 1rem; scroll-margin-top: 100px;">
                     <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--clr-text-primary); margin: 0;">Sobremesas</h3>
                 </div>
                 <div class="menu-grid">
                     <div class="product-card">
-                        <div class="card-image"><img src="./Images/dessert.avif" alt="Dessert"></div>
+                        <div class="card-image"><img src="./Images/Dessert (1).png" alt="Sobremesa 1"></div>
                         <div class="card-content">
-                            <div class="card-header"><h3>Sobremesa Delight</h3></div>
-                            <p class="card-desc">Uma sobremesa especial e irresistível para adoçar o seu dia.</p>
+                            <div class="card-header"><h3>Pudim Tradicional</h3></div>
+                            <p class="card-desc">O clássico pudim com calda de caramelo.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 14,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img src="./Images/Dessert (2).png" alt="Sobremesa 2"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Torta de Chocolate</h3></div>
+                            <p class="card-desc">Torta cremosa de chocolate para os amantes de cacau.</p>
                             <div class="card-footer">
                                 <span class="price">R$ 18,90</span>
                                 <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
                             </div>
                         </div>
                     </div>
+                    <div class="product-card">
+                        <div class="card-image"><img src="./Images/Dessert (3).png" alt="Sobremesa 3"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Mousse de Maracujá</h3></div>
+                            <p class="card-desc">Mousse refrescante com o toque cítrico perfeito.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 12,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img src="./Images/Dessert (4).png" alt="Sobremesa 4"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Sorvete da Casa</h3></div>
+                            <p class="card-desc">Sorvete artesanal com coberturas à sua escolha.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 16,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </div>
                 
                 <div style="text-align: center; margin-top: 3rem;">
-                    <a href="menu.html" class="btn btn-primary" style="border-radius: 50px; font-size: 1.05rem; font-weight: 600; padding: 0.8rem 2.5rem; box-shadow: 0 5px 15px rgba(238, 108, 31, 0.3);">Ver Cardápio Completo</a>
+                    <a href="menu.html" class="btn btn-primary" style="border-radius: 50px; font-size: 1.05rem; font-weight: 600; padding: 0.8rem 2.5rem; box-shadow: 0 5px 15px rgba(236, 72, 153, 0.3);">Ver Cardápio Completo</a>
                 </div>
             </div>
         </section>
@@ -314,12 +339,12 @@
                 </div>
                 <a href="offers.html" style="display: block; text-decoration: none;">
                     <div class="hero-image-frame" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                        <img src="./Images/Offer1.avif" alt="Oferta 1" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
+                        <img src="./Images/Offer (1).png" alt="Oferta 1" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
                     </div>
                 </a>
                 <a href="offers.html" style="display: block; text-decoration: none;">
                     <div class="hero-image-frame" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                        <img src="./Images/Offer2.avif" alt="Oferta 2" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
+                        <img src="./Images/Offer (2).png" alt="Oferta 2" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
                     </div>
                 </a>
             </div>
@@ -352,10 +377,10 @@
                         <div class="contact-card minimal-card">
                             <div class="contact-card-info">
                                 <h4>E-mail</h4>
-                                <p class="minimal-text">contato@pontobr.com.br</p>
+                                <p class="minimal-text">contato@rosanarefeicoes.com.br</p>
                             </div>
                         </div>
-                        <a href="mailto:contato@pontobr.com.br" class="contact-icon outside-icon">
+                        <a href="mailto:contato@rosanarefeicoes.com.br" class="contact-icon outside-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                         </a>
                     </div>
@@ -430,7 +455,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo" style="color: white; font-size: 2rem; display: flex; align-items: center; gap: 0.5rem;"><img src="./Images/Logo.avif" alt="Logo" style="height: 80px; width: auto;">PontoBR<span style="color: var(--clr-primary);">.</span></a>
+                    <a href="index.html" class="logo" style="color: white; font-size: 2rem; display: flex; align-items: center; gap: 0.5rem;"><img src="./Images/Logo.png" alt="Logo" style="height: 80px; width: auto;">da Rosana<span style="color: var(--clr-primary);">.</span></a>
                     <p>O verdadeiro sabor do Brasil na sua mesa. Tradição, qualidade e atendimento premium.</p>
                 </div>
                 <div class="footer-links">
@@ -452,7 +477,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Restaurante PontoBR. Todos os direitos reservados.</p>
+                <p>&copy; 2026 Restaurante da Rosana. Todos os direitos reservados.</p>
                 <div class="social-links">
                     <a href="#">Instagram</a>
                     <a href="#">Facebook</a>
@@ -512,7 +537,7 @@
                 <div class="chatbot-title">
                     <span class="chatbot-avatar">🤖</span>
                     <div>
-                        <h4>Assistente PontoBR</h4>
+                        <h4>Assistente da Rosana</h4>
                         <span class="online-status">Online agora</span>
                     </div>
                 </div>
@@ -520,7 +545,7 @@
             </div>
             <div class="chatbot-messages">
                 <div class="chat-message bot">
-                    <div class="msg-content">Olá! Bem-vindo ao Restaurante PontoBR. Como posso ajudar você hoje?</div>
+                    <div class="msg-content">Olá! Bem-vindo ao Restaurante da Rosana. Como posso ajudar você hoje?</div>
                 </div>
             </div>
             <div class="chatbot-input">

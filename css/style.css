@@ -1,13 +1,13 @@
 :root {
     /* Color Palette */
-    --clr-background: #FDF3E7;
-    --clr-surface: #FFF7EE;
-    --clr-surface-dark: #150D0B;
-    --clr-primary: #EE6C1F;
-    --clr-primary-dark: #D64500;
-    --clr-text-primary: #1C1310;
-    --clr-text-on-dark: #FFF7EE;
-    --clr-badge-danger: #E23D28;
+    --clr-background: #FDF2F8;
+    --clr-surface: #FFFFFF;
+    --clr-surface-dark: #1E0A12;
+    --clr-primary: #EC4899;
+    --clr-primary-dark: #BE185D;
+    --clr-text-primary: #2D0F1B;
+    --clr-text-on-dark: #FDF2F8;
+    --clr-badge-danger: #D81B60;
     --clr-star: #F5A623;
     
     /* Typography */
@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(238, 108, 31, 0.4);
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
 }
 
 .icon-btn {
@@ -139,6 +139,13 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     color: var(--clr-text-primary);
     text-decoration: none;
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.logo > span {
+    transform: translateY(4px);
 }
 
 .logo span {
@@ -193,14 +200,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-logo {
-    height: 90px;
+    height: 70px;
     width: auto;
     display: block;
     max-width: 100%;
-    margin-top: -10px;
-    margin-bottom: -20px; /* Overhangs to prevent header from expanding */
     position: relative;
     z-index: 105;
+    transform: translateY(-5px);
 }
 
 .mobile-only-btn-wrapper {
@@ -339,6 +345,14 @@ h1, h2, h3, h4, h5, h6 {
     .mobile-menu-btn {
         display: block !important;
     }
+    
+    .header-logo {
+        height: 45px !important;
+    }
+    
+    .logo > span {
+        font-size: 1.2rem !important;
+    }
 }
 
 /* Hero Section */
@@ -358,7 +372,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-badge {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background-color: rgba(238, 108, 31, 0.1);
+    background-color: rgba(236, 72, 153, 0.1);
     color: var(--clr-primary);
     font-weight: 600;
     font-size: 0.85rem;
@@ -578,7 +592,7 @@ h1, h2, h3, h4, h5, h6 {
 .category-circle-btn.active .circle-img,
 .category-circle-btn:hover .circle-img {
     border-color: var(--clr-primary);
-    box-shadow: 0 6px 15px rgba(238, 108, 31, 0.2);
+    box-shadow: 0 6px 15px rgba(236, 72, 153, 0.2);
 }
 
 .circle-label {
@@ -696,20 +710,11 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.95rem;
     line-height: 1.4rem;
     margin-bottom: 1.5rem;
-    position: relative;
-    height: 2.8rem; /* Strictly 2 lines (1.4rem * 2) */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    padding-right: 0.5rem;
-}
-
-.card-desc::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 40%;
-    height: 1.4rem;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 80%);
+    text-overflow: ellipsis;
 }
 
 .card-footer {
@@ -753,6 +758,14 @@ h1, h2, h3, h4, h5, h6 {
         padding-bottom: 1rem;
         justify-content: flex-start;
         -webkit-overflow-scrolling: touch;
+    }
+    
+    .header-logo {
+        height: 32px;
+    }
+    
+    .logo > span {
+        font-size: 1.2rem !important;
     }
 }
 
@@ -926,7 +939,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .outside-icon:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(238, 108, 31, 0.2);
+    box-shadow: 0 12px 25px rgba(236, 72, 153, 0.2);
 }
 
 .contact-card, .contact-address-card {
@@ -957,7 +970,7 @@ h1, h2, h3, h4, h5, h6 {
 .contact-icon {
     width: 60px;
     height: 60px;
-    background: rgba(238, 108, 31, 0.1);
+    background: rgba(236, 72, 153, 0.1);
     color: var(--clr-primary);
     border-radius: 50%;
     display: flex;
@@ -1250,7 +1263,7 @@ input:focus, textarea:focus {
 
 .hero-image-frame .hero-order-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(238, 108, 31, 0.5);
+    box-shadow: 0 10px 20px rgba(236, 72, 153, 0.5);
 }
 
 @media (max-width: 768px) {
@@ -1725,7 +1738,7 @@ input:focus, textarea:focus {
 .header-order-btn:hover {
     background-color: var(--clr-primary);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(238, 108, 31, 0.3);
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
 }
 .menu-contact-btn:active,
 .header-order-btn:active {
@@ -1805,7 +1818,7 @@ input:focus, textarea:focus {
     padding-bottom: 1.5rem;
 }
 .order-status {
-    background: rgba(238, 108, 31, 0.1);
+    background: rgba(236, 72, 153, 0.1);
     color: var(--clr-primary);
     padding: 0.4rem 1rem;
     border-radius: 50px;
@@ -1992,7 +2005,7 @@ input:focus, textarea:focus {
     background: var(--clr-primary);
     color: white;
     border: none;
-    box-shadow: 0 4px 15px rgba(238, 108, 31, 0.4);
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
     cursor: pointer;
     display: flex;
     align-items: center;

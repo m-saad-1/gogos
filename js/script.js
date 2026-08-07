@@ -1,6 +1,6 @@
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Restaurante PontoBR - Script Loaded');
+    console.log('Restaurante da Rosana - Script Loaded');
     
     // --- Mobile Menu Toggle ---
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -112,14 +112,14 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- Cart Functionality ---
     const cartBtns = document.querySelectorAll('.product-card .btn, .hero-order-btn, .header-order-btn');
-    let cart = JSON.parse(localStorage.getItem('pontobr_cart')) || [];
+    let cart = JSON.parse(localStorage.getItem('rosanarefeicoes_cart')) || [];
     
     const updateCartUI = () => {
         const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
         document.querySelectorAll('.badge').forEach(badge => {
             badge.textContent = totalItems;
         });
-        localStorage.setItem('pontobr_cart', JSON.stringify(cart));
+        localStorage.setItem('rosanarefeicoes_cart', JSON.stringify(cart));
         
         // Handle Floating Cart Bar and Chatbot Widget position dynamically
         const floatingCartBar = document.querySelector('.floating-cart-bar');

@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante PontoBR - O Verdadeiro Sabor do Brasil</title>
+    <title>Restaurante da Rosana - O Verdadeiro Sabor do Brasil</title>
     <meta name="description" content="Churrasco na brasa, peixes frescos e acompanhamentos com aquele gostinho de casa. TradiÃ§Ã£o e qualidade todos os dias.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,7 @@
         <div class="container">
             <div class="nav-left">
                 <a href="#" class="logo">
-                    <img src="./Images/Logo.png" alt="Restaurante PontoBR Logo" class="header-logo">
+                    <img src="./Images/Logo.png" alt="Restaurante da Rosana Logo" class="header-logo">
                 </a>
                 <span class="greeting">OlÃ¡, seja bem-vindo! ðŸ‘‹</span>
             </div>
