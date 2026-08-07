@@ -8,11 +8,11 @@ index_html_path = r"d:\WEB_DEVELOPMENT\Rosana_Restaurant\index.html"
 
 # Get all unique media
 mp4_files = sorted(glob.glob(os.path.join(gallery_dir, "*.mp4")), reverse=True)
-jpg_files = sorted(glob.glob(os.path.join(gallery_dir, "*.jpg")), reverse=True)
+avif_files = sorted(glob.glob(os.path.join(gallery_dir, "*.avif")), reverse=True)
 
 # Filter out yt-dlp duplicates if needed, actually let's just use ones with UTC to be safe
 clean_mp4 = [f for f in mp4_files if "UTC" in f]
-clean_jpg = [f for f in jpg_files]
+clean_avif = [f for f in avif_files]
 
 def generate_grid_html(videos, images):
     html = []
@@ -33,12 +33,12 @@ def update_file(filepath, new_html):
         f.write(new_content)
 
 # Update gallery.html with everything
-full_html = generate_grid_html(clean_mp4, clean_jpg)
+full_html = generate_grid_html(clean_mp4, clean_avif)
 update_file(gallery_html_path, full_html)
 
 # Update index.html with a subset (e.g. 2 videos, 6 images)
 subset_videos = clean_mp4[:2]
-subset_images = clean_jpg[:6]
+subset_images = clean_avif[:6]
 subset_html = generate_grid_html(subset_videos, subset_images)
 update_file(index_html_path, subset_html)
 
