@@ -1418,6 +1418,7 @@ input:focus, textarea:focus {
         margin-bottom: -15px;
     }
     .header-order-btn { display: none; }
+    .nav-right a[aria-label="Perfil"] { display: none !important; }
     .mobile-hide { display: none !important; }
     
     .mobile-search-bar { display: block; }
