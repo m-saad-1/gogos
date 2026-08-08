@@ -1,212 +1,199 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Galeria - Restaurante da Rosana</title>
-<link href="./Images/Logo.avif" rel="icon" type="image/png"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet"/>
-<link href="./css/style.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria - Restaurante da Rosana</title>
+    <link rel="icon" type="image/png" href="./Images/Logo.avif">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-<header class="navbar">
-<div class="container">
-<div class="nav-left">
-<a class="logo" href="index.html">
-<img alt="Restaurante da Rosana Logo" class="header-logo" decoding="sync" fetchpriority="high" src="./Images/Logo.avif"/>
-<span style="font-size: 1.5rem; font-weight: 700;">Rosana<span style="color: var(--clr-primary);">.</span></span>
-</a>
-<span class="greeting">Olá, seja bem-vindo! 👋</span>
-</div>
-<nav class="nav-center">
-<ul>
-<li class="mobile-hide"><a href="index.html">Início</a></li>
-<li class="mobile-hide"><a href="menu.html">Cardápio</a></li>
-<li><a href="reservations.html">Reservas</a></li>
-<li><a class="active" href="gallery.html">Galeria</a></li>
-<li><a href="about.html">Sobre</a></li>
-<li class="desktop-hide"><a href="contact.html">Contato</a></li>
-<li class="desktop-hide"><a href="contact.html#localizacao">Localização</a></li>
-<li class="desktop-hide"><a href="contact.html#horarios">Horário de Funcionamento</a></li>
-</ul>
-<div class="mobile-only-btn-wrapper" style="margin-top: 1.5rem; width: 100%; padding: 0 1rem; display: flex;">
-<a class="btn btn-primary menu-contact-btn" href="contact.html" style="width: 100%; text-align: center; border-radius: 50px; transition: all 0.3s ease;">Entre em Contato</a>
-</div>
-</nav>
-<div class="nav-right">
-<div class="notification-wrapper" style="position: relative;">
-<button aria-label="Notificações" class="icon-btn" id="notification-btn">
-<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-</button>
-<div class="notification-panel" id="notification-panel">
-<div class="notification-header">
-<h4>Notificações</h4>
-<span class="mark-read">Marcar todas como lidas</span>
-</div>
-<div class="notification-body empty">
-<svg fill="none" height="40" stroke="#ccc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-bottom:1rem;" viewbox="0 0 24 24" width="40"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-<p style="margin: 0;">Nenhuma nova notificação</p>
-</div>
-</div>
-</div>
-<a aria-label="Carrinho" class="icon-btn" href="cart.html" style="text-decoration:none; color:inherit; display:flex;">
-<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-<span class="badge">0</span>
-</a>
-<button aria-label="Menu" class="mobile-menu-btn">
-<div class="hamburger-lines">
-<span class="line line1"></span>
-<span class="line line2"></span>
-<span class="line line3"></span>
-</div>
-</button>
-</div>
-</div>
-</header>
-<main>
-<section class="gallery-section" style="padding: 4rem 0; background-color: var(--clr-background); min-height: 70vh;">
-<div class="container">
-<div class="section-header" style="margin-bottom: 2.5rem;">
-<h2>Nossa Galeria</h2>
-<p style="color: #666; font-size: 1.05rem;">Conheça nosso espaço e veja nossos pratos mais pedidos.</p>
-</div>
-<div class="gallery-grid">
-<div class="gallery-item"><video class="lightbox-trigger" loop="" muted="" playsinline="" preload="metadata" style="width: 100%; border-radius: var(--border-radius);"><source data-src="./Gallery/2026-07-12_20-00-02_UTC_2.mp4" type="video/mp4"/></video></div>
-<div class="gallery-item"><video class="lightbox-trigger" loop="" muted="" playsinline="" preload="metadata" style="width: 100%; border-radius: var(--border-radius);"><source data-src="./Gallery/2026-06-29_13-58-59_UTC.mp4" type="video/mp4"/></video></div>
-<div class="gallery-item"><video class="lightbox-trigger" loop="" muted="" playsinline="" preload="metadata" style="width: 100%; border-radius: var(--border-radius);"><source data-src="./Gallery/2026-05-27_14-12-49_UTC.mp4" type="video/mp4"/></video></div>
-<div class="gallery-item"><video class="lightbox-trigger" loop="" muted="" playsinline="" preload="metadata" style="width: 100%; border-radius: var(--border-radius);"><source data-src="./Gallery/2026-05-01_17-03-46_UTC.mp4" type="video/mp4"/></video></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (9).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (8).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (7).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (6).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (5).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (4).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (3).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (2).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (16).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (15).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (14).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (13).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (12).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (11).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (10).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (1).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/2026-08-01_14-56-34_UTC.avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/2026-07-26_14-04-44_UTC.avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/2026-07-25_19-30-32_UTC_6.avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/2026-07-25_19-30-32_UTC_5.avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/2026-07-25_19-30-32_UTC_4.avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/2026-07-25_19-30-32_UTC_3.avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/2026-07-25_19-30-32_UTC_2.avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/2026-07-25_19-30-32_UTC_1.avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/2026-07-12_20-00-02_UTC_2.avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/2026-07-12_20-00-02_UTC_1.avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/2026-06-29_13-58-59_UTC.avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/2026-05-27_14-12-49_UTC.avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/2026-05-01_17-03-46_UTC.avif"/></div>
-</div>
-<div style="text-align: center; margin-top: 4rem; padding: 3rem 2rem; background: rgba(236, 72, 153, 0.05); border-radius: var(--border-radius-lg); border: 1px dashed rgba(236, 72, 153, 0.3);">
-<h3 style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--clr-text-primary);">Mais Momentos</h3>
-<p style="color: #666; font-size: 1.1rem; margin-bottom: 2rem;">Acompanhe nosso dia a dia no Instagram!</p>
-<a class="btn btn-primary" href="https://instagram.com/da Rosana_Oficial" style="border-radius: 50px; font-weight: 600; padding: 0.8rem 1.5rem; box-shadow: 0 5px 15px rgba(236, 72, 153, 0.3); font-size: 0.9rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; white-space: nowrap; max-width: 100%;" target="_blank"><svg class="css-i6dzq1" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>Siga no Insta</a>
-</div>
-</div>
-</section>
-</main>
-<footer class="footer" id="contato">
-<div class="container">
-<div class="footer-grid">
-<div class="footer-brand">
-<a class="logo" href="index.html" style="color: white; font-size: 2rem; display: flex; align-items: center; gap: 0.5rem;"><img alt="Logo" decoding="sync" fetchpriority="high" src="./Images/Logo.avif" style="height: 80px; width: auto;"/>da Rosana<span style="color: var(--clr-primary);">.</span></a>
-<p>O verdadeiro sabor do Brasil na sua mesa. Tradição, qualidade e atendimento premium.</p>
-</div>
-<div class="footer-links">
-<h4>Navegação</h4>
-<ul>
-<li><a href="#home">Início</a></li>
-<li><a href="#cardapio">Cardápio</a></li>
-<li><a href="#ofertas">Ofertas</a></li>
-<li><a href="#sobre">Sobre Nós</a></li>
-</ul>
-</div>
-<div class="footer-hours">
-<h4>Horário de Funcionamento</h4>
-<ul>
-<li><span>Terça a Quinta:</span> 11h30 – 15h30 / 18h – 23h</li>
-<li><span>Sexta e Sábado:</span> 11h30 – 23h30</li>
-<li><span>Domingo:</span> 11h30 – 17h</li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© 2026 Restaurante da Rosana. Todos os direitos reservados.</p>
-<div class="social-links">
-<a href="#">Instagram</a>
-<a href="#">Facebook</a>
-</div>
-</div>
-</div>
-</footer>
-<!-- Mobile Bottom Tab Bar -->
-<nav class="mobile-tab-bar">
-<a class="tab-item" href="index.html">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-<span>Início</span>
-</a>
-<a class="tab-item" href="menu.html">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-<span>Cardápio</span>
-</a>
-<a class="tab-item" href="offers.html">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" x2="7.01" y1="7" y2="7"></line></svg>
-<span>Ofertas</span>
-</a>
-<a class="tab-item" href="orders.html">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-<span>Pedidos</span>
-</a>
-<a class="tab-item" href="profile.html">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-<span>Perfil</span>
-</a>
-</nav>
-<!-- Global Lightbox -->
-<div class="lightbox" id="lightbox">
-<span class="lightbox-close">×</span>
-<img class="lightbox-content" decoding="async" id="lightbox-img" loading="lazy"/>
-</div>
-<script defer="" src="./js/script.js"></script>
-<!-- Chatbot Assistant -->
-<div class="chatbot-widget">
-<button aria-label="Abrir chat" class="chatbot-toggle">
-<svg fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="26"><rect height="10" rx="2" width="18" x="3" y="11"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" x2="8" y1="16" y2="16"></line><line x1="16" x2="16" y1="16" y2="16"></line></svg>
-</button>
-<div class="chatbot-container">
-<div class="chatbot-header">
-<div class="chatbot-title">
-<span class="chatbot-avatar">🤖</span>
-<div>
-<h4>Assistente da Rosana</h4>
-<span class="online-status">Online agora</span>
-</div>
-</div>
-<button class="chatbot-close">×</button>
-</div>
-<div class="chatbot-messages">
-<div class="chat-message bot">
-<div class="msg-content">Olá! Bem-vindo ao Restaurante da Rosana. Como posso ajudar você hoje?</div>
-</div>
-</div>
-<div class="chatbot-input">
-<input id="chat-input-field" placeholder="Digite sua mensagem..." type="text"/>
-<button aria-label="Enviar" id="chat-send-btn">
-<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><line x1="22" x2="11" y1="2" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-</button>
-</div>
-</div>
-</div>
+    <header class="navbar">
+        <div class="container">
+            <div class="nav-left">
+                <a href="index.html" class="logo">
+                    <img fetchpriority="high" decoding="sync" src="./Images/Logo.avif" alt="Restaurante da Rosana Logo" class="header-logo">
+                    <span style="font-size: 1.5rem; font-weight: 700;">Rosana<span style="color: var(--clr-primary);">.</span></span>
+                </a>
+                <span class="greeting">Olá, seja bem-vindo! 👋</span>
+            </div>
+            
+            <nav class="nav-center">
+                <ul>
+                    <li class="mobile-hide"><a href="index.html">Início</a></li>
+                    <li class="mobile-hide"><a href="menu.html">Cardápio</a></li>
+                    <li><a href="reservations.html">Reservas</a></li>
+                    <li><a href="gallery.html" class="active">Galeria</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li class="desktop-hide"><a href="contact.html">Contato</a></li>
+                    <li class="desktop-hide"><a href="contact.html#localizacao">Localização</a></li>
+                    <li class="desktop-hide"><a href="contact.html#horarios">Horário de Funcionamento</a></li>
+                </ul>
+                <div class="mobile-only-btn-wrapper" style="margin-top: 1.5rem; width: 100%; padding: 0 1rem; display: flex;">
+                    <a href="contact.html" class="btn btn-primary menu-contact-btn" style="width: 100%; text-align: center; border-radius: 50px; transition: all 0.3s ease;">Entre em Contato</a>
+                </div>
+            </nav>
+            
+            <div class="nav-right">
+                <div class="notification-wrapper" style="position: relative;">
+                    <button class="icon-btn" aria-label="Notificações" id="notification-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                    </button>
+                    <div class="notification-panel" id="notification-panel">
+                        <div class="notification-header">
+                            <h4>Notificações</h4>
+                            <span class="mark-read">Marcar todas como lidas</span>
+                        </div>
+                        <div class="notification-body empty">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:1rem;"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                            <p style="margin: 0;">Nenhuma nova notificação</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="cart.html" class="icon-btn" aria-label="Carrinho" style="text-decoration:none; color:inherit; display:flex;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span class="badge">0</span>
+                </a>
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <div class="hamburger-lines">
+                        <span class="line line1"></span>
+                        <span class="line line2"></span>
+                        <span class="line line3"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="gallery-section" style="padding: 4rem 0; background-color: var(--clr-background); min-height: 70vh;">
+            <div class="container">
+                <div class="section-header" style="margin-bottom: 2.5rem;">
+                    <h2>Nossa Galeria</h2>
+                    <p style="color: #666; font-size: 1.05rem;">Conheça nosso espaço e veja nossos pratos mais pedidos.</p>
+                </div>
+                
+                                <div class="gallery-grid">
+                    <div class="gallery-item"><video preload="metadata" class="lightbox-trigger" muted loop playsinline style="width: 100%; border-radius: var(--border-radius);"><source data-src="./Gallery/2026-07-12_20-00-02_UTC_2.mp4" type="video/mp4"></video></div>
+                    <div class="gallery-item"><video preload="metadata" class="lightbox-trigger" muted loop playsinline style="width: 100%; border-radius: var(--border-radius);"><source data-src="./Gallery/2026-06-29_13-58-59_UTC.mp4" type="video/mp4"></video></div>
+                    <div class="gallery-item"><video preload="metadata" class="lightbox-trigger" muted loop playsinline style="width: 100%; border-radius: var(--border-radius);"><source data-src="./Gallery/2026-05-27_14-12-49_UTC.mp4" type="video/mp4"></video></div>
+                    <div class="gallery-item"><video preload="metadata" class="lightbox-trigger" muted loop playsinline style="width: 100%; border-radius: var(--border-radius);"><source data-src="./Gallery/2026-05-01_17-03-46_UTC.mp4" type="video/mp4"></video></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (9).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (8).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (7).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (6).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (5).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (4).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (3).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (2).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (16).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (15).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (14).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (13).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (12).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (11).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (10).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (1).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/2026-08-01_14-56-34_UTC.avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/2026-07-26_14-04-44_UTC.avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/2026-07-25_19-30-32_UTC_6.avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/2026-07-25_19-30-32_UTC_5.avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/2026-07-25_19-30-32_UTC_4.avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/2026-07-25_19-30-32_UTC_3.avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/2026-07-25_19-30-32_UTC_2.avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/2026-07-25_19-30-32_UTC_1.avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/2026-07-12_20-00-02_UTC_2.avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/2026-07-12_20-00-02_UTC_1.avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/2026-06-29_13-58-59_UTC.avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/2026-05-27_14-12-49_UTC.avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/2026-05-01_17-03-46_UTC.avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                </div>
+                <div style="text-align: center; margin-top: 4rem; padding: 3rem 2rem; background: rgba(236, 72, 153, 0.05); border-radius: var(--border-radius-lg); border: 1px dashed rgba(236, 72, 153, 0.3);">
+                    <h3 style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--clr-text-primary);">Mais Momentos</h3>
+                    <p style="color: #666; font-size: 1.1rem; margin-bottom: 2rem;">Acompanhe nosso dia a dia no Instagram!</p>
+                    <a href="https://instagram.com/da Rosana_Oficial" target="_blank" class="btn btn-primary" style="border-radius: 50px; font-weight: 600; padding: 0.8rem 1.5rem; box-shadow: 0 5px 15px rgba(236, 72, 153, 0.3); font-size: 0.9rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; white-space: nowrap; max-width: 100%;"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Siga no Insta</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="color: white; font-size: 2rem; display: flex; align-items: center; gap: 0.5rem;"><img fetchpriority="high" decoding="sync" src="./Images/Logo.avif" alt="Logo" style="height: 80px; width: auto;">da Rosana<span style="color: var(--clr-primary);">.</span></a>
+                    <p>O verdadeiro sabor do churrasco brasileiro.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Restaurante da Rosana. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Tab Bar -->
+    <nav class="mobile-tab-bar">
+        <a href="index.html" class="tab-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Início</span>
+        </a>
+        <a href="menu.html" class="tab-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+            <span>Cardápio</span>
+        </a>
+        <a href="offers.html" class="tab-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+            <span>Ofertas</span>
+        </a>
+        <a href="orders.html" class="tab-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            <span>Pedidos</span>
+        </a>
+        <a href="profile.html" class="tab-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Perfil</span>
+        </a>
+    </nav>
+
+    <!-- Global Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img loading="lazy" decoding="async" class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script src="./js/script.js" defer></script>
+
+    <!-- Chatbot Assistant -->
+    <div class="chatbot-widget">
+        <button class="chatbot-toggle" aria-label="Abrir chat">
+            <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>
+        </button>
+        <div class="chatbot-container">
+            <div class="chatbot-header">
+                <div class="chatbot-title">
+                    <span class="chatbot-avatar">🤖</span>
+                    <div>
+                        <h4>Assistente da Rosana</h4>
+                        <span class="online-status">Online agora</span>
+                    </div>
+                </div>
+                <button class="chatbot-close">&times;</button>
+            </div>
+            <div class="chatbot-messages">
+                <div class="chat-message bot">
+                    <div class="msg-content">Olá! Bem-vindo ao Restaurante da Rosana. Como posso ajudar você hoje?</div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" placeholder="Digite sua mensagem..." id="chat-input-field">
+                <button id="chat-send-btn" aria-label="Enviar">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

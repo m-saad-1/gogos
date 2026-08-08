@@ -1,344 +1,560 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Restaurante da Rosana - O Verdadeiro Sabor do Brasil</title>
-<link href="./Images/Logo.avif" rel="icon" type="image/png"/>
-<meta content="Churrasco na brasa, peixes frescos e acompanhamentos com aquele gostinho de casa. Tradição e qualidade todos os dias." name="description"/>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet"/>
-<link href="./css/style.css" rel="stylesheet"/>
-<link as="image" href="./Images/Hero_image.avif" rel="preload"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante da Rosana - O Verdadeiro Sabor do Brasil</title>
+    <link rel="icon" type="image/png" href="./Images/Logo.avif">
+    <meta name="description" content="Churrasco na brasa, peixes frescos e acompanhamentos com aquele gostinho de casa. Tradição e qualidade todos os dias.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preload" as="image" href="./Images/Hero_image.avif">
 </head>
 <body>
-<header class="navbar">
-<div class="container">
-<div class="nav-left">
-<a class="logo" href="#">
-<img alt="Restaurante da Rosana Logo" class="header-logo" decoding="sync" fetchpriority="high" src="./Images/Logo.avif"/>
-<span style="font-size: 1.5rem; font-weight: 700;">Rosana<span style="color: var(--clr-primary);">.</span></span>
-</a>
-<span class="greeting">Olá, seja bem-vindo! 👋</span>
-</div>
-<nav class="nav-center">
-<ul>
-<li class="mobile-hide"><a class="active" href="index.html">Início</a></li>
-<li class="mobile-hide"><a href="menu.html">Cardápio</a></li>
-<li><a href="reservations.html">Reservas</a></li>
-<li><a href="gallery.html">Galeria</a></li>
-<li><a href="about.html">Sobre</a></li>
-<li class="desktop-hide"><a href="contact.html">Contato</a></li>
-<li class="desktop-hide"><a href="contact.html#localizacao">Localização</a></li>
-<li class="desktop-hide"><a href="contact.html#horarios">Horário de Funcionamento</a></li>
-</ul>
-<div class="mobile-only-btn-wrapper" style="margin-top: 1.5rem; width: 100%; padding: 0 1rem; display: flex;">
-<a class="btn btn-primary menu-contact-btn" href="contact.html" style="width: 100%; text-align: center; border-radius: 50px; transition: all 0.3s ease;">Entre em Contato</a>
-</div>
-</nav>
-<div class="nav-right">
-<div class="notification-wrapper" style="position: relative;">
-<button aria-label="Notificações" class="icon-btn" id="notification-btn">
-<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-</button>
-<div class="notification-panel" id="notification-panel">
-<div class="notification-header">
-<h4>Notificações</h4>
-<span class="mark-read">Marcar todas como lidas</span>
-</div>
-<div class="notification-body empty">
-<svg fill="none" height="40" stroke="#ccc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-bottom:1rem;" viewbox="0 0 24 24" width="40"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-<p style="margin: 0;">Nenhuma nova notificação</p>
-</div>
-</div>
-</div>
-<a aria-label="Carrinho" class="icon-btn" href="cart.html" style="text-decoration:none; color:inherit; display:flex;">
-<svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-<span class="badge">0</span>
-</a>
-<button class="btn btn-primary header-order-btn">Fazer Pedido</button>
-<!-- Mobile menu button -->
-<button aria-label="Menu" class="mobile-menu-btn">
-<div class="hamburger-lines">
-<span class="line line1"></span>
-<span class="line line2"></span>
-<span class="line line3"></span>
-</div>
-</button>
-</div>
-</div>
-</header>
-<main>
-<!-- Mobile Search Bar -->
-<div class="mobile-search-bar">
-<div class="search-input-wrapper">
-<svg class="search-icon" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" x2="16.65" y1="21" y2="16.65"></line></svg>
-<input placeholder="Buscar pratos..." type="text"/>
-<button class="filter-btn">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><line x1="4" x2="4" y1="21" y2="14"></line><line x1="4" x2="4" y1="10" y2="3"></line><line x1="12" x2="12" y1="21" y2="12"></line><line x1="12" x2="12" y1="8" y2="3"></line><line x1="20" x2="20" y1="21" y2="16"></line><line x1="20" x2="20" y1="12" y2="3"></line><line x1="1" x2="7" y1="14" y2="14"></line><line x1="9" x2="15" y1="8" y2="8"></line><line x1="17" x2="23" y1="16" y2="16"></line></svg>
-</button>
-</div>
-</div>
-<!-- Hero Section -->
-<section class="hero refined-hero" id="home">
-<div class="hero-image-frame">
-<img alt="Restaurante da Rosana Hero" class="hero-full-img" decoding="sync" fetchpriority="high" src="./Images/Hero_image.avif"/>
-<a class="btn btn-primary hero-order-btn" href="#cardapio">Peça Agora</a>
-</div>
-</section>
-<!-- Other content sections will go here -->
-<!-- Menu Section -->
-<section class="menu" id="cardapio">
-<div class="container">
-<!-- Circular Category Strip -->
-<div class="category-circles-wrapper">
-<a class="category-circle-btn active" href="#deals" style="text-decoration:none;">
-<div class="circle-img"><img alt="Ofertas" decoding="async" loading="lazy" src="./Images/Deal.avif"/></div>
-<span class="circle-label">Ofertas</span>
-</a>
-<a class="category-circle-btn" href="#skewers" style="text-decoration:none;">
-<div class="circle-img"><img alt="Espetinhos" decoding="async" loading="lazy" src="./Images/Grilled_skewers (1).avif"/></div>
-<span class="circle-label">Espetinhos</span>
-</a>
-<a class="category-circle-btn" href="#soups" style="text-decoration:none;">
-<div class="circle-img"><img alt="Sopas" decoding="async" loading="lazy" src="./Images/Soup.avif"/></div>
-<span class="circle-label">Sopas</span>
-</a>
-<a class="category-circle-btn" href="#drinks" style="text-decoration:none;">
-<div class="circle-img"><img alt="Bebidas" decoding="async" loading="lazy" src="./Images/Drink (1).avif"/></div>
-<span class="circle-label">Bebidas</span>
-</a>
-<a class="category-circle-btn" href="#desserts" style="text-decoration:none;">
-<div class="circle-img"><img alt="Sobremesas" decoding="async" loading="lazy" src="./Images/Dessert.avif"/></div>
-<span class="circle-label">Sobremesas</span>
-</a>
-</div>
-<!-- Category: Ofertas -->
+    <header class="navbar">
+        <div class="container">
+            <div class="nav-left">
+                <a href="#" class="logo">
+                    <img fetchpriority="high" decoding="sync" src="./Images/Logo.avif" alt="Restaurante da Rosana Logo" class="header-logo">
+                    <span style="font-size: 1.5rem; font-weight: 700;">Rosana<span style="color: var(--clr-primary);">.</span></span>
+                </a>
+                <span class="greeting">Olá, seja bem-vindo! 👋</span>
+            </div>
+            
+            <nav class="nav-center">
+                <ul>
+                    <li class="mobile-hide"><a href="index.html" class="active">Início</a></li>
+                    <li class="mobile-hide"><a href="menu.html">Cardápio</a></li>
+                    <li><a href="reservations.html">Reservas</a></li>
+                    <li><a href="gallery.html">Galeria</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li class="desktop-hide"><a href="contact.html">Contato</a></li>
+                    <li class="desktop-hide"><a href="contact.html#localizacao">Localização</a></li>
+                    <li class="desktop-hide"><a href="contact.html#horarios">Horário de Funcionamento</a></li>
+                </ul>
+                <div class="mobile-only-btn-wrapper" style="margin-top: 1.5rem; width: 100%; padding: 0 1rem; display: flex;">
+                    <a href="contact.html" class="btn btn-primary menu-contact-btn" style="width: 100%; text-align: center; border-radius: 50px; transition: all 0.3s ease;">Entre em Contato</a>
+                </div>
+            </nav>
+            
+            <div class="nav-right">
+                <div class="notification-wrapper" style="position: relative;">
+                    <button class="icon-btn" aria-label="Notificações" id="notification-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                    </button>
+                    <div class="notification-panel" id="notification-panel">
+                        <div class="notification-header">
+                            <h4>Notificações</h4>
+                            <span class="mark-read">Marcar todas como lidas</span>
+                        </div>
+                        <div class="notification-body empty">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:1rem;"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                            <p style="margin: 0;">Nenhuma nova notificação</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="cart.html" class="icon-btn" aria-label="Carrinho" style="text-decoration:none; color:inherit; display:flex;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span class="badge">0</span>
+                </a>
+                <button class="btn btn-primary header-order-btn">Fazer Pedido</button>
+                <!-- Mobile menu button -->
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <div class="hamburger-lines">
+                        <span class="line line1"></span>
+                        <span class="line line2"></span>
+                        <span class="line line3"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Mobile Search Bar -->
+        <div class="mobile-search-bar">
+            <div class="search-input-wrapper">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" placeholder="Buscar pratos...">
+                <button class="filter-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero refined-hero" id="home">
+            <div class="hero-image-frame">
+                <img fetchpriority="high" decoding="sync" src="./Images/Hero_image.avif" alt="Restaurante da Rosana Hero" class="hero-full-img">
+                <a href="#cardapio" class="btn btn-primary hero-order-btn">Peça Agora</a>
+            </div>
+        </section>
+        
+        <!-- Other content sections will go here -->
+        
+        <!-- Menu Section -->
+        <section class="menu" id="cardapio">
+            <div class="container">
+                <!-- Circular Category Strip -->
+                <div class="category-circles-wrapper">
+                    <a href="#deals" class="category-circle-btn active" style="text-decoration:none;">
+                        <div class="circle-img"><img loading="lazy" decoding="async" src="./Images/Deal.avif" alt="Ofertas"></div>
+                        <span class="circle-label">Ofertas</span>
+                    </a>
+                    <a href="#skewers" class="category-circle-btn" style="text-decoration:none;">
+                        <div class="circle-img"><img loading="lazy" decoding="async" src="./Images/Grilled_skewers (1).avif" alt="Espetinhos"></div>
+                        <span class="circle-label">Espetinhos</span>
+                    </a>
+                    <a href="#soups" class="category-circle-btn" style="text-decoration:none;">
+                        <div class="circle-img"><img loading="lazy" decoding="async" src="./Images/Soup.avif" alt="Sopas"></div>
+                        <span class="circle-label">Sopas</span>
+                    </a>
+                    <a href="#drinks" class="category-circle-btn" style="text-decoration:none;">
+                        <div class="circle-img"><img loading="lazy" decoding="async" src="./Images/Drink (1).avif" alt="Bebidas"></div>
+                        <span class="circle-label">Bebidas</span>
+                    </a>
+                    <a href="#desserts" class="category-circle-btn" style="text-decoration:none;">
+                        <div class="circle-img"><img loading="lazy" decoding="async" src="./Images/Dessert.avif" alt="Sobremesas"></div>
+                        <span class="circle-label">Sobremesas</span>
+                    </a>
+                </div>
+                
+                <!-- Category: Ofertas -->
+                <div id="deals" style="display: flex; justify-content: space-between; align-items: center; margin: 0.5rem 0 1rem; scroll-margin-top: 100px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--clr-text-primary); margin: 0;">Ofertas</h3>
+                </div>
+                <div class="menu-grid">
+                    <div class="product-card">
+                        <div class="card-badge badge-primary">MAIS VENDIDO</div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Deal (1).avif" alt="Combo 1"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Combo da Rosana</h3></div>
+                            <p class="card-desc">O combo perfeito para matar sua fome com muito sabor.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 45,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-badge badge-danger">OFERTA</div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Deal (2).avif" alt="Combo 2"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Super Combo</h3></div>
+                            <p class="card-desc">Ideal para compartilhar. Tudo em dobro.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 89,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Deal (3).avif" alt="Combo 3"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Combo Família</h3></div>
+                            <p class="card-desc">Uma explosão de sabor para a família toda aproveitar unida.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 119,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-badge badge-primary">NOVO</div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Deal (4).avif" alt="Combo 4"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Mega Combo</h3></div>
+                            <p class="card-desc">O maior combo da casa com acompanhamentos especiais.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 65,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Deal (5).avif" alt="Combo 5"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Trio Parada Dura</h3></div>
+                            <p class="card-desc">Três delícias diferentes em uma única embalagem especial.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 78,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Deal (6).avif" alt="Combo 6"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Combo Casal</h3></div>
+                            <p class="card-desc">Perfeito para dividir com quem você ama.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 55,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Espetinhos -->
+                <div id="skewers" style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0 1rem; scroll-margin-top: 100px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--clr-text-primary); margin: 0;">Espetinhos</h3>
+                </div>
+                <div class="menu-grid">
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Grilled_skewers (1).avif" alt="Espetinho 1"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Espetinho Misto</h3></div>
+                            <p class="card-desc">Delicioso espetinho misto com carnes selecionadas.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 15,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Grilled_skewers (2).avif" alt="Espetinho 2"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Espetinho de Frango</h3></div>
+                            <p class="card-desc">Espetinho de frango suculento com tempero da casa.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 12,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Sopas -->
+                <div id="soups" style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0 1rem; scroll-margin-top: 100px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--clr-text-primary); margin: 0;">Sopas</h3>
+                </div>
+                <div class="menu-grid">
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Soup.avif" alt="Sopa"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Sopa Cremosa</h3></div>
+                            <p class="card-desc">Sopa cremosa especial da casa, perfeita para dias frios.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 25,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Bebidas -->
+                <div id="drinks" style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0 1rem; scroll-margin-top: 100px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--clr-text-primary); margin: 0;">Bebidas</h3>
+                </div>
+                <div class="menu-grid">
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Drink (1).avif" alt="Bebida 1"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Suco Natural</h3></div>
+                            <p class="card-desc">Suco natural refrescante e geladinho.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 12,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Drink (2).avif" alt="Bebida 2"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Refrigerante Lata</h3></div>
+                            <p class="card-desc">Sua bebida favorita na medida certa.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 6,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Sobremesas -->
+                <div id="desserts" style="display: flex; justify-content: space-between; align-items: center; margin: 1.5rem 0 1rem; scroll-margin-top: 100px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--clr-text-primary); margin: 0;">Sobremesas</h3>
+                </div>
+                <div class="menu-grid">
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Dessert (1).avif" alt="Sobremesa 1"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Pudim Tradicional</h3></div>
+                            <p class="card-desc">O clássico pudim com calda de caramelo.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 14,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Dessert (2).avif" alt="Sobremesa 2"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Torta de Chocolate</h3></div>
+                            <p class="card-desc">Torta cremosa de chocolate para os amantes de cacau.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 18,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Dessert (3).avif" alt="Sobremesa 3"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Mousse de Maracujá</h3></div>
+                            <p class="card-desc">Mousse refrescante com o toque cítrico perfeito.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 12,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./Images/Dessert (4).avif" alt="Sobremesa 4"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Sorvete da Casa</h3></div>
+                            <p class="card-desc">Sorvete artesanal com coberturas à sua escolha.</p>
+                            <div class="card-footer">
+                                <span class="price">R$ 16,90</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="menu.html" class="btn btn-primary" style="border-radius: 50px; font-size: 1.05rem; font-weight: 600; padding: 0.8rem 2.5rem; box-shadow: 0 5px 15px rgba(236, 72, 153, 0.3);">Ver Cardápio Completo</a>
+                </div>
+            </div>
+        </section>
+        <!-- Offers Section -->
+        <section class="offers-banners" id="ofertas" style="padding: 1rem 0 3rem;">
+            <div class="container" style="display: flex; flex-direction: column; gap: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin: 0.5rem 0;">
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--clr-text-primary); margin: 0;">Ofertas Especiais</h3>
+                    <a href="offers.html" style="font-size: 0.9rem; font-weight: 600; color: var(--clr-primary); text-decoration: none;">Ver Tudo &rarr;</a>
+                </div>
+                <a href="offers.html" style="display: block; text-decoration: none;">
+                    <div class="hero-image-frame" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <img loading="lazy" decoding="async" src="./Images/Offer (1).avif" alt="Oferta 1" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
+                    </div>
+                </a>
+                <a href="offers.html" style="display: block; text-decoration: none;">
+                    <div class="hero-image-frame" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <img loading="lazy" decoding="async" src="./Images/Offer (2).avif" alt="Oferta 2" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
+                    </div>
+                </a>
+            </div>
+        </section>
 
 
-<!-- Category: Espetinhos -->
 
+        <!-- Contact Section -->
+        <section class="contact-section" id="contato">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Fale Conosco</h2>
+                    <p>Estamos sempre prontos para atender você. Entre em contato ou venha nos visitar.</p>
+                </div>
+                
+                <div class="contact-info-cards">
+                    <div class="contact-card-group">
+                        <div class="contact-card minimal-card">
+                            <div class="contact-card-info">
+                                <h4>Telefone / WhatsApp</h4>
+                                <p class="minimal-text">(24) 99999-8888</p>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/5524999998888" target="_blank" class="contact-icon outside-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        </a>
+                    </div>
+                    
+                    <div class="contact-card-group">
+                        <div class="contact-card minimal-card">
+                            <div class="contact-card-info">
+                                <h4>E-mail</h4>
+                                <p class="minimal-text">contato@rosanarefeicoes.com.br</p>
+                            </div>
+                        </div>
+                        <a href="mailto:contato@rosanarefeicoes.com.br" class="contact-icon outside-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
 
-<!-- Category: Sopas -->
+                <div class="contact-address-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <div class="contact-card-info">
+                        <h4>Nosso Endereço</h4>
+                        <p>Rua do Sabor, 123 - Centro, Petrópolis - RJ</p>
+                        <p style="font-size: 0.85rem; color: #888; margin-top: 0.2rem;">Aberto de Terça a Domingo</p>
+                    </div>
+                </div>
 
+                <div class="contact-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14717.398651811443!2d-43.1818274!3d-22.5085341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9907f7c6312521%3A0xc3c54c30c884b232!2zUGV0csOzcG9saXMsIFJK!5e0!3m2!1spt-BR!2sbr!4v1714157121234!5m2!1spt-BR!2sbr" 
+                        width="100%" 
+                        height="350" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
 
-<!-- Category: Bebidas -->
+                <div class="contact-form-container">
+                    <form id="contactForm" class="compact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Nome completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="E-mail" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Sua mensagem" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </section>
 
+        <!-- Gallery Section -->
+        <section class="gallery-section" style="padding: 4rem 0; background-color: var(--clr-background);">
+            <div class="container">
+                <div class="section-header" style="margin-bottom: 2.5rem;">
+                    <h2>Nossa Galeria</h2>
+                    <p style="color: #666; font-size: 1.05rem;">Um pouco do nosso ambiente e pratos deliciosos</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><video preload="metadata" class="lightbox-trigger" muted loop playsinline style="width: 100%; border-radius: var(--border-radius);"><source data-src="./Gallery/2026-07-12_20-00-02_UTC_2.mp4" type="video/mp4"></video></div>
+                    <div class="gallery-item"><video preload="metadata" class="lightbox-trigger" muted loop playsinline style="width: 100%; border-radius: var(--border-radius);"><source data-src="./Gallery/2026-06-29_13-58-59_UTC.mp4" type="video/mp4"></video></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (9).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (8).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (7).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (6).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (5).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                    <div class="gallery-item"><img loading="lazy" decoding="async" src="./Gallery/Gallery (4).avif" alt="Galeria Instagram" class="lightbox-trigger"></div>
+                </div>
+                <div style="text-align: center; margin-top: 2.5rem;">
+                    <a href="gallery.html" class="btn btn-outline" style="border-radius: 50px;">Ver Galeria Completa</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<!-- Category: Sobremesas -->
+    <footer class="footer" id="contato">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="color: white; font-size: 2rem; display: flex; align-items: center; gap: 0.5rem;"><img fetchpriority="high" decoding="sync" src="./Images/Logo.avif" alt="Logo" style="height: 80px; width: auto;">da Rosana<span style="color: var(--clr-primary);">.</span></a>
+                    <p>O verdadeiro sabor do Brasil na sua mesa. Tradição, qualidade e atendimento premium.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#cardapio">Cardápio</a></li>
+                        <li><a href="#ofertas">Ofertas</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                    </ul>
+                </div>
+                <div class="footer-hours">
+                    <h4>Horário de Funcionamento</h4>
+                    <ul>
+                        <li><span>Terça a Quinta:</span> 11h30 – 15h30 / 18h – 23h</li>
+                        <li><span>Sexta e Sábado:</span> 11h30 – 23h30</li>
+                        <li><span>Domingo:</span> 11h30 – 17h</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Restaurante da Rosana. Todos os direitos reservados.</p>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
+    <!-- Mobile Bottom Tab Bar -->
+    <nav class="mobile-tab-bar">
+        <a href="index.html" class="tab-item active">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Início</span>
+        </a>
+        <a href="menu.html" class="tab-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+            <span>Cardápio</span>
+        </a>
+        <a href="offers.html" class="tab-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+            <span>Ofertas</span>
+        </a>
+        <a href="orders.html" class="tab-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            <span>Pedidos</span>
+        </a>
+        <a href="profile.html" class="tab-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Perfil</span>
+        </a>
+    </nav>
 
-</div>
-<div style="text-align: center; margin-top: 3rem;">
-<a class="btn btn-primary" href="menu.html" style="border-radius: 50px; font-size: 1.05rem; font-weight: 600; padding: 0.8rem 2.5rem; box-shadow: 0 5px 15px rgba(236, 72, 153, 0.3);">Ver Cardápio Completo</a>
-</div>
+    <!-- Floating Cart Summary (Mobile) -->
+    <div class="floating-cart-bar">
+        <div class="cart-info">
+            <span class="cart-count">3 itens</span>
+            <span class="cart-total">R$ 339,70</span>
+        </div>
+        <button class="btn btn-primary cart-view-btn">Ver Carrinho</button>
+    </div>
 
-</section>
-<!-- Offers Section -->
-<section class="offers-banners" id="ofertas" style="padding: 1rem 0 3rem;">
-<div class="container" style="display: flex; flex-direction: column; gap: 1rem;">
-<div style="display: flex; justify-content: space-between; align-items: center; margin: 0.5rem 0;">
-<h3 style="font-size: 1.15rem; font-weight: 700; color: var(--clr-text-primary); margin: 0;">Ofertas Especiais</h3>
-<a href="offers.html" style="font-size: 0.9rem; font-weight: 600; color: var(--clr-primary); text-decoration: none;">Ver Tudo →</a>
-</div>
-<a href="offers.html" style="display: block; text-decoration: none;">
-<div class="hero-image-frame" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-<img alt="Oferta 1" class="hero-full-img" decoding="async" loading="lazy" src="./Images/Offer (1).avif" style="width: 100%; display: block; object-fit: cover;"/>
-</div>
-</a>
-<a href="offers.html" style="display: block; text-decoration: none;">
-<div class="hero-image-frame" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-<img alt="Oferta 2" class="hero-full-img" decoding="async" loading="lazy" src="./Images/Offer (2).avif" style="width: 100%; display: block; object-fit: cover;"/>
-</div>
-</a>
-</div>
-</section>
-<!-- Contact Section -->
-<section class="contact-section" id="contato">
-<div class="container">
-<div class="section-header">
-<h2>Fale Conosco</h2>
-<p>Estamos sempre prontos para atender você. Entre em contato ou venha nos visitar.</p>
-</div><div class="contact-grid"><div class="contact-left"><div class="contact-info-cards">
-<div class="contact-card-group">
-<div class="contact-card minimal-card">
-<div class="contact-card-info">
-<h4>Telefone / WhatsApp</h4>
-<p class="minimal-text">(24) 99999-8888</p>
-</div>
-</div>
-<a class="contact-icon outside-icon" href="https://wa.me/5524999998888" target="_blank">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-</a>
-</div>
-<div class="contact-card-group">
-<div class="contact-card minimal-card">
-<div class="contact-card-info">
-<h4>E-mail</h4>
-<p class="minimal-text">contato@rosanarefeicoes.com.br</p>
-</div>
-</div>
-<a class="contact-icon outside-icon" href="mailto:contato@rosanarefeicoes.com.br">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-</a>
-</div>
-</div><div class="contact-address-card">
-<div class="contact-icon">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-</div>
-<div class="contact-card-info">
-<h4>Nosso Endereço</h4>
-<p>Rua do Sabor, 123 - Centro, Petrópolis - RJ</p>
-<p style="font-size: 0.85rem; color: #888; margin-top: 0.2rem;">Aberto de Terça a Domingo</p>
-</div>
-</div></div><div class="contact-right"><div class="contact-form-container">
-<form class="compact-form" id="contactForm">
-<div class="form-group">
-<input placeholder="Nome completo" required="" type="text"/>
-</div>
-<div class="form-group">
-<input placeholder="E-mail" required="" type="email"/>
-</div>
-<div class="form-group">
-<textarea placeholder="Sua mensagem" required="" rows="3"></textarea>
-</div>
-<button class="btn btn-primary" style="width: 100%;" type="submit">Enviar Mensagem</button>
-</form>
-</div><div class="contact-map">
-<iframe allowfullscreen="" height="350" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14717.398651811443!2d-43.1818274!3d-22.5085341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9907f7c6312521%3A0xc3c54c30c884b232!2zUGV0csOzcG9saXMsIFJK!5e0!3m2!1spt-BR!2sbr!4v1714157121234!5m2!1spt-BR!2sbr" style="border:0;" width="100%">
-</iframe>
-</div></div></div>
+    <!-- Global Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img loading="lazy" decoding="async" class="lightbox-content" id="lightbox-img">
+    </div>
 
+    <script src="./js/script.js" defer></script>
 
-
-
-</div>
-</section>
-<!-- Gallery Section -->
-<section class="gallery-section" style="padding: 4rem 0; background-color: var(--clr-background);">
-<div class="container">
-<div class="section-header" style="margin-bottom: 2.5rem;">
-<h2>Nossa Galeria</h2>
-<p style="color: #666; font-size: 1.05rem;">Um pouco do nosso ambiente e pratos deliciosos</p>
-</div>
-<div class="gallery-grid">
-<div class="gallery-item"><video class="lightbox-trigger" loop="" muted="" playsinline="" preload="metadata" style="width: 100%; border-radius: var(--border-radius);"><source data-src="./Gallery/2026-07-12_20-00-02_UTC_2.mp4" type="video/mp4"/></video></div>
-<div class="gallery-item"><video class="lightbox-trigger" loop="" muted="" playsinline="" preload="metadata" style="width: 100%; border-radius: var(--border-radius);"><source data-src="./Gallery/2026-06-29_13-58-59_UTC.mp4" type="video/mp4"/></video></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (9).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (8).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (7).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (6).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (5).avif"/></div>
-<div class="gallery-item"><img alt="Galeria Instagram" class="lightbox-trigger" decoding="async" loading="lazy" src="./Gallery/Gallery (4).avif"/></div>
-</div>
-<div style="text-align: center; margin-top: 2.5rem;">
-<a class="btn btn-outline" href="gallery.html" style="border-radius: 50px;">Ver Galeria Completa</a>
-</div>
-</div>
-</section>
-</main>
-<footer class="footer" id="contato">
-<div class="container">
-<div class="footer-grid">
-<div class="footer-brand">
-<a class="logo" href="index.html" style="color: white; font-size: 2rem; display: flex; align-items: center; gap: 0.5rem;"><img alt="Logo" decoding="sync" fetchpriority="high" src="./Images/Logo.avif" style="height: 80px; width: auto;"/>da Rosana<span style="color: var(--clr-primary);">.</span></a>
-<p>O verdadeiro sabor do Brasil na sua mesa. Tradição, qualidade e atendimento premium.</p>
-</div>
-<div class="footer-links">
-<h4>Navegação</h4>
-<ul>
-<li><a href="#home">Início</a></li>
-<li><a href="#cardapio">Cardápio</a></li>
-<li><a href="#ofertas">Ofertas</a></li>
-<li><a href="#sobre">Sobre Nós</a></li>
-</ul>
-</div>
-<div class="footer-hours">
-<h4>Horário de Funcionamento</h4>
-<ul>
-<li><span>Terça a Quinta:</span> 11h30 – 15h30 / 18h – 23h</li>
-<li><span>Sexta e Sábado:</span> 11h30 – 23h30</li>
-<li><span>Domingo:</span> 11h30 – 17h</li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© 2026 Restaurante da Rosana. Todos os direitos reservados.</p>
-<div class="social-links">
-<a href="#">Instagram</a>
-<a href="#">Facebook</a>
-</div>
-</div>
-</div>
-</footer>
-<!-- Mobile Bottom Tab Bar -->
-<nav class="mobile-tab-bar">
-<a class="tab-item active" href="index.html">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-<span>Início</span>
-</a>
-<a class="tab-item" href="menu.html">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-<span>Cardápio</span>
-</a>
-<a class="tab-item" href="offers.html">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" x2="7.01" y1="7" y2="7"></line></svg>
-<span>Ofertas</span>
-</a>
-<a class="tab-item" href="orders.html">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-<span>Pedidos</span>
-</a>
-<a class="tab-item" href="profile.html">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-<span>Perfil</span>
-</a>
-</nav>
-<!-- Floating Cart Summary (Mobile) -->
-<div class="floating-cart-bar">
-<div class="cart-info">
-<span class="cart-count">3 itens</span>
-<span class="cart-total">R$ 339,70</span>
-</div>
-<button class="btn btn-primary cart-view-btn">Ver Carrinho</button>
-</div>
-<!-- Global Lightbox -->
-<div class="lightbox" id="lightbox">
-<span class="lightbox-close">×</span>
-<img class="lightbox-content" decoding="async" id="lightbox-img" loading="lazy"/>
-</div>
-<script defer="" src="./js/script.js"></script>
-<!-- Chatbot Assistant -->
-<div class="chatbot-widget">
-<button aria-label="Abrir chat" class="chatbot-toggle">
-<svg fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="26"><rect height="10" rx="2" width="18" x="3" y="11"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" x2="8" y1="16" y2="16"></line><line x1="16" x2="16" y1="16" y2="16"></line></svg>
-</button>
-<div class="chatbot-container">
-<div class="chatbot-header">
-<div class="chatbot-title">
-<span class="chatbot-avatar">🤖</span>
-<div>
-<h4>Assistente da Rosana</h4>
-<span class="online-status">Online agora</span>
-</div>
-</div>
-<button class="chatbot-close">×</button>
-</div>
-<div class="chatbot-messages">
-<div class="chat-message bot">
-<div class="msg-content">Olá! Bem-vindo ao Restaurante da Rosana. Como posso ajudar você hoje?</div>
-</div>
-</div>
-<div class="chatbot-input">
-<input id="chat-input-field" placeholder="Digite sua mensagem..." type="text"/>
-<button aria-label="Enviar" id="chat-send-btn">
-<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><line x1="22" x2="11" y1="2" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-</button>
-</div>
-</div>
-</div>
+    <!-- Chatbot Assistant -->
+    <div class="chatbot-widget">
+        <button class="chatbot-toggle" aria-label="Abrir chat">
+            <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>
+        </button>
+        <div class="chatbot-container">
+            <div class="chatbot-header">
+                <div class="chatbot-title">
+                    <span class="chatbot-avatar">🤖</span>
+                    <div>
+                        <h4>Assistente da Rosana</h4>
+                        <span class="online-status">Online agora</span>
+                    </div>
+                </div>
+                <button class="chatbot-close">&times;</button>
+            </div>
+            <div class="chatbot-messages">
+                <div class="chat-message bot">
+                    <div class="msg-content">Olá! Bem-vindo ao Restaurante da Rosana. Como posso ajudar você hoje?</div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" placeholder="Digite sua mensagem..." id="chat-input-field">
+                <button id="chat-send-btn" aria-label="Enviar">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
