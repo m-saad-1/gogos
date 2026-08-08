@@ -2150,3 +2150,78 @@ input:focus, textarea:focus {
         bottom: 70px;
     }
 }
+
+/* ==========================================================================
+   Desktop-Specific Layout Enhancements
+   ========================================================================== */
+@media (min-width: 769px) {
+    /* 1. Homepage Menu Restructure */
+    .menu .category-circles-wrapper {
+        display: none !important;
+    }
+    
+    /* Hide the individual category titles on desktop */
+    .menu #deals,
+    .menu #skewers,
+    .menu #soups,
+    .menu #drinks,
+    .menu #desserts {
+        display: none !important;
+    }
+
+    /* Convert the container into a grid to house all products */
+    .menu .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        align-items: stretch;
+    }
+    
+    /* Flatten the menu-grid wrappers so product-cards become direct grid items */
+    .menu .menu-grid {
+        display: contents;
+    }
+    
+    /* Make the button at the bottom span full width */
+    .menu .container > div:last-child {
+        grid-column: 1 / -1;
+    }
+    
+    /* Add the MENU label at the very top */
+    .menu .container::before {
+        content: "MENU";
+        grid-column: 1 / -1;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--clr-primary);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-align: left;
+        margin-bottom: -1rem; /* pull grid items closer */
+        display: block;
+    }
+
+    /* Square images with consistent dimensions and cropping */
+    .menu .card-image img {
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* 2. Homepage Contact Section Restructure */
+    .contact-grid-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 4rem;
+        align-items: start;
+    }
+    
+    /* 3. About Page Restructure */
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+}
