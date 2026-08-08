@@ -1964,6 +1964,12 @@ input:focus, textarea:focus {
     box-shadow: 0 4px 15px rgba(0,0,0,0.02);
 }
 
+.cart-grid-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
 @media (max-width: 768px) {
     .cart-item {
         padding: 1rem;
@@ -2223,5 +2229,13 @@ input:focus, textarea:focus {
         grid-template-columns: 1fr 1fr;
         gap: 4rem;
         align-items: center;
+    }
+    
+    /* 4. Cart Page Restructure */
+    .cart-grid-wrapper {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        align-items: start;
     }
 }
