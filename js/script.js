@@ -140,6 +140,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (totalEl) totalEl.textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
 
                 if (chatbotWidget) chatbotWidget.style.bottom = '155px'; // Gap above cart box
+                
+                const viewCartBtn = floatingCartBar.querySelector('.cart-view-btn');
+                if (viewCartBtn) {
+                    viewCartBtn.onclick = () => window.location.href = 'cart.html';
+                }
             } else {
                 floatingCartBar.style.display = 'none';
                 if (chatbotWidget && window.innerWidth <= 768) chatbotWidget.style.bottom = '80px'; // Rest at tab bar level
