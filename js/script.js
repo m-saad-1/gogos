@@ -127,6 +127,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (floatingCartBar) {
             if (totalItems > 0 && window.innerWidth <= 768) {
                 floatingCartBar.style.display = 'flex';
+                
+                // Update floating cart text
+                let subtotal = 0;
+                cart.forEach(item => {
+                    const priceNum = parseFloat(item.price.replace('R$', '').replace(',', '.').trim());
+                    subtotal += priceNum * item.quantity;
+                });
+                const countEl = floatingCartBar.querySelector('.cart-count');
+                const totalEl = floatingCartBar.querySelector('.cart-total');
+                if (countEl) countEl.textContent = totalItems === 1 ? '1 item' : `${totalItems} itens`;
+                if (totalEl) totalEl.textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+
                 if (chatbotWidget) chatbotWidget.style.bottom = '155px'; // Gap above cart box
             } else {
                 floatingCartBar.style.display = 'none';
