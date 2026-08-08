@@ -908,7 +908,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .contact-info-cards {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
     margin-bottom: 1.5rem;
 }
@@ -1964,7 +1964,8 @@ input:focus, textarea:focus {
     box-shadow: 0 4px 15px rgba(0,0,0,0.02);
 }
 
-.cart-grid-wrapper {
+.cart-grid-wrapper,
+.profile-grid-wrapper {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -2228,7 +2229,7 @@ input:focus, textarea:focus {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 4rem;
-        align-items: center;
+        align-items: start;
     }
     
     /* 4. Cart Page Restructure */
@@ -2236,6 +2237,14 @@ input:focus, textarea:focus {
         display: grid;
         grid-template-columns: 2fr 1fr;
         gap: 2rem;
+        align-items: start;
+    }
+    
+    /* 5. Profile Page Restructure */
+    .profile-grid-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        gap: 3rem;
         align-items: start;
     }
 }
