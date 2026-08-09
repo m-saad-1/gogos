@@ -207,7 +207,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-logo {
-    height: 95px;
+    height: 115px;
     width: auto;
     display: block;
     max-width: 100%;
@@ -1420,7 +1420,7 @@ input:focus, textarea:focus {
     h3 { font-size: 18px !important; }
     
     .header-logo { 
-        height: 85px; 
+        height: 105px; 
         margin-top: -5px;
         margin-bottom: -15px;
     }
