@@ -131,13 +131,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Update floating cart text
                 let subtotal = 0;
                 cart.forEach(item => {
-                    const priceNum = parseFloat(item.price.replace('R$', '').replace(',', '.').trim());
+                    const priceNum = parseFloat(item.price.replace('Rs', '').replace(',', '.').trim());
                     subtotal += priceNum * item.quantity;
                 });
                 const countEl = floatingCartBar.querySelector('.cart-count');
                 const totalEl = floatingCartBar.querySelector('.cart-total');
-                if (countEl) countEl.textContent = totalItems === 1 ? '1 item' : `${totalItems} itens`;
-                if (totalEl) totalEl.textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+                if (countEl) countEl.textContent = totalItems === 1 ? '1 item' : `${totalItems} items`;
+                if (totalEl) totalEl.textContent = `Rs ${subtotal.toFixed(2).replace('.', ',')}`;
 
                 if (chatbotWidget) chatbotWidget.style.bottom = '155px'; // Gap above cart box
                 
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let subtotal = 0;
                 
                 cart.forEach((item, index) => {
-                    const priceNum = parseFloat(item.price.replace('R$', '').replace(',', '.').trim());
+                    const priceNum = parseFloat(item.price.replace('Rs', '').replace(',', '.').trim());
                     subtotal += priceNum * item.quantity;
                     
                     const div = document.createElement('div');
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <span class="stepper-value">${item.quantity}</span>
                                 <button class="stepper-btn plus-btn" data-index="${index}">+</button>
                             </div>
-                            <button class="cart-remove-btn" data-index="${index}" aria-label="Remover">
+                            <button class="cart-remove-btn" data-index="${index}" aria-label="Remove">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
                             </button>
                         </div>
@@ -235,8 +235,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const subtotalEl = document.querySelector('.subtotal-val');
                 const totalEl = document.querySelector('.total-val');
                 if (subtotalEl && totalEl) {
-                    subtotalEl.textContent = 'R$ ' + subtotal.toFixed(2).replace('.', ',');
-                    totalEl.textContent = 'R$ ' + (subtotal + 12).toFixed(2).replace('.', ',');
+                    subtotalEl.textContent = 'Rs ' + subtotal.toFixed(2).replace('.', ',');
+                    totalEl.textContent = 'Rs ' + (subtotal + 12).toFixed(2).replace('.', ',');
                 }
             }
         }
@@ -246,8 +246,8 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             const card = e.target.closest('.product-card');
-            let title = 'Produto Especial';
-            let priceText = 'R$ 35,90';
+            let title = 'Produto Special';
+            let priceText = 'Rs 35,90';
             let imgSrc = './Images/Deal1.avif';
             
             if (card) {
@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Demo bot response
                 setTimeout(() => {
-                    addMessage('Desculpe, sou apenas um assistente de demonstração no momento. Como posso ajudar com seu pedido?', 'bot');
+                    addMessage('Sorry, I am just a demo assistant at the moment. How can I help with your order?', 'bot');
                 }, 1000);
             }
         };
@@ -347,5 +347,117 @@ document.addEventListener('DOMContentLoaded', () => {
                 videoObserver.observe(video);
             }
         });
+    }
+    // --- Hero Carousel ---
+    const carouselTrack = document.getElementById('hero-carousel-track');
+    const indicators = document.querySelectorAll('#hero-indicators .indicator');
+    if (carouselTrack && indicators.length > 0) {
+        let currentSlide = 0;
+        const totalSlides = indicators.length;
+        let isDragging = false;
+        let startPos = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+        let animationID;
+        let autoPlayInterval;
+
+        const updateCarousel = () => {
+            carouselTrack.style.transform = `translateX(-${currentSlide * 33.3333}%)`;
+            indicators.forEach((ind, i) => {
+                if (i === currentSlide) {
+                    ind.classList.add('active');
+                    ind.style.opacity = '1';
+                } else {
+                    ind.classList.remove('active');
+                    ind.style.opacity = '0.5';
+                }
+            });
+            prevTranslate = currentSlide * -33.3333;
+        };
+
+        const nextSlide = () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            carouselTrack.style.transition = 'transform 0.5s ease-in-out';
+            updateCarousel();
+        };
+
+        const startAutoPlay = () => {
+            autoPlayInterval = setInterval(nextSlide, 3000);
+        };
+
+        const stopAutoPlay = () => {
+            clearInterval(autoPlayInterval);
+        };
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                carouselTrack.style.transition = 'transform 0.5s ease-in-out';
+                updateCarousel();
+                stopAutoPlay();
+                startAutoPlay();
+            });
+        });
+
+        // Touch and Drag Events
+        const touchStart = (index) => {
+            return function(event) {
+                isDragging = true;
+                startPos = getPositionX(event);
+                animationID = requestAnimationFrame(animation);
+                carouselTrack.style.transition = 'none';
+                stopAutoPlay();
+            }
+        };
+
+        const touchEnd = () => {
+            isDragging = false;
+            cancelAnimationFrame(animationID);
+            const movedBy = currentTranslate - prevTranslate;
+            
+            // if moved enough negative, go next
+            if (movedBy < -5 && currentSlide < totalSlides - 1) currentSlide += 1;
+            // if moved enough positive, go prev
+            if (movedBy > 5 && currentSlide > 0) currentSlide -= 1;
+
+            carouselTrack.style.transition = 'transform 0.5s ease-in-out';
+            updateCarousel();
+            startAutoPlay();
+        };
+
+        const touchMove = (event) => {
+            if (isDragging) {
+                const currentPosition = getPositionX(event);
+                const diff = ((currentPosition - startPos) / carouselTrack.clientWidth) * 100;
+                currentTranslate = prevTranslate + diff;
+            }
+        };
+
+        const getPositionX = (event) => {
+            return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+        };
+
+        const animation = () => {
+            if (isDragging) {
+                carouselTrack.style.transform = `translateX(${currentTranslate}%)`;
+                requestAnimationFrame(animation);
+            }
+        };
+
+        carouselTrack.addEventListener('mousedown', touchStart(currentSlide));
+        carouselTrack.addEventListener('touchstart', touchStart(currentSlide), {passive: true});
+        carouselTrack.addEventListener('mouseup', touchEnd);
+        carouselTrack.addEventListener('touchend', touchEnd);
+        carouselTrack.addEventListener('mouseleave', () => { if(isDragging) touchEnd() });
+        carouselTrack.addEventListener('mousemove', touchMove);
+        carouselTrack.addEventListener('touchmove', touchMove, {passive: true});
+
+        // Prevent image dragging
+        const imgs = carouselTrack.querySelectorAll('img');
+        imgs.forEach(img => {
+            img.addEventListener('dragstart', (e) => e.preventDefault());
+        });
+
+        startAutoPlay();
     }
 });

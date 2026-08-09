@@ -207,7 +207,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-logo {
-    height: 70px;
+    height: 95px;
     width: auto;
     display: block;
     max-width: 100%;
@@ -1420,12 +1420,12 @@ input:focus, textarea:focus {
     h3 { font-size: 18px !important; }
     
     .header-logo { 
-        height: 70px; 
+        height: 85px; 
         margin-top: -5px;
         margin-bottom: -15px;
     }
     .header-order-btn { display: none; }
-    .nav-right a[aria-label="Perfil"] { display: none !important; }
+    .nav-right a[aria-label="Profile"] { display: none !important; }
     .mobile-hide { display: none !important; }
     
     .mobile-search-bar { display: block; }
@@ -2063,7 +2063,7 @@ input:focus, textarea:focus {
 /* Chatbot Widget */
 .chatbot-widget {
     position: fixed;
-    bottom: 20px;
+    bottom: 15px;
     right: 20px;
     z-index: 9999;
 }

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ofertas - HDM Gourmet</title>
+    <title>Offers - Takeaway</title>
     <link rel="icon" type="image/png" href="../assets/images/Logo.avif">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,48 +15,48 @@
         <div class="container">
             <div class="nav-left">
                 <a href="../index.html" class="logo">
-                    <img fetchpriority="high" decoding="sync" src="../assets/images/Logo.avif" alt="HDM Gourmet Logo" class="header-logo">
+                    <img fetchpriority="high" decoding="sync" src="../assets/images/Logo.avif" alt="Takeaway Logo" class="header-logo">
                     </a>
-                <span class="greeting">Olá, seja bem-vindo! 👋</span>
+                <span class="greeting">Hello, welcome! 👋</span>
             </div>
             
             <nav class="nav-center">
                 <ul>
-                    <li class="mobile-hide"><a href="../index.html">Início</a></li>
-                    <li class="mobile-hide"><a href="menu.html">Cardápio</a></li>
-                    <li><a href="reservations.html">Reservas</a></li>
-                    <li><a href="gallery.html">Galeria</a></li>
-                    <li><a href="about.html">Sobre</a></li>
-                    <li class="desktop-hide"><a href="contact.html">Contato</a></li>
-                    <li class="desktop-hide"><a href="contact.html#localizacao">Localização</a></li>
-                    <li class="desktop-hide"><a href="contact.html#horarios">Horário de Funcionamento</a></li>
+                    <li class="mobile-hide"><a href="../index.html">Home</a></li>
+                    <li class="mobile-hide"><a href="menu.html">Menu</a></li>
+                    <li><a href="reservations.html">Reservations</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="desktop-hide"><a href="contact.html">Contact</a></li>
+                    <li class="desktop-hide"><a href="contact.html#localizacao">Location</a></li>
+                    <li class="desktop-hide"><a href="contact.html#horarios">Opening Hours</a></li>
                 </ul>
                 <div class="mobile-only-btn-wrapper" style="margin-top: 1.5rem; width: 100%; padding: 0 1rem; display: flex;">
-                    <a href="contact.html" class="btn btn-primary menu-contact-btn" style="width: 100%; text-align: center; border-radius: 50px; transition: all 0.3s ease;">Entre em Contato</a>
+                    <a href="contact.html" class="btn btn-primary menu-contact-btn" style="width: 100%; text-align: center; border-radius: 50px; transition: all 0.3s ease;">Contact Us</a>
                 </div>
             </nav>
             
             <div class="nav-right">
                 <div class="notification-wrapper" style="position: relative;">
-                    <button class="icon-btn" aria-label="Notificações" id="notification-btn">
+                    <button class="icon-btn" aria-label="Notifications" id="notification-btn">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
                     </button>
                     <div class="notification-panel" id="notification-panel">
                         <div class="notification-header">
-                            <h4>Notificações</h4>
-                            <span class="mark-read">Marcar todas como lidas</span>
+                            <h4>Notifications</h4>
+                            <span class="mark-read">Mark all as read</span>
                         </div>
                         <div class="notification-body empty">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:1rem;"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-                            <p style="margin: 0;">Nenhuma nova notificação</p>
+                            <p style="margin: 0;">No new notifications</p>
                         </div>
                     </div>
                 </div>
-                <a href="cart.html" class="icon-btn" aria-label="Carrinho" style="text-decoration:none; color:inherit; display:flex;">
+                <a href="cart.html" class="icon-btn" aria-label="Cart" style="text-decoration:none; color:inherit; display:flex;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                     <span class="badge">3</span>
                 </a>
-                <a href="profile.html" class="icon-btn" aria-label="Perfil">
+                <a href="profile.html" class="icon-btn" aria-label="Profile">
                     <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                 </a>
                 <button class="mobile-menu-btn" aria-label="Menu">
@@ -73,66 +73,82 @@
     <main>
         <section class="offers-page" style="padding-bottom: 4rem; background-color: var(--clr-background);">
             <div class="container" style="padding-top: 3rem;">
-                <div class="section-header" style="margin-bottom: 1rem;">
+                <div class="section-header" style="margin-bottom: 2rem;">
                     <h2>Offers</h2>
                     <p>Check out our latest exclusive deals and combo discounts.</p>
-                </div>
-            </div>
-        <section class="offers-banners" id="ofertas" style="padding: 1rem 0 3rem;">
-            <div class="container" style="display: flex; flex-direction: column; gap: 1rem;">
-                <div class="hero-image-frame" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                    <img loading="lazy" decoding="async" src="../assets/images/Offer (1).avif" alt="Oferta 1" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
-                </div>
-                <div class="hero-image-frame" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                    <img loading="lazy" decoding="async" src="../assets/images/Offer (2).avif" alt="Oferta 2" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
-                </div>
-                <div class="hero-image-frame" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                    <img loading="lazy" decoding="async" src="../assets/images/Offer (3).avif" alt="Oferta 3" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
-                </div>
-                <div class="hero-image-frame" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                    <img loading="lazy" decoding="async" src="../assets/images/Offer (4).avif" alt="Oferta 4" class="hero-full-img" style="width: 100%; display: block; object-fit: cover;">
-                </div>
-            </div>
-        </section>
-            <div class="container">
-                <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
-                    <h2>Ofertas</h2>
-                    <p>Economize pedindo nossos combos mais populares para compartilhar.</p>
                 </div>
                 
                 <div class="menu-grid">
                     <div class="product-card">
-                        <div class="card-badge badge-primary">MAIS VENDIDO</div>
+                        <div class="card-badge badge-primary">BEST SELLER</div>
                         <div class="card-image"><img loading="lazy" decoding="async" src="../assets/images/Deal (1).avif" alt="Deal 1"></div>
                         <div class="card-content">
-                            <div class="card-header">
-                                <h3>Porção Especial HDM Gourmet</h3>
-                            </div>
-                            <p class="card-desc" style="flex-grow:1;">Nossas porções irresistíveis para dividir com os amigos..</p>
+                            <div class="card-header"><h3>King Deal 1</h3></div>
+                            <p class="card-desc">Amazing combo with fries and a drink.</p>
                             <div class="card-footer" style="align-items: center; justify-content: space-between; border-top: 1px solid #eee; padding-top: 1rem; margin-top: 1rem;">
                                 <div>
-                                    <span style="text-decoration: line-through; color: #999; font-size: 0.9rem; display: block;">R$ 60,00</span>
-                                    <span class="price">R$ 45,90</span>
+                                    <span style="text-decoration: line-through; color: #999; font-size: 0.9rem; display: block;">Rs 650</span>
+                                    <span class="price">Rs 500</span>
                                 </div>
-                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
                             </div>
                         </div>
                     </div>
-                    
                     <div class="product-card">
-                        <div class="card-badge badge-danger">OFERTA</div>
+                        <div class="card-badge badge-danger">OFFER</div>
                         <div class="card-image"><img loading="lazy" decoding="async" src="../assets/images/Deal (2).avif" alt="Deal 2"></div>
                         <div class="card-content">
-                            <div class="card-header">
-                                <h3>Petisco Especial</h3>
-                            </div>
-                            <p class="card-desc" style="flex-grow:1;">Ideal para compartilhar. Tudo em dobro.</p>
+                            <div class="card-header"><h3>King Deal 2</h3></div>
+                            <p class="card-desc">Delicious burger deal for two.</p>
                             <div class="card-footer" style="align-items: center; justify-content: space-between; border-top: 1px solid #eee; padding-top: 1rem; margin-top: 1rem;">
                                 <div>
-                                    <span style="text-decoration: line-through; color: #999; font-size: 0.9rem; display: block;">R$ 110,00</span>
-                                    <span class="price">R$ 89,90</span>
+                                    <span style="text-decoration: line-through; color: #999; font-size: 0.9rem; display: block;">Rs 1050</span>
+                                    <span class="price">Rs 850</span>
                                 </div>
-                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Adicionar</button>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="../assets/images/Deal (3).avif" alt="Deal 3"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>King Deal 3</h3></div>
+                            <p class="card-desc">Family combo meal with all extras.</p>
+                            <div class="card-footer" style="align-items: center; justify-content: space-between; border-top: 1px solid #eee; padding-top: 1rem; margin-top: 1rem;">
+                                <div>
+                                    <span style="text-decoration: line-through; color: #999; font-size: 0.9rem; display: block;">Rs 1500</span>
+                                    <span class="price">Rs 1200</span>
+                                </div>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-badge badge-primary">NEW</div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="../assets/images/Deal (4).avif" alt="Deal 4"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>King Deal 4</h3></div>
+                            <p class="card-desc">Special meal box with extreme taste.</p>
+                            <div class="card-footer" style="align-items: center; justify-content: space-between; border-top: 1px solid #eee; padding-top: 1rem; margin-top: 1rem;">
+                                <div>
+                                    <span style="text-decoration: line-through; color: #999; font-size: 0.9rem; display: block;">Rs 1250</span>
+                                    <span class="price">Rs 950</span>
+                                </div>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="../assets/images/Deal (1).avif" alt="Deal 5"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>King Deal 5</h3></div>
+                            <p class="card-desc">The ultimate hunger buster deal.</p>
+                            <div class="card-footer" style="align-items: center; justify-content: space-between; border-top: 1px solid #eee; padding-top: 1rem; margin-top: 1rem;">
+                                <div>
+                                    <span style="text-decoration: line-through; color: #999; font-size: 0.9rem; display: block;">Rs 1800</span>
+                                    <span class="price">Rs 1500</span>
+                                </div>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
                             </div>
                         </div>
                     </div>
@@ -145,29 +161,29 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="../index.html" class="logo" style="color: white; font-size: 2rem; display: flex; align-items: center; gap: 0.5rem;"><img fetchpriority="high" decoding="sync" src="../assets/images/Logo.avif" alt="Logo" style="height: 80px; width: auto;">HDM Gourmet<span style="color: var(--clr-primary);">.</span></a>
-                    <p>Restaurante por quilo no almoço e Petiscaria à noite. O ponto de encontro perfeito no Alto da Serra.</p>
+                    <a href="../index.html" class="logo" style="color: white; font-size: 2rem; display: flex; align-items: center; gap: 0.5rem;"><img fetchpriority="high" decoding="sync" src="../assets/images/Logo.avif" alt="Logo" style="height: 80px; width: auto;">Takeaway<span style="color: var(--clr-primary);">.</span></a>
+                    <p>The best fast food and deals. The perfect place to eat well and gather friends.</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Navegação</h4>
+                    <h4>Navigation</h4>
                     <ul>
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#cardapio">Cardápio</a></li>
-                        <li><a href="#ofertas">Ofertas</a></li>
-                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#cardapio">Menu</a></li>
+                        <li><a href="#ofertas">Offers</a></li>
+                        <li><a href="#sobre">About Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-hours">
-                    <h4>Horário de Funcionamento</h4>
+                    <h4>Opening Hours</h4>
                     <ul>
-                        <li><span>Almoço:</span> 11h às 16h</li>
-                        <li><span>Petiscaria:</span> 18h30 à 00h</li>
-                        <li><span>Feijoada Especial:</span> Sextas de 11h às 16h</li>
+                        <li><span>Lunch:</span> 11am to 4pm</li>
+                        <li><span>Dinner:</span> 6:30pm to 12am</li>
+                        <li><span>Special Deal:</span> Fridays from 11am to 4pm</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 HDM Gourmet. Todos os direitos reservados.</p>
+                <p>&copy; 2026 Takeaway. All rights reserved.</p>
                 <div class="social-links">
                     <a href="#">Instagram</a>
                     <a href="#">Facebook</a>
@@ -180,33 +196,33 @@
     <nav class="mobile-tab-bar">
         <a href="../index.html" class="tab-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-            <span>Início</span>
+            <span>Home</span>
         </a>
         <a href="menu.html" class="tab-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-            <span>Cardápio</span>
+            <span>Menu</span>
         </a>
         <a href="offers.html" class="tab-item active">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
-            <span>Ofertas</span>
+            <span>Offers</span>
         </a>
         <a href="orders.html" class="tab-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-            <span>Pedidos</span>
+            <span>Orders</span>
         </a>
         <a href="profile.html" class="tab-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            <span>Perfil</span>
+            <span>Profile</span>
         </a>
     </nav>
 
     <!-- Floating Cart Summary (Mobile) -->
     <div class="floating-cart-bar">
         <div class="cart-info">
-            <span class="cart-count">3 itens</span>
-            <span class="cart-total">R$ 339,70</span>
+            <span class="cart-count">3 items</span>
+            <span class="cart-total">Rs 339,70</span>
         </div>
-        <a href="cart.html" class="btn btn-primary cart-view-btn" style="text-decoration:none;">Ver Carrinho</a>
+        <a href="cart.html" class="btn btn-primary cart-view-btn" style="text-decoration:none;">View Cart</a>
     </div>
 
     <!-- Global Lightbox -->
@@ -219,7 +235,7 @@
 
     <!-- Chatbot Assistant -->
     <div class="chatbot-widget">
-        <button class="chatbot-toggle" aria-label="Abrir chat">
+        <button class="chatbot-toggle" aria-label="Open chat">
             <svg viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>
         </button>
         <div class="chatbot-container">
@@ -227,20 +243,20 @@
                 <div class="chatbot-title">
                     <span class="chatbot-avatar">🤖</span>
                     <div>
-                        <h4>Assistente HDM Gourmet</h4>
-                        <span class="online-status">Online agora</span>
+                        <h4>Takeaway Assistant</h4>
+                        <span class="online-status">Online now</span>
                     </div>
                 </div>
                 <button class="chatbot-close">&times;</button>
             </div>
             <div class="chatbot-messages">
                 <div class="chat-message bot">
-                    <div class="msg-content">Olá! Bem-vindo ao HDM Gourmet. Como posso ajudar você hoje?</div>
+                    <div class="msg-content">Hello! Welcome to Takeaway. How can I help you today?</div>
                 </div>
             </div>
             <div class="chatbot-input">
-                <input type="text" placeholder="Digite sua mensagem..." id="chat-input-field">
-                <button id="chat-send-btn" aria-label="Enviar">
+                <input type="text" placeholder="Type your message..." id="chat-input-field">
+                <button id="chat-send-btn" aria-label="Send">
                     <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </button>
             </div>
