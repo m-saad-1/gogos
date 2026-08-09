@@ -207,7 +207,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-logo {
-    height: 115px;
+    height: 70px;
     width: auto;
     display: block;
     max-width: 100%;
@@ -1420,9 +1420,9 @@ input:focus, textarea:focus {
     h3 { font-size: 18px !important; }
     
     .header-logo { 
-        height: 105px; 
-        margin-top: -5px;
-        margin-bottom: -15px;
+        height: 95px; 
+        margin-top: -15px;
+        margin-bottom: -25px;
     }
     .header-order-btn { display: none; }
     .nav-right a[aria-label="Profile"] { display: none !important; }
