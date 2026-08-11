@@ -2,6 +2,75 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('HDM Gourmet - Script Loaded');
     
+    // --- Phase 5: Cart Manager ---
+    window.CartManager = {
+        state: { items: [] },
+        init() {
+            const saved = localStorage.getItem('hdm_cart');
+            if (saved) {
+                try { this.state.items = JSON.parse(saved); } catch(e) {}
+            }
+            this.updateUI();
+        },
+        save() {
+            localStorage.setItem('hdm_cart', JSON.stringify(this.state.items));
+            this.updateUI();
+            
+            // If on cart page, trigger re-render
+            if (window.renderCartPage) window.renderCartPage();
+        },
+        addItem(item) {
+            const existing = this.state.items.find(i => i.title === item.title && i.addonsTotal === item.addonsTotal);
+            if (existing) {
+                existing.qty += item.qty;
+            } else {
+                this.state.items.push(item);
+            }
+            this.save();
+        },
+        updateItemQty(index, newQty) {
+            if (newQty < 1) return;
+            if (this.state.items[index]) {
+                this.state.items[index].qty = newQty;
+                this.save();
+            }
+        },
+        removeItem(index) {
+            this.state.items.splice(index, 1);
+            this.save();
+        },
+        getTotalItems() {
+            return this.state.items.reduce((acc, item) => acc + item.qty, 0);
+        },
+        getSubtotal() {
+            return this.state.items.reduce((acc, item) => acc + ((item.basePrice + (item.addonsTotal || 0)) * item.qty), 0);
+        },
+        updateUI() {
+            const totalItems = this.getTotalItems();
+            const subtotal = this.getSubtotal();
+            const priceStr = `Rs ${subtotal.toFixed(2).replace('.', ',')}`;
+            
+            // Update all badges
+            document.querySelectorAll('a[href*="cart.html"] .badge').forEach(badge => {
+                badge.textContent = totalItems;
+                badge.style.display = totalItems > 0 ? 'flex' : 'none';
+            });
+            
+            // Update floating cart bar (mobile)
+            const floatingCart = document.querySelector('.floating-cart-bar');
+            if (floatingCart) {
+                if (totalItems > 0 && !window.location.pathname.includes('cart.html')) {
+                    floatingCart.style.display = 'flex';
+                    floatingCart.querySelector('.cart-count').textContent = `${totalItems} item${totalItems > 1 ? 's' : ''}`;
+                    floatingCart.querySelector('.cart-total').textContent = priceStr;
+                } else {
+                    floatingCart.style.display = 'none';
+                }
+            }
+        }
+    };
+    CartManager.init();
+    
     // --- Mobile Menu Toggle ---
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navCenter = document.querySelector('.nav-center');
@@ -694,9 +763,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 addToCartBtn.innerHTML = 'Added! ✓';
                 addToCartBtn.style.background = '#4CAF50';
                 
-                // Trigger cart update (visual only for now)
-                cartCount += currentQty;
-                updateCartUI();
+                // Trigger cart update
+                CartManager.addItem({
+                    title: modalName.textContent,
+                    image: modalImg.src,
+                    basePrice: currentBasePrice,
+                    addonsTotal: selectedAddonsTotal,
+                    qty: currentQty
+                });
 
                 setTimeout(() => {
                     addToCartBtn.innerHTML = originalText;
@@ -716,4 +790,84 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- Phase 5: Cart Page Rendering ---
+    const cartItemsWrapper = document.querySelector('.cart-items-wrapper');
+    if (cartItemsWrapper && window.location.pathname.includes('cart.html')) {
+        window.renderCartPage = function() {
+            const items = CartManager.state.items;
+            const emptyState = document.querySelector('.empty-cart-state');
+            const summaryBox = document.querySelector('.checkout-summary-box');
+            
+            if (items.length === 0) {
+                cartItemsWrapper.style.display = 'none';
+                if (summaryBox) summaryBox.style.display = 'none';
+                if (emptyState) emptyState.style.display = 'block';
+                return;
+            }
+            
+            cartItemsWrapper.style.display = 'block';
+            if (summaryBox) summaryBox.style.display = 'block';
+            if (emptyState) emptyState.style.display = 'none';
+            
+            cartItemsWrapper.innerHTML = '';
+            items.forEach((item, index) => {
+                const itemTotal = (item.basePrice + (item.addonsTotal || 0)) * item.qty;
+                const html = `
+                    <div class="cart-item">
+                        <img src="${item.image}" class="cart-item-img lightbox-trigger" alt="${item.title}">
+                        <div class="cart-item-details">
+                            <h4 class="cart-item-title">${item.title}</h4>
+                            ${item.addonsTotal > 0 ? `<p style="font-size:0.8rem; color:#888; margin-bottom:0.2rem;">+ Add-ons (Rs ${item.addonsTotal.toFixed(2).replace('.', ',')})</p>` : ''}
+                            <span class="cart-item-price">Rs ${itemTotal.toFixed(2).replace('.', ',')}</span>
+                        </div>
+                        <div class="cart-item-actions">
+                            <div class="quantity-stepper">
+                                <button class="stepper-btn" onclick="CartManager.updateItemQty(${index}, ${item.qty - 1})">-</button>
+                                <span class="stepper-value">${item.qty}</span>
+                                <button class="stepper-btn" onclick="CartManager.updateItemQty(${index}, ${item.qty + 1})">+</button>
+                            </div>
+                            <button class="cart-remove-btn" onclick="CartManager.removeItem(${index})" aria-label="Remover">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                cartItemsWrapper.insertAdjacentHTML('beforeend', html);
+            });
+            
+            // Re-bind lightboxes
+            cartItemsWrapper.querySelectorAll('.lightbox-trigger').forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const lightbox = document.getElementById('lightbox');
+                    const lightboxImg = document.getElementById('lightbox-img');
+                    if (lightbox && lightboxImg) {
+                        lightboxImg.src = trigger.src;
+                        lightbox.classList.add('active');
+                    }
+                });
+            });
+
+            // Update subtotal / total
+            const subtotal = CartManager.getSubtotal();
+            const deliveryFee = 12.00;
+            const subEl = document.querySelector('.subtotal-val');
+            const totEl = document.querySelector('.total-val');
+            if (subEl) subEl.textContent = `Rs ${subtotal.toFixed(2).replace('.', ',')}`;
+            if (totEl) totEl.textContent = `Rs ${(subtotal + deliveryFee).toFixed(2).replace('.', ',')}`;
+            
+            // Checkout Form Submit
+            const checkoutForm = document.getElementById('checkout-form');
+            if (checkoutForm) {
+                checkoutForm.onsubmit = function(e) {
+                    e.preventDefault();
+                    // Clear cart
+                    CartManager.state.items = [];
+                    CartManager.save();
+                    alert('Order placed successfully! Redirecting to your orders...');
+                    window.location.href = 'orders.html';
+                };
+            }
+        };
+        window.renderCartPage();
+    }
 });
