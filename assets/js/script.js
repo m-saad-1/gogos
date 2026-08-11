@@ -546,7 +546,174 @@ document.addEventListener('DOMContentLoaded', () => {
                 grid.style.display = hasVisible ? '' : 'none';
             });
 
-            noResultsEl.style.display = anyVisible ? 'none' : 'block';
         });
     }
+
+    // --- Phase 4: Modals Logic ---
+    // 1. Contact Header Modal
+    const contactHeaderBtns = document.querySelectorAll('.contact-header-btn');
+    const contactModal = document.getElementById('contact-modal');
+    const contactModalClose = document.getElementById('contact-modal-close');
+
+    if (contactModal) {
+        contactHeaderBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                contactModal.classList.add('active');
+            });
+        });
+        
+        if (contactModalClose) {
+            contactModalClose.addEventListener('click', () => contactModal.classList.remove('active'));
+        }
+    }
+
+    // 2. Menu Item Detail Modal
+    const itemModal = document.getElementById('item-modal');
+    if (itemModal) {
+        const modalImg = document.getElementById('modal-item-img');
+        const modalCategory = document.getElementById('modal-item-category');
+        const modalName = document.getElementById('modal-item-name');
+        const modalDesc = document.getElementById('modal-item-desc');
+        const modalPrice = document.getElementById('modal-item-price');
+        const modalAddTotal = document.getElementById('modal-add-total');
+        const modalQtyVal = document.getElementById('modal-qty-val');
+        const qtyMinus = document.getElementById('modal-qty-minus');
+        const qtyPlus = document.getElementById('modal-qty-plus');
+        const addonWrap = document.getElementById('modal-addons-wrap');
+        const addonOptions = document.getElementById('modal-addon-options');
+        const addToCartBtn = document.getElementById('modal-add-to-cart');
+
+        let currentBasePrice = 0;
+        let currentQty = 1;
+        let selectedAddonsTotal = 0;
+
+        function updateModalTotal() {
+            const total = (currentBasePrice + selectedAddonsTotal) * currentQty;
+            modalAddTotal.textContent = `Rs ${total.toFixed(2).replace('.', ',')}`;
+        }
+
+        // Handle Qty Stepper
+        if (qtyMinus && qtyPlus) {
+            qtyMinus.addEventListener('click', () => {
+                if (currentQty > 1) {
+                    currentQty--;
+                    modalQtyVal.textContent = currentQty;
+                    updateModalTotal();
+                }
+            });
+            qtyPlus.addEventListener('click', () => {
+                if (currentQty < 99) {
+                    currentQty++;
+                    modalQtyVal.textContent = currentQty;
+                    updateModalTotal();
+                }
+            });
+        }
+
+        // Open modal on product card click
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                // If they clicked the 'Add' button directly, we can either add to cart immediately or just open modal
+                // For Phase 4, we open the modal for everything
+                e.preventDefault();
+                
+                const img = card.querySelector('.card-image img');
+                const title = card.querySelector('h3');
+                const desc = card.querySelector('.card-desc');
+                const priceEl = card.querySelector('.price');
+
+                // Try to find category from closest menu-grid's previous heading, or fallback
+                let categoryName = 'Menu Item';
+                const grid = card.closest('.menu-grid');
+                if (grid && grid.previousElementSibling && grid.previousElementSibling.querySelector('h3')) {
+                    categoryName = grid.previousElementSibling.querySelector('h3').textContent;
+                }
+
+                // Populate Modal
+                if (img) modalImg.src = img.src;
+                if (title) modalName.textContent = title.textContent;
+                if (desc) modalDesc.textContent = desc.textContent;
+                else modalDesc.textContent = '';
+                
+                modalCategory.textContent = categoryName;
+                
+                // Parse price
+                let rawPrice = 0;
+                if (priceEl) {
+                    const priceText = priceEl.textContent.replace(/[^\d.,]/g, '').replace(',', '.');
+                    rawPrice = parseFloat(priceText) || 0;
+                    modalPrice.textContent = priceEl.textContent;
+                }
+                currentBasePrice = rawPrice;
+                currentQty = 1;
+                selectedAddonsTotal = 0;
+                modalQtyVal.textContent = currentQty;
+                
+                // Mock Add-ons based on category (just for UI completeness as requested)
+                addonOptions.innerHTML = '';
+                if (categoryName.toLowerCase().includes('burger') || categoryName.toLowerCase().includes('sandwich')) {
+                    addonWrap.style.display = 'block';
+                    addonOptions.innerHTML = `
+                        <div class="addon-chip" data-price="2.50">+ Extra Cheese (Rs 2,50)</div>
+                        <div class="addon-chip" data-price="3.00">+ Bacon (Rs 3,00)</div>
+                    `;
+                } else if (categoryName.toLowerCase().includes('pizza')) {
+                    addonWrap.style.display = 'block';
+                    addonOptions.innerHTML = `
+                        <div class="addon-chip" data-price="5.00">+ Stuffed Crust (Rs 5,00)</div>
+                        <div class="addon-chip" data-price="4.50">+ Extra Pepperoni (Rs 4,50)</div>
+                    `;
+                } else {
+                    addonWrap.style.display = 'none';
+                }
+
+                // Add-on chip click logic
+                addonOptions.querySelectorAll('.addon-chip').forEach(chip => {
+                    chip.addEventListener('click', () => {
+                        chip.classList.toggle('selected');
+                        const p = parseFloat(chip.getAttribute('data-price'));
+                        if (chip.classList.contains('selected')) {
+                            selectedAddonsTotal += p;
+                        } else {
+                            selectedAddonsTotal -= p;
+                        }
+                        updateModalTotal();
+                    });
+                });
+
+                updateModalTotal();
+                itemModal.classList.add('active');
+            });
+        });
+
+        // Add to cart animation from modal
+        if (addToCartBtn) {
+            addToCartBtn.addEventListener('click', () => {
+                const originalText = addToCartBtn.innerHTML;
+                addToCartBtn.innerHTML = 'Added! ✓';
+                addToCartBtn.style.background = '#4CAF50';
+                
+                // Trigger cart update (visual only for now)
+                cartCount += currentQty;
+                updateCartUI();
+
+                setTimeout(() => {
+                    addToCartBtn.innerHTML = originalText;
+                    addToCartBtn.style.background = '';
+                    itemModal.classList.remove('active');
+                }, 800);
+            });
+        }
+    }
+
+    // 3. Global Modal Overlay Click-to-Close
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.classList.remove('active');
+            }
+        });
+    });
+
 });
