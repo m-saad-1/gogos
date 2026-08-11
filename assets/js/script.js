@@ -437,4 +437,116 @@ document.addEventListener('DOMContentLoaded', () => {
 
         startAutoPlay();
     }
+
+    // --- Phase 3: Sticky Category Navigation ---
+    const categoryStickyWrapper = document.getElementById('category-sticky-wrapper');
+    if (categoryStickyWrapper) {
+        const navbar = document.querySelector('.navbar');
+        const navbarHeight = navbar ? navbar.offsetHeight : 60;
+
+        // Update top offset to account for navbar height
+        categoryStickyWrapper.style.top = navbarHeight + 'px';
+
+        // Use IntersectionObserver to detect when wrapper has hit the sticky point
+        const sentinel = document.createElement('div');
+        sentinel.style.cssText = 'height: 1px; pointer-events: none; position: relative;';
+        categoryStickyWrapper.parentElement.insertBefore(sentinel, categoryStickyWrapper);
+
+        const stickyObserver = new IntersectionObserver(
+            ([entry]) => {
+                categoryStickyWrapper.classList.toggle('is-sticky', !entry.isIntersecting);
+            },
+            { rootMargin: `-${navbarHeight}px 0px 0px 0px`, threshold: 0 }
+        );
+        stickyObserver.observe(sentinel);
+
+        // Update active tab on category click
+        const categoryLinks = categoryStickyWrapper.querySelectorAll('.category-circle-btn');
+        categoryLinks.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryLinks.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        // Auto-update active category on scroll using IntersectionObserver
+        const sections = document.querySelectorAll('[id="deals"], [id="chicken"], [id="skewers"], [id="soups"], [id="drinks"], [id="desserts"]');
+        const sectionIds = ['deals', 'chicken', 'skewers', 'soups', 'drinks', 'desserts'];
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    categoryLinks.forEach(btn => {
+                        const href = btn.getAttribute('href');
+                        btn.classList.toggle('active', href === `#${id}`);
+                    });
+                }
+            });
+        }, { rootMargin: `-${navbarHeight + 80}px 0px -60% 0px`, threshold: 0 });
+
+        sections.forEach(sec => {
+            if (sec) sectionObserver.observe(sec);
+        });
+    }
+
+    // --- Phase 3: Real-Time Menu Search ---
+    const menuSearchInput = document.getElementById('menu-search-input');
+    const menuFilterClear = document.getElementById('menu-filter-clear');
+    if (menuSearchInput) {
+        const allProductCards = document.querySelectorAll('.product-card');
+        const allCategoryHeadings = document.querySelectorAll('.menu-grid');
+
+        // Create "no results" message element
+        let noResultsEl = document.getElementById('menu-no-results');
+        if (!noResultsEl) {
+            noResultsEl = document.createElement('div');
+            noResultsEl.id = 'menu-no-results';
+            noResultsEl.style.cssText = 'display:none; text-align:center; padding:3rem 1rem; color:#999;';
+            noResultsEl.innerHTML = `
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ddd" stroke-width="2" style="margin-bottom:1rem;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <p style="font-size:1rem; font-weight:600; margin:0 0 0.4rem;">No dishes found</p>
+                <p style="font-size:0.85rem; margin:0;">Try a different search term</p>
+            `;
+            const menuSection = document.getElementById('cardapio');
+            if (menuSection) menuSection.querySelector('.container').appendChild(noResultsEl);
+        }
+
+        menuSearchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+
+            // Show/hide clear button
+            if (menuFilterClear) {
+                menuFilterClear.style.display = query.length > 0 ? 'flex' : 'none';
+            }
+
+            if (!query) {
+                // Show all
+                allProductCards.forEach(card => card.style.display = '');
+                document.querySelectorAll('.menu-category-header, .menu-grid').forEach(el => el.style.display = '');
+                noResultsEl.style.display = 'none';
+                return;
+            }
+
+            let anyVisible = false;
+            allProductCards.forEach(card => {
+                const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                const desc = card.querySelector('.card-desc')?.textContent.toLowerCase() || '';
+                const matches = title.includes(query) || desc.includes(query);
+                card.style.display = matches ? '' : 'none';
+                if (matches) anyVisible = true;
+            });
+
+            // Hide empty category headings
+            document.querySelectorAll('.menu-grid').forEach(grid => {
+                const visibleCards = grid.querySelectorAll('.product-card[style=""],.product-card:not([style*="none"])');
+                const hasVisible = Array.from(grid.querySelectorAll('.product-card')).some(c => c.style.display !== 'none');
+                // Hide preceding header
+                const prevHeader = grid.previousElementSibling;
+                if (prevHeader) prevHeader.style.display = hasVisible ? '' : 'none';
+                grid.style.display = hasVisible ? '' : 'none';
+            });
+
+            noResultsEl.style.display = anyVisible ? 'none' : 'block';
+        });
+    }
 });

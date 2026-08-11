@@ -71,17 +71,22 @@
     </header>
 
     <main>
-        <div class="mobile-search-bar" style="display: block; position: static; background: transparent; padding-top: 2rem;">
-            <div class="container">
-                <div class="search-input-wrapper">
-                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                    <input type="text" placeholder="Search dishes...">
-                </div>
+        <!-- Search Bar — matches homepage exactly -->
+        <div class="mobile-search-bar" style="display: block; background: transparent; padding: 1.2rem 16px 0.8rem;">
+            <div class="search-input-wrapper">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" placeholder="Search dishes..." id="menu-search-input" autocomplete="off">
+                <button class="filter-btn" aria-label="Filter" id="menu-filter-clear" style="display:none; color: var(--clr-primary);" onclick="document.getElementById('menu-search-input').value=''; document.getElementById('menu-search-input').dispatchEvent(new Event('input'));">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
             </div>
         </div>
-        <section class="menu" id="cardapio" style="padding-top: 2rem;">
+
+        <section class="menu" id="cardapio" style="padding-top: 0.5rem;">
             <div class="container">
-                <div class="category-circles-wrapper">
+                <!-- Category sticky wrapper -->
+                <div class="category-sticky-wrapper" id="category-sticky-wrapper">
+                    <div class="category-circles-wrapper" id="category-circles">
                     <a href="#deals" class="category-circle-btn active" style="text-decoration:none;">
                         <div class="circle-img"><img loading="lazy" decoding="async" src="../assets/images/Deal.avif" alt="Ofertas"></div>
                         <span class="circle-label">Offers</span>
@@ -106,7 +111,8 @@
                         <div class="circle-img"><img loading="lazy" decoding="async" src="../assets/images/Dessert.avif" alt="Desserts"></div>
                         <span class="circle-label">Desserts</span>
                     </a>
-                </div>
+                </div><!-- /.category-circles-wrapper -->
+                </div><!-- /.category-sticky-wrapper -->
                 
                 <!-- Category: Ofertas -->
                 <div id="deals" style="display: flex; justify-content: flex-start; align-items: center; margin: 1.5rem 0 1rem; scroll-margin-top: 100px;">
