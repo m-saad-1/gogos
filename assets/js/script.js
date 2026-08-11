@@ -1,46 +1,46 @@
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Restaurante da Rosana - Script Loaded');
+    console.log('HDM Gourmet - Script Loaded');
     
     // --- Mobile Menu Toggle ---
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navCenter = document.querySelector('.nav-center');
     
-    mobileMenuBtn.addEventListener('click', () => {
-        navCenter.classList.toggle('active');
-        mobileMenuBtn.classList.toggle('open');
-    });
-
-    // Close mobile menu when a link is clicked
-    const navLinks = document.querySelectorAll('.nav-center a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navCenter.classList.remove('active');
-            mobileMenuBtn.classList.remove('open');
-            
-            // Handle active state
-            navLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
+    if (mobileMenuBtn && navCenter) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navCenter.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('open');
         });
-    });
+
+        // Close mobile menu when a link is clicked
+        const navLinks = document.querySelectorAll('.nav-center a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navCenter.classList.remove('active');
+                mobileMenuBtn.classList.remove('open');
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    }
 
     // --- Navbar Scroll Effect ---
     const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.05)';
-        } else {
-            navbar.style.boxShadow = 'none';
-        }
-    });
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.05)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    }
 
     // --- Category Filtering (Visual Only) ---
     const categoryBtns = document.querySelectorAll('.category-btn');
     categoryBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Remove active class from all
             categoryBtns.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked
             btn.classList.add('active');
         });
     });
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (resForm) {
         resForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Sua reserva foi enviada com sucesso! Entraremos em contato em breve.');
+            alert('Your reservation has been submitted! We will get in touch soon.');
             resForm.reset();
         });
     }
@@ -81,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
             img.style.cursor = 'pointer';
             img.addEventListener('click', (e) => {
                 lightbox.style.display = 'flex';
-                // Trigger reflow
                 void lightbox.offsetWidth;
                 lightbox.classList.add('show');
                 lightboxImg.src = e.target.src;
@@ -92,34 +91,28 @@ document.addEventListener('DOMContentLoaded', () => {
             lightbox.classList.remove('show');
             setTimeout(() => {
                 lightbox.style.display = 'none';
-            }, 300); // match transition duration
+            }, 300);
         };
 
-        if (closeBtn) {
-            closeBtn.addEventListener('click', closeLightbox);
-        }
-        
+        if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) closeLightbox();
         });
-        
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox.classList.contains('show')) {
-                closeLightbox();
-            }
+            if (e.key === 'Escape' && lightbox.classList.contains('show')) closeLightbox();
         });
     }
     
     // --- Cart Functionality ---
     const cartBtns = document.querySelectorAll('.product-card .btn, .hero-order-btn, .header-order-btn');
-    let cart = JSON.parse(localStorage.getItem('rosanarefeicoes_cart')) || [];
+    let cart = JSON.parse(localStorage.getItem('takeaway_cart')) || [];
     
     const updateCartUI = () => {
         const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
         document.querySelectorAll('.badge').forEach(badge => {
             badge.textContent = totalItems;
         });
-        localStorage.setItem('rosanarefeicoes_cart', JSON.stringify(cart));
+        localStorage.setItem('takeaway_cart', JSON.stringify(cart));
         
         // Handle Floating Cart Bar and Chatbot Widget position dynamically
         const floatingCartBar = document.querySelector('.floating-cart-bar');
@@ -132,22 +125,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 let subtotal = 0;
                 cart.forEach(item => {
                     const priceNum = parseFloat(item.price.replace('Rs', '').replace(',', '.').trim());
-                    subtotal += priceNum * item.quantity;
+                    if (!isNaN(priceNum)) subtotal += priceNum * item.quantity;
                 });
                 const countEl = floatingCartBar.querySelector('.cart-count');
                 const totalEl = floatingCartBar.querySelector('.cart-total');
                 if (countEl) countEl.textContent = totalItems === 1 ? '1 item' : `${totalItems} items`;
-                if (totalEl) totalEl.textContent = `Rs ${subtotal.toFixed(2).replace('.', ',')}`;
+                if (totalEl) totalEl.textContent = `Rs ${subtotal.toFixed(0)}`;
 
-                if (chatbotWidget) chatbotWidget.style.bottom = '155px'; // Gap above cart box
+                if (chatbotWidget) chatbotWidget.style.bottom = '170px';
                 
                 const viewCartBtn = floatingCartBar.querySelector('.cart-view-btn');
-                if (viewCartBtn) {
-                    viewCartBtn.onclick = () => window.location.href = 'cart.html';
+                if (viewCartBtn && viewCartBtn.tagName === 'BUTTON') {
+                    viewCartBtn.onclick = () => {
+                        const href = window.location.pathname.includes('/pages/') ? 'cart.html' : 'pages/cart.html';
+                        window.location.href = href;
+                    };
                 }
             } else {
                 floatingCartBar.style.display = 'none';
-                if (chatbotWidget && window.innerWidth <= 768) chatbotWidget.style.bottom = '80px'; // Rest at tab bar level
+                if (chatbotWidget && window.innerWidth <= 768) chatbotWidget.style.bottom = '90px';
             }
         }
         
@@ -157,11 +153,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cartWrapper && emptyState) {
             if (cart.length === 0) {
                 cartWrapper.style.display = 'none';
-                document.querySelector('.checkout-summary-box').style.display = 'none';
+                const summaryBox = document.querySelector('.checkout-summary-box');
+                if (summaryBox) summaryBox.style.display = 'none';
                 emptyState.style.display = 'block';
             } else {
                 cartWrapper.style.display = 'block';
-                document.querySelector('.checkout-summary-box').style.display = 'block';
+                const summaryBox = document.querySelector('.checkout-summary-box');
+                if (summaryBox) summaryBox.style.display = 'block';
                 emptyState.style.display = 'none';
                 
                 cartWrapper.innerHTML = '';
@@ -169,12 +167,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 cart.forEach((item, index) => {
                     const priceNum = parseFloat(item.price.replace('Rs', '').replace(',', '.').trim());
-                    subtotal += priceNum * item.quantity;
+                    if (!isNaN(priceNum)) subtotal += priceNum * item.quantity;
                     
                     const div = document.createElement('div');
                     div.className = 'cart-item';
                     div.innerHTML = `
-                        <img src="${item.imgSrc || './Images/Deal1.avif'}" class="cart-item-img lightbox-trigger" alt="${item.title}" style="cursor: pointer;">
+                        <img src="${item.imgSrc || './assets/images/Deal (1).avif'}" class="cart-item-img lightbox-trigger" alt="${item.title}" style="cursor: pointer;">
                         <div class="cart-item-details">
                             <h4 class="cart-item-title">${item.title}</h4>
                             <span class="cart-item-price">${item.price}</span>
@@ -194,8 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 
                 // Re-bind Lightbox for new cart items
-                const lightbox = document.getElementById('lightbox');
-                const lightboxImg = document.getElementById('lightbox-img');
                 if (lightbox && lightboxImg) {
                     cartWrapper.querySelectorAll('.lightbox-trigger').forEach(img => {
                         img.addEventListener('click', (e) => {
@@ -210,13 +206,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Listeners
                 cartWrapper.querySelectorAll('.plus-btn').forEach(btn => {
                     btn.addEventListener('click', (e) => {
-                        cart[e.target.dataset.index].quantity++;
+                        const idx = parseInt(e.target.dataset.index);
+                        cart[idx].quantity++;
                         updateCartUI();
                     });
                 });
                 cartWrapper.querySelectorAll('.minus-btn').forEach(btn => {
                     btn.addEventListener('click', (e) => {
-                        const idx = e.target.dataset.index;
+                        const idx = parseInt(e.target.dataset.index);
                         if (cart[idx].quantity > 1) {
                             cart[idx].quantity--;
                         } else {
@@ -227,17 +224,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 cartWrapper.querySelectorAll('.cart-remove-btn').forEach(btn => {
                     btn.addEventListener('click', (e) => {
-                        cart.splice(e.currentTarget.dataset.index, 1);
+                        const idx = parseInt(e.currentTarget.dataset.index);
+                        cart.splice(idx, 1);
                         updateCartUI();
                     });
                 });
                 
                 const subtotalEl = document.querySelector('.subtotal-val');
                 const totalEl = document.querySelector('.total-val');
-                if (subtotalEl && totalEl) {
-                    subtotalEl.textContent = 'Rs ' + subtotal.toFixed(2).replace('.', ',');
-                    totalEl.textContent = 'Rs ' + (subtotal + 12).toFixed(2).replace('.', ',');
-                }
+                const deliveryFee = 100; // Rs 100 delivery
+                if (subtotalEl) subtotalEl.textContent = 'Rs ' + subtotal.toFixed(0);
+                if (totalEl) totalEl.textContent = 'Rs ' + (subtotal + deliveryFee).toFixed(0);
             }
         }
     };
@@ -246,9 +243,9 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             const card = e.target.closest('.product-card');
-            let title = 'Produto Special';
-            let priceText = 'Rs 35,90';
-            let imgSrc = './Images/Deal1.avif';
+            let title = 'Special Item';
+            let priceText = 'Rs 500';
+            let imgSrc = './assets/images/Deal (1).avif';
             
             if (card) {
                 const titleEl = card.querySelector('h3');
@@ -287,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatSend = document.getElementById('chat-send-btn');
     const chatMessages = document.querySelector('.chatbot-messages');
 
-    if(chatToggle && chatContainer) {
+    if (chatToggle && chatContainer) {
         chatToggle.addEventListener('click', () => {
             chatContainer.classList.toggle('show');
         });
@@ -305,22 +302,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const handleSend = () => {
             const text = chatInput.value.trim();
-            if(text) {
+            if (text) {
                 addMessage(text, 'user');
                 chatInput.value = '';
-                
-                // Demo bot response
                 setTimeout(() => {
-                    addMessage('Sorry, I am just a demo assistant at the moment. How can I help with your order?', 'bot');
+                    addMessage('Thank you for your message! Our team will assist you shortly. You can also call us directly.', 'bot');
                 }, 1000);
             }
         };
 
-        chatSend.addEventListener('click', handleSend);
-        chatInput.addEventListener('keypress', (e) => {
-            if(e.key === 'Enter') handleSend();
+        if (chatSend) chatSend.addEventListener('click', handleSend);
+        if (chatInput) chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSend();
         });
     }
+
     // --- Lazy Load Videos ---
     const lazyVideos = document.querySelectorAll('video');
     if ('IntersectionObserver' in window) {
@@ -332,129 +328,110 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (source) {
                         source.src = source.dataset.src;
                         video.load();
-                        // Only play if it was successfully loaded and muted
                         video.play().catch(e => console.log('Autoplay prevented', e));
-                        // Remove data-src to prevent reloading
                         source.removeAttribute('data-src');
                     }
                     observer.unobserve(video);
                 }
             });
-        }, { rootMargin: "0px 0px 200px 0px" });
+        }, { rootMargin: '0px 0px 200px 0px' });
 
         lazyVideos.forEach(video => {
-            if(video.querySelector('source[data-src]')) {
+            if (video.querySelector('source[data-src]')) {
                 videoObserver.observe(video);
             }
         });
     }
-    // --- Hero Carousel ---
+
+    // --- Hero Carousel — Infinite One-Direction Loop ---
     const carouselTrack = document.getElementById('hero-carousel-track');
+    const carouselContainer = document.getElementById('hero-carousel-container');
     const indicators = document.querySelectorAll('#hero-indicators .indicator');
     if (carouselTrack && indicators.length > 0) {
-        let currentSlide = 0;
         const totalSlides = indicators.length;
-        let isDragging = false;
-        let startPos = 0;
-        let currentTranslate = 0;
-        let prevTranslate = 0;
-        let animationID;
+        let currentSlide = 0;
         let autoPlayInterval;
+        let isDragging = false;
+        let startX = 0;
+        let hasDragged = false;
 
-        const updateCarousel = () => {
+        const updateCarousel = (animate = true) => {
+            carouselTrack.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
             carouselTrack.style.transform = `translateX(-${currentSlide * 33.3333}%)`;
             indicators.forEach((ind, i) => {
-                if (i === currentSlide) {
-                    ind.classList.add('active');
-                    ind.style.opacity = '1';
-                } else {
-                    ind.classList.remove('active');
-                    ind.style.opacity = '0.5';
-                }
+                const isActive = i === currentSlide;
+                ind.classList.toggle('active', isActive);
+                ind.style.opacity = isActive ? '1' : '0.5';
             });
-            prevTranslate = currentSlide * -33.3333;
         };
 
-        const nextSlide = () => {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            carouselTrack.style.transition = 'transform 0.5s ease-in-out';
-            updateCarousel();
+        const goTo = (index) => {
+            currentSlide = ((index % totalSlides) + totalSlides) % totalSlides;
+            updateCarousel(true);
         };
+
+        const nextSlide = () => goTo(currentSlide + 1);
 
         const startAutoPlay = () => {
-            autoPlayInterval = setInterval(nextSlide, 3000);
+            stopAutoPlay();
+            autoPlayInterval = setInterval(nextSlide, 3500);
         };
 
-        const stopAutoPlay = () => {
-            clearInterval(autoPlayInterval);
-        };
+        const stopAutoPlay = () => clearInterval(autoPlayInterval);
 
+        // Indicator dot clicks
         indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                currentSlide = index;
-                carouselTrack.style.transition = 'transform 0.5s ease-in-out';
-                updateCarousel();
-                stopAutoPlay();
+            indicator.addEventListener('click', (e) => {
+                e.stopPropagation();
+                goTo(index);
                 startAutoPlay();
             });
         });
 
-        // Touch and Drag Events
-        const touchStart = (index) => {
-            return function(event) {
-                isDragging = true;
-                startPos = getPositionX(event);
-                animationID = requestAnimationFrame(animation);
-                carouselTrack.style.transition = 'none';
-                stopAutoPlay();
-            }
+        // Click anywhere on carousel = next slide
+        if (carouselContainer) {
+            carouselContainer.addEventListener('click', (e) => {
+                if (hasDragged) { hasDragged = false; return; }
+                if (e.target.closest('#hero-indicators') || e.target.closest('.hero-order-btn')) return;
+                nextSlide();
+                startAutoPlay();
+            });
+        }
+
+        // Touch / drag for swipe
+        const onDragStart = (e) => {
+            isDragging = true;
+            hasDragged = false;
+            startX = e.type.includes('touch') ? e.touches[0].clientX : e.pageX;
+            stopAutoPlay();
         };
 
-        const touchEnd = () => {
+        const onDragEnd = (e) => {
+            if (!isDragging) return;
             isDragging = false;
-            cancelAnimationFrame(animationID);
-            const movedBy = currentTranslate - prevTranslate;
-            
-            // if moved enough negative, go next
-            if (movedBy < -5 && currentSlide < totalSlides - 1) currentSlide += 1;
-            // if moved enough positive, go prev
-            if (movedBy > 5 && currentSlide > 0) currentSlide -= 1;
-
-            carouselTrack.style.transition = 'transform 0.5s ease-in-out';
-            updateCarousel();
+            const endX = e.type.includes('touch') ? (e.changedTouches[0]?.clientX ?? startX) : e.pageX;
+            const diff = endX - startX;
+            if (Math.abs(diff) > 40) {
+                hasDragged = true;
+                if (diff < 0) {
+                    goTo(currentSlide + 1); // swipe left → next
+                } else {
+                    goTo(currentSlide - 1); // swipe right → prev (wraps)
+                }
+            }
             startAutoPlay();
         };
 
-        const touchMove = (event) => {
-            if (isDragging) {
-                const currentPosition = getPositionX(event);
-                const diff = ((currentPosition - startPos) / carouselTrack.clientWidth) * 100;
-                currentTranslate = prevTranslate + diff;
-            }
-        };
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mousedown', onDragStart);
+            carouselContainer.addEventListener('touchstart', onDragStart, { passive: true });
+            carouselContainer.addEventListener('mouseup', onDragEnd);
+            carouselContainer.addEventListener('touchend', onDragEnd, { passive: true });
+            carouselContainer.addEventListener('mouseleave', (e) => { if (isDragging) onDragEnd(e); });
+        }
 
-        const getPositionX = (event) => {
-            return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
-        };
-
-        const animation = () => {
-            if (isDragging) {
-                carouselTrack.style.transform = `translateX(${currentTranslate}%)`;
-                requestAnimationFrame(animation);
-            }
-        };
-
-        carouselTrack.addEventListener('mousedown', touchStart(currentSlide));
-        carouselTrack.addEventListener('touchstart', touchStart(currentSlide), {passive: true});
-        carouselTrack.addEventListener('mouseup', touchEnd);
-        carouselTrack.addEventListener('touchend', touchEnd);
-        carouselTrack.addEventListener('mouseleave', () => { if(isDragging) touchEnd() });
-        carouselTrack.addEventListener('mousemove', touchMove);
-        carouselTrack.addEventListener('touchmove', touchMove, {passive: true});
-
-        // Prevent image dragging
-        const imgs = carouselTrack.querySelectorAll('img');
-        imgs.forEach(img => {
+        // Prevent image/text drag
+        carouselTrack.querySelectorAll('img').forEach(img => {
             img.addEventListener('dragstart', (e) => e.preventDefault());
         });
 
