@@ -1409,6 +1409,7 @@ input:focus, textarea:focus {
 
 .search-input-wrapper input:focus {
     outline: none;
+    background-color: transparent !important;
 }
 
 .search-icon {
