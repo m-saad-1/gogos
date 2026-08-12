@@ -36,7 +36,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
   cursor: pointer;
   background: linear-gradient(135deg, var(--clr-primary) 0%, #b71c1c 100%) !important;
   box-shadow: none !important;

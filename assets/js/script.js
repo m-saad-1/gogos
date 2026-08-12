@@ -1,6 +1,12 @@
 // Central price formatting function helper to remove trailing zeros
 function formatPrice(price) {
-    let formatted = Number(price).toFixed(2).replace('.', ',');
+    if (typeof price === 'string') {
+        price = price.replace(',', '.');
+    }
+    const num = parseFloat(price);
+    if (isNaN(num)) return price;
+    
+    let formatted = num.toFixed(2).replace('.', ',');
     if (formatted.endsWith(',00')) {
         return formatted.substring(0, formatted.length - 3);
     }
@@ -179,18 +185,53 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.querySelector('.lightbox-close');
     
     if (lightbox) {
-        document.querySelectorAll('.lightbox-trigger').forEach(img => {
-            img.style.cursor = 'pointer';
-            img.addEventListener('click', (e) => {
+        // Event delegation for all lightbox triggers (including dynamic ones)
+        document.addEventListener('click', (e) => {
+            const trigger = e.target.closest('.lightbox-trigger');
+            if (trigger) {
+                e.preventDefault();
                 lightbox.style.display = 'flex';
                 void lightbox.offsetWidth;
                 lightbox.classList.add('show');
-                lightboxImg.src = e.target.src;
-            });
+                
+                if (lightboxImg) {
+                    const src = trigger.src || trigger.currentSrc || (trigger.querySelector('source') ? trigger.querySelector('source').getAttribute('data-src') || trigger.querySelector('source').src : '');
+                    
+                    let videoEl = lightbox.querySelector('video');
+                    if (src.endsWith('.mp4') || trigger.tagName.toLowerCase() === 'video') {
+                        lightboxImg.style.display = 'none';
+                        if (!videoEl) {
+                            videoEl = document.createElement('video');
+                            videoEl.style.maxWidth = '90%';
+                            videoEl.style.maxHeight = '80vh';
+                            videoEl.style.borderRadius = '8px';
+                            videoEl.style.boxShadow = '0 10px 25px rgba(0,0,0,0.5)';
+                            videoEl.controls = true;
+                            videoEl.autoplay = true;
+                            videoEl.className = 'lightbox-video';
+                            lightbox.appendChild(videoEl);
+                        }
+                        videoEl.style.display = 'block';
+                        videoEl.src = src;
+                        videoEl.play();
+                    } else {
+                        if (videoEl) {
+                            videoEl.style.display = 'none';
+                            videoEl.pause();
+                        }
+                        lightboxImg.style.display = 'block';
+                        lightboxImg.src = src;
+                    }
+                }
+            }
         });
 
         const closeLightbox = () => {
             lightbox.classList.remove('show');
+            const videoEl = lightbox.querySelector('video');
+            if (videoEl) {
+                videoEl.pause();
+            }
             setTimeout(() => {
                 lightbox.style.display = 'none';
             }, 300);
@@ -198,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
         lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
+            if (e.target === lightbox || e.target === closeBtn) closeLightbox();
         });
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && lightbox.classList.contains('show')) closeLightbox();
@@ -319,6 +360,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Hero Carousel — Infinite One-Direction Loop ---
     const carouselTrack = document.getElementById('hero-carousel-track');
     const carouselContainer = document.getElementById('hero-carousel-container');
+    
+    if (carouselTrack) {
+        const initialSlides = carouselTrack.querySelectorAll('.hero-full-img, img');
+        if (initialSlides.length === 1) {
+            const clone1 = initialSlides[0].cloneNode(true);
+            const clone2 = initialSlides[0].cloneNode(true);
+            carouselTrack.appendChild(clone1);
+            carouselTrack.appendChild(clone2);
+        }
+    }
+    
     const indicators = document.querySelectorAll('#hero-indicators .indicator');
     if (carouselTrack && indicators.length > 0) {
         const totalSlides = indicators.length;
@@ -670,8 +722,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Try to find category from closest menu-grid's previous heading, or fallback
                 let categoryName = 'Menu Item';
                 const grid = card.closest('.menu-grid');
-                if (grid && grid.previousElementSibling && grid.previousElementSibling.querySelector('h3')) {
-                    categoryName = grid.previousElementSibling.querySelector('h3').textContent;
+                if (grid) {
+                    if (window.location.pathname.includes('offers.html')) {
+                        categoryName = 'Offer';
+                    } else if (grid.previousElementSibling) {
+                        const heading = grid.previousElementSibling.querySelector('h3, h2');
+                        if (heading) {
+                            categoryName = heading.textContent.trim();
+                        }
+                    }
                 }
 
                 // Populate Modal
@@ -687,7 +746,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (priceEl) {
                     const priceText = priceEl.textContent.replace(/[^\d.,]/g, '').replace(',', '.');
                     rawPrice = parseFloat(priceText) || 0;
-                    modalPrice.textContent = priceEl.textContent;
+                    modalPrice.textContent = 'Rs ' + formatPrice(rawPrice);
                 }
                 currentBasePrice = rawPrice;
                 currentQty = 1;
@@ -699,14 +758,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (categoryName.toLowerCase().includes('burger') || categoryName.toLowerCase().includes('sandwich')) {
                     addonWrap.style.display = 'block';
                     addonOptions.innerHTML = `
-                        <div class="addon-chip" data-price="2.50">+ Extra Cheese (Rs 2,50)</div>
-                        <div class="addon-chip" data-price="3.00">+ Bacon (Rs 3,00)</div>
+                        <div class="addon-chip" data-price="2.5">+ Extra Cheese (Rs 2,5)</div>
+                        <div class="addon-chip" data-price="3">+ Bacon (Rs 3)</div>
                     `;
                 } else if (categoryName.toLowerCase().includes('pizza')) {
                     addonWrap.style.display = 'block';
                     addonOptions.innerHTML = `
-                        <div class="addon-chip" data-price="5.00">+ Stuffed Crust (Rs 5,00)</div>
-                        <div class="addon-chip" data-price="4.50">+ Extra Pepperoni (Rs 4,50)</div>
+                        <div class="addon-chip" data-price="5">+ Stuffed Crust (Rs 5)</div>
+                        <div class="addon-chip" data-price="4.5">+ Extra Pepperoni (Rs 4,5)</div>
                     `;
                 } else {
                     addonWrap.style.display = 'none';
@@ -810,17 +869,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 cartItemsWrapper.insertAdjacentHTML('beforeend', html);
             });
             
-            // Re-bind lightboxes
-            cartItemsWrapper.querySelectorAll('.lightbox-trigger').forEach(trigger => {
-                trigger.addEventListener('click', () => {
-                    const lightbox = document.getElementById('lightbox');
-                    const lightboxImg = document.getElementById('lightbox-img');
-                    if (lightbox && lightboxImg) {
-                        lightboxImg.src = trigger.src;
-                        lightbox.classList.add('active');
-                    }
-                });
-            });
+            // Handled automatically via global delegated lightbox event listener
 
             // Update subtotal / total
             const subtotal = CartManager.getSubtotal();

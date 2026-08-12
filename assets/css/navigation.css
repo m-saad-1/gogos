@@ -365,7 +365,6 @@
 
 
 
-/* Mobile Tab Bar — floating pill style */
 .mobile-tab-bar {
     display: none;
     position: fixed;
@@ -373,11 +372,11 @@
     left: 14px;
     right: 14px;
     width: auto;
-    background: rgba(255, 255, 255, 0.65) !important;
-    backdrop-filter: blur(24px) saturate(200%) !important;
-    -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.45) !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 0 0 1px rgba(0, 0, 0, 0.04) !important;
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
     border-radius: 50px !important;
     z-index: 100 !important;
     justify-content: space-around !important;
