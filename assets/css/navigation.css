@@ -125,15 +125,15 @@
 
 .hamburger-lines .line {
     display: block;
-    height: 3px;
+    height: 2px;
     width: 100%;
     border-radius: 10px;
     background: var(--clr-text-primary);
-    transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .mobile-menu-btn.open .line1 {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(9px) rotate(45deg);
 }
 
 .mobile-menu-btn.open .line2 {

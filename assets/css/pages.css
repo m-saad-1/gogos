@@ -300,6 +300,126 @@
     border-radius: 0 0 24px 24px;
 }
 
+/* About Page Premium Layouts */
+.about-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: rgba(211, 47, 47, 0.1);
+    color: var(--clr-primary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.stat-item {
+    flex: 1;
+}
+
+.stat-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--clr-primary);
+    line-height: 1.1;
+    margin-bottom: 0.3rem;
+    font-family: var(--ff-heading);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.social-about-btn.instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    color: white;
+    border-color: transparent;
+}
+
+.social-about-btn.facebook:hover {
+    background: #1877F2;
+    color: white;
+    border-color: transparent;
+}
+
+.social-about-btn.twitter:hover {
+    background: #000000;
+    color: white;
+    border-color: transparent;
+}
+
+/* Image Slider Navigation Buttons */
+.about-slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--clr-text-primary);
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.about-slider-btn:hover {
+    background: var(--clr-primary);
+    color: white;
+    box-shadow: 0 4px 20px rgba(211, 47, 47, 0.3);
+}
+
+.about-slider-btn.prev {
+    left: 15px;
+}
+
+.about-slider-btn.next {
+    right: 15px;
+}
+
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    #about-img-display {
+        height: 280px !important;
+    }
+    
+    .about-stats {
+        gap: 1.5rem;
+    }
+    
+    .stat-item {
+        min-width: 80px;
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+}
+
 .about-hero-title {
     font-size: 3.5rem;
     font-weight: 700;
@@ -780,7 +900,7 @@ input:focus, textarea:focus {
     background-color: var(--clr-primary) !important;
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
-    bottom: 105px !important;
+    bottom: 85px !important;
 }
 
 /* View Cart Button */
