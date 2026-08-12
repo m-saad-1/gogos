@@ -29,7 +29,7 @@
    Chatbot Toggle Button
    ============================================================ */
 .chatbot-toggle {
-  position: absolute !important;
+  position: relative !important;
   bottom: 0px;
   right: 0px;
   z-index: 99999;
@@ -58,9 +58,34 @@
 }
 
 .chatbot-toggle svg {
+  position: absolute;
+  top: 17px;
+  left: 17px;
+  width: 26px;
+  height: 26px;
   stroke: currentColor;
   fill: none;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+
+.chatbot-toggle .icon-chat {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.chatbot-toggle .icon-close {
+  opacity: 0;
+  transform: scale(0) rotate(-90deg);
+}
+
+.chatbot-toggle.active .icon-chat {
+  opacity: 0;
+  transform: scale(0) rotate(90deg);
+}
+
+.chatbot-toggle.active .icon-close {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
 }
 
 /* ============================================================
@@ -176,7 +201,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  background: var(--chat-surface);
+  background: linear-gradient(180deg, #FDFBF7 0%, #F5EFEB 100%);
 }
 
 .chatbot-messages::-webkit-scrollbar {
@@ -211,9 +236,10 @@
 
 .chat-message.bot .msg-content {
   background: #ffffff;
-  color: var(--clr-text-primary, #333);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 14px 14px 14px 0;
+  color: var(--clr-text-primary, #1e1e1e);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 16px 16px 16px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
 }
 
 .chat-message.user {
@@ -221,9 +247,10 @@
 }
 
 .chat-message.user .msg-content {
-  background: var(--clr-primary);
+  background: linear-gradient(135deg, var(--clr-primary) 0%, #b71c1c 100%);
   color: white;
-  border-radius: 14px 14px 0 14px;
+  border-radius: 16px 16px 0 16px;
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.15);
 }
 
 .msg-content {

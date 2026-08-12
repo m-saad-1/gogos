@@ -97,12 +97,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (totalEl) totalEl.textContent = priceStr;
                     
                     if (chatbotWidget && window.innerWidth <= 768) {
-                        chatbotWidget.style.bottom = '160px';
+                        chatbotWidget.style.bottom = '165px';
                     }
                 } else {
                     floatingCart.style.display = 'none';
                     if (chatbotWidget && window.innerWidth <= 768) {
-                        chatbotWidget.style.bottom = '75px';
+                        chatbotWidget.style.bottom = '90px';
                     }
                 }
             }
@@ -256,8 +256,28 @@ document.addEventListener('DOMContentLoaded', () => {
     let isTyping = false;
 
     if (chatToggle && chatContainer) {
+        // Setup smooth icon transition (inject close icon dynamically if it doesn't exist)
+        const robotSvg = chatToggle.querySelector('svg');
+        if (robotSvg) robotSvg.classList.add('icon-chat');
+        
+        if (!chatToggle.querySelector('.icon-close')) {
+            const closeSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            closeSvg.setAttribute("class", "icon-close");
+            closeSvg.setAttribute("viewBox", "0 0 24 24");
+            closeSvg.setAttribute("width", "26");
+            closeSvg.setAttribute("height", "26");
+            closeSvg.setAttribute("stroke", "currentColor");
+            closeSvg.setAttribute("stroke-width", "2");
+            closeSvg.setAttribute("fill", "none");
+            closeSvg.setAttribute("stroke-linecap", "round");
+            closeSvg.setAttribute("stroke-linejoin", "round");
+            closeSvg.innerHTML = `<line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>`;
+            chatToggle.appendChild(closeSvg);
+        }
+
         chatToggle.addEventListener('click', () => {
             chatContainer.classList.toggle('show');
+            chatToggle.classList.toggle('active');
             if (chatContainer.classList.contains('show') && chatInput) {
                 setTimeout(() => chatInput.focus(), 300);
             }
@@ -266,6 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (chatClose) {
             chatClose.addEventListener('click', () => {
                 chatContainer.classList.remove('show');
+                chatToggle.classList.remove('active');
             });
         }
 

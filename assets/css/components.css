@@ -479,7 +479,7 @@
 .floating-cart-bar {
     display: none;
     position: fixed;
-    bottom: 75px;
+    bottom: 90px;
     /* above the floating pill nav */
     left: 20px;
     right: 20px;
