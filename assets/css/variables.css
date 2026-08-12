@@ -1,0 +1,126 @@
+/* ==========================================================================
+   Takeaway CSS Module: variables.css
+   ========================================================================== */
+
+:root {
+    /* Color Palette */
+    --clr-background: #FDFBF7;
+    --clr-surface: #FFFFFF;
+    --clr-surface-dark: #1E1E1E;
+    --clr-primary: #D32F2F;
+    --clr-primary-dark: #B71C1C;
+    --clr-text-primary: #1E1E1E;
+    --clr-text-on-dark: #FDFBF7;
+    --clr-badge-danger: #D32F2F;
+    --clr-star: #F57F17;
+    
+    /* Typography */
+    --ff-heading: 'Poppins', sans-serif;
+    --ff-body: 'Inter', sans-serif;
+    
+    /* Spacing & Utilities */
+    --border-radius: 12px;
+    --border-radius-lg: 24px;
+    --transition: 0.3s ease;
+    --max-width: 1400px;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    overflow-x: clip;
+    width: 100%;
+    position: relative;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--ff-body);
+    background-color: var(--clr-background);
+    color: var(--clr-text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography base */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--ff-heading);
+    line-height: 1.2;
+}
+
+/* Container */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: var(--ff-body);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-dark));
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--clr-text-primary);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.icon-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.icon-btn .badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--clr-badge-danger);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
