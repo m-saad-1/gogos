@@ -97,12 +97,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (totalEl) totalEl.textContent = priceStr;
                     
                     if (chatbotWidget && window.innerWidth <= 768) {
-                        chatbotWidget.style.bottom = '150px';
+                        chatbotWidget.style.bottom = '160px';
                     }
                 } else {
                     floatingCart.style.display = 'none';
                     if (chatbotWidget && window.innerWidth <= 768) {
-                        chatbotWidget.style.bottom = '85px';
+                        chatbotWidget.style.bottom = '75px';
                     }
                 }
             }
