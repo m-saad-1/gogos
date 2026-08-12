@@ -22,6 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
             if (saved) {
                 try { this.state.items = JSON.parse(saved); } catch(e) {}
             }
+            
+            const floatingCart = document.querySelector('.floating-cart-bar');
+            if (floatingCart) {
+                floatingCart.style.cursor = 'pointer';
+                floatingCart.addEventListener('click', () => {
+                    const isSubpage = window.location.pathname.includes('/pages/');
+                    window.location.href = isSubpage ? 'cart.html' : 'pages/cart.html';
+                });
+            }
+            
             this.updateUI();
         },
         save() {

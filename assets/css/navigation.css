@@ -427,7 +427,11 @@
     }
     
     body {
-        padding-bottom: 84px;
+        padding-bottom: 0;
+    }
+    
+    .footer {
+        padding-bottom: calc(2rem + 84px) !important;
     }
 }
 
