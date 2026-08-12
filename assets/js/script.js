@@ -1,3 +1,15 @@
+// Central price formatting function helper to remove trailing zeros
+function formatPrice(price) {
+    let formatted = Number(price).toFixed(2).replace('.', ',');
+    if (formatted.endsWith(',00')) {
+        return formatted.substring(0, formatted.length - 3);
+    }
+    if (formatted.includes(',') && formatted.endsWith('0')) {
+        return formatted.substring(0, formatted.length - 1);
+    }
+    return formatted;
+}
+
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', () => {
     console.log('HDM Gourmet - Script Loaded');
@@ -48,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateUI() {
             const totalItems = this.getTotalItems();
             const subtotal = this.getSubtotal();
-            const priceStr = `Rs ${subtotal.toFixed(2).replace('.', ',')}`;
+            const priceStr = `Rs ${formatPrice(subtotal)}`;
             
             // Update all badges
             document.querySelectorAll('a[href*="cart.html"] .badge').forEach(badge => {
@@ -58,13 +70,24 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Update floating cart bar (mobile)
             const floatingCart = document.querySelector('.floating-cart-bar');
+            const chatbotWidget = document.querySelector('.chatbot-widget');
+            
             if (floatingCart) {
                 if (totalItems > 0 && !window.location.pathname.includes('cart.html')) {
                     floatingCart.style.display = 'flex';
-                    floatingCart.querySelector('.cart-count').textContent = `${totalItems} item${totalItems > 1 ? 's' : ''}`;
-                    floatingCart.querySelector('.cart-total').textContent = priceStr;
+                    const countEl = floatingCart.querySelector('.cart-count');
+                    const totalEl = floatingCart.querySelector('.cart-total');
+                    if (countEl) countEl.textContent = `${totalItems} item${totalItems > 1 ? 's' : ''}`;
+                    if (totalEl) totalEl.textContent = priceStr;
+                    
+                    if (chatbotWidget && window.innerWidth <= 768) {
+                        chatbotWidget.style.bottom = '170px';
+                    }
                 } else {
                     floatingCart.style.display = 'none';
+                    if (chatbotWidget && window.innerWidth <= 768) {
+                        chatbotWidget.style.bottom = '90px';
+                    }
                 }
             }
         }
@@ -146,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.querySelector('.lightbox-close');
     
     if (lightbox) {
-        document.querySelectorAll('.card-image img, .lightbox-trigger').forEach(img => {
+        document.querySelectorAll('.lightbox-trigger').forEach(img => {
             img.style.cursor = 'pointer';
             img.addEventListener('click', (e) => {
                 lightbox.style.display = 'flex';
@@ -172,179 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // --- Cart Functionality ---
-    const cartBtns = document.querySelectorAll('.product-card .btn, .hero-order-btn, .header-order-btn');
-    let cart = JSON.parse(localStorage.getItem('takeaway_cart')) || [];
-    
-    const updateCartUI = () => {
-        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-        document.querySelectorAll('.badge').forEach(badge => {
-            badge.textContent = totalItems;
-        });
-        localStorage.setItem('takeaway_cart', JSON.stringify(cart));
-        
-        // Handle Floating Cart Bar and Chatbot Widget position dynamically
-        const floatingCartBar = document.querySelector('.floating-cart-bar');
-        const chatbotWidget = document.querySelector('.chatbot-widget');
-        if (floatingCartBar) {
-            if (totalItems > 0 && window.innerWidth <= 768) {
-                floatingCartBar.style.display = 'flex';
-                
-                // Update floating cart text
-                let subtotal = 0;
-                cart.forEach(item => {
-                    const priceNum = parseFloat(item.price.replace('Rs', '').replace(',', '.').trim());
-                    if (!isNaN(priceNum)) subtotal += priceNum * item.quantity;
-                });
-                const countEl = floatingCartBar.querySelector('.cart-count');
-                const totalEl = floatingCartBar.querySelector('.cart-total');
-                if (countEl) countEl.textContent = totalItems === 1 ? '1 item' : `${totalItems} items`;
-                if (totalEl) totalEl.textContent = `Rs ${subtotal.toFixed(0)}`;
-
-                if (chatbotWidget) chatbotWidget.style.bottom = '170px';
-                
-                const viewCartBtn = floatingCartBar.querySelector('.cart-view-btn');
-                if (viewCartBtn && viewCartBtn.tagName === 'BUTTON') {
-                    viewCartBtn.onclick = () => {
-                        const href = window.location.pathname.includes('/pages/') ? 'cart.html' : 'pages/cart.html';
-                        window.location.href = href;
-                    };
-                }
-            } else {
-                floatingCartBar.style.display = 'none';
-                if (chatbotWidget && window.innerWidth <= 768) chatbotWidget.style.bottom = '90px';
-            }
-        }
-        
-        // If on cart page, render items
-        const cartWrapper = document.querySelector('.cart-items-wrapper');
-        const emptyState = document.querySelector('.empty-cart-state');
-        if (cartWrapper && emptyState) {
-            if (cart.length === 0) {
-                cartWrapper.style.display = 'none';
-                const summaryBox = document.querySelector('.checkout-summary-box');
-                if (summaryBox) summaryBox.style.display = 'none';
-                emptyState.style.display = 'block';
-            } else {
-                cartWrapper.style.display = 'block';
-                const summaryBox = document.querySelector('.checkout-summary-box');
-                if (summaryBox) summaryBox.style.display = 'block';
-                emptyState.style.display = 'none';
-                
-                cartWrapper.innerHTML = '';
-                let subtotal = 0;
-                
-                cart.forEach((item, index) => {
-                    const priceNum = parseFloat(item.price.replace('Rs', '').replace(',', '.').trim());
-                    if (!isNaN(priceNum)) subtotal += priceNum * item.quantity;
-                    
-                    const div = document.createElement('div');
-                    div.className = 'cart-item';
-                    div.innerHTML = `
-                        <img src="${item.imgSrc || './assets/images/Deal (1).avif'}" class="cart-item-img lightbox-trigger" alt="${item.title}" style="cursor: pointer;">
-                        <div class="cart-item-details">
-                            <h4 class="cart-item-title">${item.title}</h4>
-                            <span class="cart-item-price">${item.price}</span>
-                        </div>
-                        <div class="cart-item-actions">
-                            <div class="quantity-stepper">
-                                <button class="stepper-btn minus-btn" data-index="${index}">-</button>
-                                <span class="stepper-value">${item.quantity}</span>
-                                <button class="stepper-btn plus-btn" data-index="${index}">+</button>
-                            </div>
-                            <button class="cart-remove-btn" data-index="${index}" aria-label="Remove">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
-                            </button>
-                        </div>
-                    `;
-                    cartWrapper.appendChild(div);
-                });
-                
-                // Re-bind Lightbox for new cart items
-                if (lightbox && lightboxImg) {
-                    cartWrapper.querySelectorAll('.lightbox-trigger').forEach(img => {
-                        img.addEventListener('click', (e) => {
-                            lightbox.style.display = 'flex';
-                            void lightbox.offsetWidth;
-                            lightbox.classList.add('show');
-                            lightboxImg.src = e.target.src;
-                        });
-                    });
-                }
-                
-                // Listeners
-                cartWrapper.querySelectorAll('.plus-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const idx = parseInt(e.target.dataset.index);
-                        cart[idx].quantity++;
-                        updateCartUI();
-                    });
-                });
-                cartWrapper.querySelectorAll('.minus-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const idx = parseInt(e.target.dataset.index);
-                        if (cart[idx].quantity > 1) {
-                            cart[idx].quantity--;
-                        } else {
-                            cart.splice(idx, 1);
-                        }
-                        updateCartUI();
-                    });
-                });
-                cartWrapper.querySelectorAll('.cart-remove-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const idx = parseInt(e.currentTarget.dataset.index);
-                        cart.splice(idx, 1);
-                        updateCartUI();
-                    });
-                });
-                
-                const subtotalEl = document.querySelector('.subtotal-val');
-                const totalEl = document.querySelector('.total-val');
-                const deliveryFee = 100; // Rs 100 delivery
-                if (subtotalEl) subtotalEl.textContent = 'Rs ' + subtotal.toFixed(0);
-                if (totalEl) totalEl.textContent = 'Rs ' + (subtotal + deliveryFee).toFixed(0);
-            }
-        }
-    };
-    
-    cartBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const card = e.target.closest('.product-card');
-            let title = 'Special Item';
-            let priceText = 'Rs 500';
-            let imgSrc = './assets/images/Deal (1).avif';
-            
-            if (card) {
-                const titleEl = card.querySelector('h3');
-                const priceEl = card.querySelector('.price');
-                const imgEl = card.querySelector('img');
-                
-                if (titleEl) title = titleEl.textContent;
-                if (priceEl) priceText = priceEl.textContent;
-                if (imgEl) imgSrc = imgEl.src;
-            }
-            
-            const existing = cart.find(item => item.title === title);
-            if (existing) {
-                existing.quantity += 1;
-            } else {
-                cart.push({ title, price: priceText, quantity: 1, imgSrc });
-            }
-            
-            updateCartUI();
-            
-            const originalHTML = btn.innerHTML;
-            btn.innerHTML = '✓';
-            setTimeout(() => btn.innerHTML = originalHTML, 1000);
-        });
-    });
-    
-    // Init
-    updateCartUI();
-    window.addEventListener('resize', updateCartUI);
-
     // --- Chatbot Functionality ---
     const chatToggle = document.querySelector('.chatbot-toggle');
     const chatContainer = document.querySelector('.chatbot-container');
@@ -352,14 +202,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatInput = document.getElementById('chat-input-field');
     const chatSend = document.getElementById('chat-send-btn');
     const chatMessages = document.querySelector('.chatbot-messages');
+    let isTyping = false;
 
     if (chatToggle && chatContainer) {
         chatToggle.addEventListener('click', () => {
             chatContainer.classList.toggle('show');
+            if (chatContainer.classList.contains('show') && chatInput) {
+                setTimeout(() => chatInput.focus(), 300);
+            }
         });
-        chatClose.addEventListener('click', () => {
-            chatContainer.classList.remove('show');
-        });
+
+        if (chatClose) {
+            chatClose.addEventListener('click', () => {
+                chatContainer.classList.remove('show');
+            });
+        }
 
         const addMessage = (text, type) => {
             const msgDiv = document.createElement('div');
@@ -369,21 +226,58 @@ document.addEventListener('DOMContentLoaded', () => {
             chatMessages.scrollTop = chatMessages.scrollHeight;
         };
 
+        const showTyping = () => {
+            isTyping = true;
+            if (chatSend) chatSend.disabled = true;
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'chat-message bot typing-indicator';
+            typingDiv.innerHTML = `
+                <div class="msg-content">
+                    <div class="typing-bubble">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            `;
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        };
+
+        const removeTyping = () => {
+            isTyping = false;
+            if (chatSend) chatSend.disabled = false;
+            const typingInd = chatMessages.querySelector('.typing-indicator');
+            if (typingInd) typingInd.remove();
+        };
+
         const handleSend = () => {
+            if (isTyping) return;
             const text = chatInput.value.trim();
             if (text) {
                 addMessage(text, 'user');
                 chatInput.value = '';
+                if (chatSend) chatSend.disabled = true;
+                
+                showTyping();
                 setTimeout(() => {
-                    addMessage('Thank you for your message! Our team will assist you shortly. You can also call us directly.', 'bot');
-                }, 1000);
+                    removeTyping();
+                    addMessage('Thank you for your message! Our team will assist you shortly.', 'bot');
+                }, 1500);
             }
         };
 
-        if (chatSend) chatSend.addEventListener('click', handleSend);
-        if (chatInput) chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') handleSend();
-        });
+        if (chatSend) {
+            chatSend.addEventListener('click', handleSend);
+            chatSend.disabled = true; // initially empty
+        }
+
+        if (chatInput) {
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleSend();
+            });
+            chatInput.addEventListener('input', () => {
+                if (chatSend) chatSend.disabled = chatInput.value.trim().length === 0 || isTyping;
+            });
+        }
     }
 
     // --- Lazy Load Videos ---
@@ -423,10 +317,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let isDragging = false;
         let startX = 0;
         let hasDragged = false;
+        let isAnimating = false;
 
-        const updateCarousel = (animate = true) => {
-            carouselTrack.style.transition = animate ? 'transform 0.5s ease-in-out' : 'none';
-            carouselTrack.style.transform = `translateX(-${currentSlide * 33.3333}%)`;
+        const updateIndicators = () => {
             indicators.forEach((ind, i) => {
                 const isActive = i === currentSlide;
                 ind.classList.toggle('active', isActive);
@@ -434,12 +327,51 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
-        const goTo = (index) => {
-            currentSlide = ((index % totalSlides) + totalSlides) % totalSlides;
-            updateCarousel(true);
+        const nextSlide = () => {
+            if (isAnimating) return;
+            isAnimating = true;
+            carouselTrack.style.transition = 'transform 0.5s ease-in-out';
+            carouselTrack.style.transform = `translateX(-33.3333%)`;
+            
+            setTimeout(() => {
+                carouselTrack.style.transition = 'none';
+                carouselTrack.appendChild(carouselTrack.firstElementChild);
+                carouselTrack.style.transform = 'translateX(0)';
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateIndicators();
+                isAnimating = false;
+            }, 500);
         };
 
-        const nextSlide = () => goTo(currentSlide + 1);
+        const prevSlide = () => {
+            if (isAnimating) return;
+            isAnimating = true;
+            carouselTrack.style.transition = 'none';
+            carouselTrack.insertBefore(carouselTrack.lastElementChild, carouselTrack.firstElementChild);
+            carouselTrack.style.transform = `translateX(-33.3333%)`;
+            void carouselTrack.offsetWidth;
+            
+            carouselTrack.style.transition = 'transform 0.5s ease-in-out';
+            carouselTrack.style.transform = 'translateX(0)';
+            
+            setTimeout(() => {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateIndicators();
+                isAnimating = false;
+            }, 500);
+        };
+
+        const goTo = (index) => {
+            if (index === currentSlide || isAnimating) return;
+            const diff = index - currentSlide;
+            if (diff === 1 || diff === -(totalSlides - 1)) {
+                nextSlide();
+            } else if (diff === -1 || diff === (totalSlides - 1)) {
+                prevSlide();
+            } else {
+                nextSlide(); // For diffs > 1, fallback to single slide to keep it simple
+            }
+        };
 
         const startAutoPlay = () => {
             stopAutoPlay();
@@ -483,9 +415,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (Math.abs(diff) > 40) {
                 hasDragged = true;
                 if (diff < 0) {
-                    goTo(currentSlide + 1); // swipe left → next
+                    nextSlide(); // swipe left → next
                 } else {
-                    goTo(currentSlide - 1); // swipe right → prev (wraps)
+                    prevSlide(); // swipe right → prev
                 }
             }
             startAutoPlay();
@@ -565,7 +497,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const allProductCards = document.querySelectorAll('.product-card');
         const allCategoryHeadings = document.querySelectorAll('.menu-grid');
 
-        // Create "no results" message element
+        // Create "no results" message element if doesn't exist
         let noResultsEl = document.getElementById('menu-no-results');
         if (!noResultsEl) {
             noResultsEl = document.createElement('div');
@@ -576,23 +508,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p style="font-size:1rem; font-weight:600; margin:0 0 0.4rem;">No dishes found</p>
                 <p style="font-size:0.85rem; margin:0;">Try a different search term</p>
             `;
-            const menuSection = document.getElementById('cardapio');
+            const menuSection = document.getElementById('cardapio') || document.getElementById('menu-section');
             if (menuSection) menuSection.querySelector('.container').appendChild(noResultsEl);
+        }
+
+        if (menuFilterClear) {
+            menuFilterClear.addEventListener('click', () => {
+                if (menuSearchInput.value.length > 0) {
+                    menuSearchInput.value = '';
+                    menuSearchInput.dispatchEvent(new Event('input'));
+                }
+            });
         }
 
         menuSearchInput.addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
 
-            // Show/hide clear button
+            // Toggle filter icon to clear (X) icon when typing
             if (menuFilterClear) {
-                menuFilterClear.style.display = query.length > 0 ? 'flex' : 'none';
+                if (query.length > 0) {
+                    menuFilterClear.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+                    menuFilterClear.style.color = 'var(--clr-primary)';
+                } else {
+                    menuFilterClear.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>';
+                    menuFilterClear.style.color = 'var(--clr-text-primary)';
+                }
             }
 
             if (!query) {
-                // Show all
                 allProductCards.forEach(card => card.style.display = '');
                 document.querySelectorAll('.menu-category-header, .menu-grid').forEach(el => el.style.display = '');
-                noResultsEl.style.display = 'none';
+                if (noResultsEl) noResultsEl.style.display = 'none';
+                // Reset category headers
+                document.querySelectorAll('.menu-grid').forEach(grid => {
+                    if (grid.previousElementSibling) grid.previousElementSibling.style.display = '';
+                });
                 return;
             }
 
@@ -609,11 +559,15 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.menu-grid').forEach(grid => {
                 const visibleCards = grid.querySelectorAll('.product-card[style=""],.product-card:not([style*="none"])');
                 const hasVisible = Array.from(grid.querySelectorAll('.product-card')).some(c => c.style.display !== 'none');
-                // Hide preceding header
+                
                 const prevHeader = grid.previousElementSibling;
-                if (prevHeader) prevHeader.style.display = hasVisible ? '' : 'none';
+                if (prevHeader && (prevHeader.tagName === 'H3' || prevHeader.querySelector('h3'))) {
+                    prevHeader.style.display = hasVisible ? '' : 'none';
+                }
                 grid.style.display = hasVisible ? '' : 'none';
             });
+            
+            if (noResultsEl) noResultsEl.style.display = anyVisible ? 'none' : 'block';
 
         });
     }
@@ -641,6 +595,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const itemModal = document.getElementById('item-modal');
     if (itemModal) {
         const modalImg = document.getElementById('modal-item-img');
+        if (modalImg) {
+            modalImg.style.cursor = 'pointer';
+            modalImg.addEventListener('click', () => {
+                if (lightbox && lightboxImg) {
+                    lightboxImg.src = modalImg.src;
+                    lightbox.style.display = 'flex';
+                    void lightbox.offsetWidth;
+                    lightbox.classList.add('show');
+                }
+            });
+        }
         const modalCategory = document.getElementById('modal-item-category');
         const modalName = document.getElementById('modal-item-name');
         const modalDesc = document.getElementById('modal-item-desc');
@@ -659,7 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function updateModalTotal() {
             const total = (currentBasePrice + selectedAddonsTotal) * currentQty;
-            modalAddTotal.textContent = `Rs ${total.toFixed(2).replace('.', ',')}`;
+            modalAddTotal.textContent = `Rs ${formatPrice(total)}`;
         }
 
         // Handle Qty Stepper
@@ -817,8 +782,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <img src="${item.image}" class="cart-item-img lightbox-trigger" alt="${item.title}">
                         <div class="cart-item-details">
                             <h4 class="cart-item-title">${item.title}</h4>
-                            ${item.addonsTotal > 0 ? `<p style="font-size:0.8rem; color:#888; margin-bottom:0.2rem;">+ Add-ons (Rs ${item.addonsTotal.toFixed(2).replace('.', ',')})</p>` : ''}
-                            <span class="cart-item-price">Rs ${itemTotal.toFixed(2).replace('.', ',')}</span>
+                            ${item.addonsTotal > 0 ? `<p style="font-size:0.8rem; color:#888; margin-bottom:0.2rem;">+ Add-ons (Rs ${formatPrice(item.addonsTotal)})</p>` : ''}
+                            <span class="cart-item-price">Rs ${formatPrice(itemTotal)}</span>
                         </div>
                         <div class="cart-item-actions">
                             <div class="quantity-stepper">
@@ -826,7 +791,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <span class="stepper-value">${item.qty}</span>
                                 <button class="stepper-btn" onclick="CartManager.updateItemQty(${index}, ${item.qty + 1})">+</button>
                             </div>
-                            <button class="cart-remove-btn" onclick="CartManager.removeItem(${index})" aria-label="Remover">
+                            <button class="cart-remove-btn" onclick="CartManager.removeItem(${index})" aria-label="Remove">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
                             </button>
                         </div>
@@ -852,15 +817,26 @@ document.addEventListener('DOMContentLoaded', () => {
             const deliveryFee = 12.00;
             const subEl = document.querySelector('.subtotal-val');
             const totEl = document.querySelector('.total-val');
-            if (subEl) subEl.textContent = `Rs ${subtotal.toFixed(2).replace('.', ',')}`;
-            if (totEl) totEl.textContent = `Rs ${(subtotal + deliveryFee).toFixed(2).replace('.', ',')}`;
+            if (subEl) subEl.textContent = `Rs ${formatPrice(subtotal)}`;
+            if (totEl) totEl.textContent = `Rs ${formatPrice(subtotal + deliveryFee)}`;
             
             // Checkout Form Submit
             const checkoutForm = document.getElementById('checkout-form');
             if (checkoutForm) {
                 checkoutForm.onsubmit = function(e) {
                     e.preventDefault();
-                    // Clear cart
+                    const newOrder = {
+                        id: Math.floor(1000 + Math.random() * 9000),
+                        date: new Date().toLocaleDateString('en-GB') + ', ' + new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'}),
+                        items: [...CartManager.state.items],
+                        total: CartManager.getSubtotal() + 12.00,
+                        status: 'PREPARING'
+                    };
+                    
+                    let savedOrders = JSON.parse(localStorage.getItem('hdm_orders')) || [];
+                    savedOrders.unshift(newOrder);
+                    localStorage.setItem('hdm_orders', JSON.stringify(savedOrders));
+
                     CartManager.state.items = [];
                     CartManager.save();
                     alert('Order placed successfully! Redirecting to your orders...');
@@ -870,4 +846,97 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         window.renderCartPage();
     }
+
+    // --- Phase 6: Render Orders Page ---
+    const ordersContainer = document.querySelector('.dynamic-orders-wrapper');
+    if (window.location.pathname.includes('orders.html') && ordersContainer) {
+        const renderOrders = () => {
+            const savedOrders = JSON.parse(localStorage.getItem('hdm_orders')) || [];
+            if (savedOrders.length > 0) {
+                let html = '';
+                savedOrders.forEach(order => {
+                    let itemsHtml = order.items.map(i => `<strong style="color:#333;">${i.qty}x</strong> ${i.title}`).join('<br>');
+                    html += `
+                    <div class="order-card active-order" style="background: white; border-radius: 16px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 2px solid var(--clr-primary);">
+                        <div class="order-header" style="display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 1rem; margin-bottom: 1rem;">
+                            <div>
+                                <span class="order-status" style="display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.5rem;">${order.status}</span>
+                                <h3 class="order-id" style="margin: 0 0 0.2rem 0; font-size: 1.2rem; color: var(--clr-text-primary);">Order #${order.id}</h3>
+                                <span class="order-time" style="color: #666; font-size: 0.85rem;">${order.date}</span>
+                            </div>
+                            <div style="text-align: right;">
+                                <span class="order-price" style="font-weight: 700; color: var(--clr-text-primary); font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">Rs ${formatPrice(order.total)}</span>
+                                <span style="font-size: 0.8rem; color: #888;">${order.items.reduce((a,b)=>a+b.qty, 0)} items</span>
+                            </div>
+                        </div>
+                        <div class="order-items-list" style="margin-bottom: 1.5rem;">
+                            <p class="order-items" style="margin: 0; color: #555; line-height: 1.6; font-size: 0.95rem;">
+                                ${itemsHtml}
+                            </p>
+                        </div>
+                        <div class="order-progress-box" style="background: #f9f9f9; padding: 1rem; border-radius: 12px;">
+                            <strong class="order-progress-title" style="display: block; margin-bottom: 0.8rem; color: var(--clr-text-primary); font-size: 0.95rem;">Estimated Delivery: +30-45 mins</strong>
+                            <div class="order-progress-bar" style="height: 8px; background: #e0e0e0; border-radius: 4px; margin-bottom: 0.8rem; overflow: hidden;">
+                                <div class="order-progress-fill" style="height: 100%; width: 50%; background: var(--clr-primary); border-radius: 4px;"></div>
+                            </div>
+                            <div class="order-progress-steps" style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #888; font-weight: 500;">
+                                <span style="color: var(--clr-primary);">Confirmed</span>
+                                <span class="active" style="color: var(--clr-primary); font-weight: 700;">Preparing</span>
+                                <span>Out for Delivery</span>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                });
+                ordersContainer.innerHTML = html;
+                const emptyState = document.querySelector('.empty-orders-state');
+                if (emptyState) emptyState.style.display = 'none';
+            }
+        };
+        renderOrders();
+    }
+
+    // Dynamic chatbot positioning update on resize
+    window.addEventListener('resize', () => {
+        if (window.CartManager) {
+            window.CartManager.updateUI();
+        }
+    });
+
 });
+
+    // Search Functionality
+    const searchInputs = document.querySelectorAll('.search-input-wrapper input, #search-input');
+    const menuItems = document.querySelectorAll('.menu-item');
+    
+    searchInputs.forEach(input => {
+        input.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            
+            // Sync all search inputs on the page
+            searchInputs.forEach(otherInput => {
+                if (otherInput !== input) otherInput.value = e.target.value;
+            });
+            
+            menuItems.forEach(item => {
+                const title = item.querySelector('h3') ? item.querySelector('h3').textContent.toLowerCase() : '';
+                const desc = item.querySelector('.menu-desc') ? item.querySelector('.menu-desc').textContent.toLowerCase() : '';
+                
+                if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Hide clear button if empty
+            const clearBtn = input.parentElement.querySelector('.filter-btn');
+            if (clearBtn) {
+                if (searchTerm.length > 0) {
+                    clearBtn.style.display = 'flex';
+                } else {
+                    clearBtn.style.display = 'none'; // or reset
+                }
+            }
+        });
+    });

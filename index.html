@@ -80,12 +80,12 @@
 
     <main>
         <!-- Mobile Search Bar -->
-        <div class="mobile-search-bar">
+        <div class="mobile-search-bar" style="display: block; background: transparent; padding: 1.2rem 16px 0.8rem;">
             <div class="search-input-wrapper">
                 <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <input type="text" placeholder="Search dishes...">
-                <button class="filter-btn">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                <input type="text" placeholder="Search dishes..." id="menu-search-input" autocomplete="off">
+                <button class="filter-btn" aria-label="Filter" id="menu-filter-clear" style="display:none; color: var(--clr-primary);" onclick="document.getElementById('menu-search-input').value=''; document.getElementById('menu-search-input').dispatchEvent(new Event('input'));">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
             </div>
         </div>
@@ -110,309 +110,291 @@
         <!-- Other content sections will go here -->
         
         <!-- Menu Section -->
-        <section class="menu" id="menu-section">
+        <section class="menu" id="cardapio" style="padding-top: 0.5rem;">
             <div class="container">
-                <!-- Category: King deals -->
+                <!-- Category sticky wrapper -->
+                <div class="category-sticky-wrapper" id="category-sticky-wrapper">
+                    <div class="category-circles-wrapper" id="category-circles">
+                    <a href="#deals" class="category-circle-btn active" style="text-decoration:none;">
+                        <div class="circle-img"><img loading="lazy" decoding="async" src="./assets/images/Deal.avif" alt="Ofertas"></div>
+                        <span class="circle-label">Offers</span>
+                    </a>
+                    <a href="#chicken" class="category-circle-btn" style="text-decoration:none;">
+                        <div class="circle-img"><img loading="lazy" decoding="async" src="./assets/images/Chicken.avif" alt="Chicken and Chips"></div>
+                        <span class="circle-label">Frango/Batata</span>
+                    </a>
+                    <a href="#skewers" class="category-circle-btn" style="text-decoration:none;">
+                        <div class="circle-img"><img loading="lazy" decoding="async" src="./assets/images/Grilled_skewers (1).avif" alt="Grilled skewers"></div>
+                        <span class="circle-label">Grilled skewers</span>
+                    </a>
+                    <a href="#soups" class="category-circle-btn" style="text-decoration:none;">
+                        <div class="circle-img"><img loading="lazy" decoding="async" src="./assets/images/Soup.avif" alt="Soups"></div>
+                        <span class="circle-label">Soups</span>
+                    </a>
+                    <a href="#drinks" class="category-circle-btn" style="text-decoration:none;">
+                        <div class="circle-img"><img loading="lazy" decoding="async" src="./assets/images/Drink (1).avif" alt="Drinks"></div>
+                        <span class="circle-label">Drinks</span>
+                    </a>
+                    <a href="#desserts" class="category-circle-btn" style="text-decoration:none;">
+                        <div class="circle-img"><img loading="lazy" decoding="async" src="./assets/images/Dessert.avif" alt="Desserts"></div>
+                        <span class="circle-label">Desserts</span>
+                    </a>
+                </div><!-- /.category-circles-wrapper -->
+                </div><!-- /.category-sticky-wrapper -->
                 
+                <!-- Category: Ofertas -->
+                <div id="deals" style="display: flex; justify-content: flex-start; align-items: center; margin: 1.5rem 0 1rem; scroll-margin-top: 100px;">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-text-primary); margin: 0; text-align: left;">Offers</h3>
+                </div>
                 <div class="menu-grid">
                     <div class="product-card">
                         <div class="card-badge badge-primary">BEST SELLER</div>
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Deal (1).avif" alt="Deal 1"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Deal (1).avif" alt="Combo 1"></div>
                         <div class="card-content">
-                            <div class="card-header"><h3>King Deal 1</h3></div>
-                            <p class="card-desc">Amazing combo with fries and a drink.</p>
+                            <div class="card-header"><h3>Takeaway Special Deal</h3></div>
+                            <p class="card-desc">Our irresistible portions to share with friends..</p>
                             <div class="card-footer">
-                                <span class="price">Rs 500</span>
+                                <span class="price">Rs 45,9</span>
                                 <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
                             </div>
                         </div>
                     </div>
                     <div class="product-card">
                         <div class="card-badge badge-danger">OFFER</div>
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Deal (2).avif" alt="Deal 2"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Deal (2).avif" alt="Combo 2"></div>
                         <div class="card-content">
-                            <div class="card-header"><h3>King Deal 2</h3></div>
-                            <p class="card-desc">Delicious burger deal for two.</p>
+                            <div class="card-header"><h3>Petisco Special</h3></div>
+                            <p class="card-desc">Ideal for sharing. Everything in double.</p>
                             <div class="card-footer">
-                                <span class="price">Rs 850</span>
+                                <span class="price">Rs 89,9</span>
                                 <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
                             </div>
                         </div>
                     </div>
                     <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Deal (3).avif" alt="Deal 3"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Deal (3).avif" alt="Combo 3"></div>
                         <div class="card-content">
-                            <div class="card-header"><h3>King Deal 3</h3></div>
-                            <p class="card-desc">Family combo meal with all extras.</p>
+                            <div class="card-header"><h3>Batata Special</h3></div>
+                            <p class="card-desc">An explosion of flavor for the whole family to enjoy together.</p>
                             <div class="card-footer">
-                                <span class="price">Rs 1200</span>
+                                <span class="price">Rs 119,9</span>
                                 <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
                             </div>
                         </div>
                     </div>
                     <div class="product-card">
                         <div class="card-badge badge-primary">NEW</div>
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Deal (4).avif" alt="Deal 4"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Deal (4).avif" alt="Combo 4"></div>
                         <div class="card-content">
-                            <div class="card-header"><h3>King Deal 4</h3></div>
-                            <p class="card-desc">Special meal box with extreme taste.</p>
+                            <div class="card-header"><h3>Cold Cuts Board</h3></div>
+                            <p class="card-desc">The biggest combo in the house with special sides.</p>
                             <div class="card-footer">
-                                <span class="price">Rs 950</span>
+                                <span class="price">Rs 65,9</span>
                                 <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
                             </div>
                         </div>
                     </div>
                     <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Deal (1).avif" alt="Deal 5"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Deal.avif" alt="Combo 5"></div>
                         <div class="card-content">
-                            <div class="card-header"><h3>King Deal 5</h3></div>
-                            <p class="card-desc">The ultimate hunger buster deal.</p>
+                            <div class="card-header"><h3>Hard Stop Trio</h3></div>
+                            <p class="card-desc">Three different delights in a single special package.</p>
                             <div class="card-footer">
-                                <span class="price">Rs 1500</span>
-                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/pizza_margherita_1786227489936.avif" alt="Pizza 1"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Margherita Pizza</h3></div>
-                            <p class="card-desc">Classic cheese and tomato sauce.</p>
-                            <div class="card-footer">
-                                <span class="price">Rs 1200</span>
+                                <span class="price">Rs 78,9</span>
                                 <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
                             </div>
                         </div>
                     </div>
                     <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/pizza_pepperoni_1786227500825.avif" alt="Pizza 2"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Deal (1).avif" alt="Combo 6"></div>
                         <div class="card-content">
-                            <div class="card-header"><h3>Pepperoni Pizza</h3></div>
-                            <p class="card-desc">Loaded with pepperoni and extra cheese.</p>
+                            <div class="card-header"><h3>Couple Combo</h3></div>
+                            <p class="card-desc">Perfect to share with the one you love.</p>
                             <div class="card-footer">
-                                <span class="price">Rs 1450</span>
+                                <span class="price">Rs 55,9</span>
                                 <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
                             </div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/pizza_bbq_1786227513269.avif" alt="Pizza 3"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>BBQ Chicken Pizza</h3></div>
-                            <p class="card-desc">Grilled chicken with sweet BBQ sauce.</p>
-                            <div class="card-footer">
-                                <span class="price">Rs 1550</span>
-                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/pizza_veg_1786227524154.avif" alt="Pizza 4"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Vegetarian Pizza</h3></div>
-                            <p class="card-desc">Fresh veggies with olives and mushrooms.</p>
-                            <div class="card-footer">
-                                <span class="price">Rs 1100</span>
-                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Pizza.avif" alt="Pizza 5"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Supreme Pizza</h3></div>
-                            <p class="card-desc">Everything on it for extreme taste.</p>
-                            <div class="card-footer">
-                                <span class="price">Rs 1800</span>
-                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Burger.avif" alt="Burger 1"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Classic Beef Burger</h3></div>
-                            <p class="card-desc">Juicy beef patty with fresh lettuce and tomato.</p>
-                            <div class="card-footer">
-                                <span class="price">Rs 650</span>
-                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/burger_cheese_1786227534377.avif" alt="Burger 2"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Cheeseburger Deluxe</h3></div>
-                            <p class="card-desc">Double cheese and special burger sauce.</p>
-                            <div class="card-footer">
-                                <span class="price">Rs 750</span>
-                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/burger_chicken_1786227544480.avif" alt="Burger 3"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Crispy Chicken Burger</h3></div>
-                            <p class="card-desc">Rawnchy fried chicken breast with mayo.</p>
-                            <div class="card-footer">
-                                <span class="price">Rs 700</span>
-                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/burger_zinger_1786227554642.avif" alt="Burger 4"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Spicy Zinger</h3></div>
-                            <p class="card-desc">Extra hot chicken fillet with jalapenos.</p>
-                            <div class="card-footer">
-                                <span class="price">Rs 800</span>
-                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/burger_smash_1786227565327.avif" alt="Burger 5"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Double Smash Burger</h3></div>
-                            <p class="card-desc">Two smashed beef patties with caramelized onions.</p>
-                            <div class="card-footer">
-                                <span class="price">Rs 950</span>
-                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Sprite_lemon_lime_1.jpg/960px-Sprite_lemon_lime_1.jpg" alt="Sprite"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Sprite</h3></div>
-                            <p class="card-desc">Ice cold refreshing Sprite.</p>
-                            <div class="card-footer"><span class="price">Rs 150</span><button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button></div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Coca_Cola_Flasche_-_Original_Taste.jpg/960px-Coca_Cola_Flasche_-_Original_Taste.jpg" alt="Coke"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Coke</h3></div>
-                            <p class="card-desc">Classic Coca-Cola bottle.</p>
-                            <div class="card-footer"><span class="price">Rs 200</span><button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button></div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/fanta.avif" alt="Fanta"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Fanta</h3></div>
-                            <p class="card-desc">Refreshing orange Fanta.</p>
-                            <div class="card-footer"><span class="price">Rs 180</span><button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button></div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/grocerapp-pepsi-drink--5f1815cc6dd00.avif" alt="Pepsi"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Pepsi</h3></div>
-                            <p class="card-desc">Ice cold Pepsi cola.</p>
-                            <div class="card-footer"><span class="price">Rs 80</span><button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button></div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/dew.avif" alt="Mountain Dew"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Dew</h3></div>
-                            <p class="card-desc">Do the Dew with Mountain Dew.</p>
-                            <div class="card-footer"><span class="price">Rs 350</span><button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button></div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/a/ae/StrawberrySundae.jpg" alt="Dessert 1"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Chocolate Sundae</h3></div>
-                            <p class="card-desc">Vanilla ice cream with hot fudge.</p>
-                            <div class="card-footer"><span class="price">Rs 450</span><button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button></div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/5/55/Chocolate_fudge_cake.jpg" alt="Dessert 2"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Lava Cake</h3></div>
-                            <p class="card-desc">Warm chocolate cake with molten center.</p>
-                            <div class="card-footer"><span class="price">Rs 550</span><button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button></div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Basque-cheesecake.jpg/960px-Basque-cheesecake.jpg" alt="Dessert 3"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Cheesecake</h3></div>
-                            <p class="card-desc">New York style classic cheesecake.</p>
-                            <div class="card-footer"><span class="price">Rs 600</span><button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button></div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Hazelnut_blondie.jpg/960px-Hazelnut_blondie.jpg" alt="Dessert 4"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Brownie Delight</h3></div>
-                            <p class="card-desc">Fudgy brownie topped with walnuts.</p>
-                            <div class="card-footer"><span class="price">Rs 400</span><button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button></div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Dessert.avif" alt="Dessert 5"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Strawberry Tart</h3></div>
-                            <p class="card-desc">Crispy tart shell with fresh strawberries.</p>
-                            <div class="card-footer"><span class="price">Rs 500</span><button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button></div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Sauce.avif" alt="Sauce 1"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Garlic Mayo</h3></div>
-                            <p class="card-desc">Creamy mayo infused with roasted garlic.</p>
-                            <div class="card-footer"><span class="price">Rs 60</span><button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button></div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Pulled_pork%2C_brisket%2C_baked_beans_and_mac_%26_cheese_from_Martin%27s_BBQ_in_Nashville%2C_TN.jpg/960px-Pulled_pork%2C_brisket%2C_baked_beans_and_mac_%26_cheese_from_Martin%27s_BBQ_in_Nashville%2C_TN.jpg" alt="Sauce 2"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Spicy BBQ</h3></div>
-                            <p class="card-desc">Smoky and sweet with a kick of heat.</p>
-                            <div class="card-footer"><span class="price">Rs 60</span><button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button></div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/sauce_dip_image_1786226879494.avif" alt="Sauce 3"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Honey Mustard</h3></div>
-                            <p class="card-desc">Perfect balance of sweet honey and tangy mustard.</p>
-                            <div class="card-footer"><span class="price">Rs 60</span><button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button></div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Blue_cheese_dressing.jpg/960px-Blue_cheese_dressing.jpg" alt="Sauce 4"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Cheese Dip</h3></div>
-                            <p class="card-desc">Warm liquid cheddar cheese dip.</p>
-                            <div class="card-footer"><span class="price">Rs 80</span><button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button></div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/2/27/Accras_et_sauce_chili.jpg" alt="Sauce 5"></div>
-                        <div class="card-content">
-                            <div class="card-header"><h3>Chili Garlic</h3></div>
-                            <p class="card-desc">Intense spicy sauce for heat lovers.</p>
-                            <div class="card-footer"><span class="price">Rs 60</span><button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button></div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Category: Chicken and Chips -->
+                <div id="chicken" style="display: flex; justify-content: flex-start; align-items: center; margin: 2.5rem 0 1rem; scroll-margin-top: 100px;">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-text-primary); margin: 0; text-align: left;">Chicken and Chips</h3>
                 </div>
-                
-                <div style="text-align: center; margin-top: 3rem;">
-                    <a href="pages/menu.html" class="btn btn-primary" style="border-radius: 50px; font-size: 1.05rem; font-weight: 600; padding: 0.8rem 2.5rem; box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);">View Full Menu</a>
+                <div class="menu-grid">
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Chicken.avif" alt="Chicken 1"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Chicken Special</h3></div>
+                            <p class="card-desc">Delicious chicken prepared with our special seasoning.</p>
+                            <div class="card-footer">
+                                <span class="price">Rs 35,9</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Chicken2.avif" alt="Chicken 2"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Chicken Crocante</h3></div>
+                            <p class="card-desc">Chicken extra crocante, perfeito para acompanhar com molhos.</p>
+                            <div class="card-footer">
+                                <span class="price">Rs 39,9</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Chicken3.avif" alt="Chicken 3"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Chicken Portion</h3></div>
+                            <p class="card-desc">Generous portion of chicken to share with the family.</p>
+                            <div class="card-footer">
+                                <span class="price">Rs 45,9</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Chips.avif" alt="Chips"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Chips</h3></div>
+                            <p class="card-desc">Portion of crispy and warm chips.</p>
+                            <div class="card-footer">
+                                <span class="price">Rs 25,9</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Grilled skewers -->
+                <div id="skewers" style="display: flex; justify-content: flex-start; align-items: center; margin: 2.5rem 0 1rem; scroll-margin-top: 100px;">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-text-primary); margin: 0; text-align: left;">Grilled skewers</h3>
+                </div>
+                <div class="menu-grid">
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Grilled_skewers (1).avif" alt="Espetinho 1"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Feijoada Special</h3></div>
+                            <p class="card-desc">Sextou com a nossa feijoada completa! Servida das 11am to 4pm..</p>
+                            <div class="card-footer">
+                                <span class="price">Rs 15,9</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Grilled_skewers (2).avif" alt="Espetinho 2"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Chicken Skewer</h3></div>
+                            <p class="card-desc">Succulent chicken skewer with house seasoning.</p>
+                            <div class="card-footer">
+                                <span class="price">Rs 12,9</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Soups -->
+                <div id="soups" style="display: flex; justify-content: flex-start; align-items: center; margin: 2.5rem 0 1rem; scroll-margin-top: 100px;">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-text-primary); margin: 0; text-align: left;">Soups</h3>
+                </div>
+                <div class="menu-grid">
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Soup.avif" alt="Sopa"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>House Portion</h3></div>
+                            <p class="card-desc">Real food, prepared with care..</p>
+                            <div class="card-footer">
+                                <span class="price">Rs 25,9</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Drinks -->
+                <div id="drinks" style="display: flex; justify-content: flex-start; align-items: center; margin: 2.5rem 0 1rem; scroll-margin-top: 100px;">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-text-primary); margin: 0; text-align: left;">Drinks</h3>
+                </div>
+                <div class="menu-grid">
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Drink (1).avif" alt="Drink 1"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Natural Juice</h3></div>
+                            <p class="card-desc">Refreshing and cold natural juice.</p>
+                            <div class="card-footer">
+                                <span class="price">Rs 12,9</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Drink (2).avif" alt="Drink 2"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Canned Soda</h3></div>
+                            <p class="card-desc">Your favorite drink in the right size.</p>
+                            <div class="card-footer">
+                                <span class="price">Rs 6,9</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Desserts -->
+                <div id="desserts" style="display: flex; justify-content: flex-start; align-items: center; margin: 2.5rem 0 1rem; scroll-margin-top: 100px;">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--clr-text-primary); margin: 0; text-align: left;">Desserts</h3>
+                </div>
+                <div class="menu-grid">
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Dessert (1).avif" alt="Dessert 1"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Pudim Traditional</h3></div>
+                            <p class="card-desc">The classic pudding with caramel syrup.</p>
+                            <div class="card-footer">
+                                <span class="price">Rs 14,9</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Dessert (2).avif" alt="Dessert 2"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Chocolate Cake</h3></div>
+                            <p class="card-desc">Creamy chocolate cake for cocoa lovers.</p>
+                            <div class="card-footer">
+                                <span class="price">Rs 18,9</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Dessert.avif" alt="Dessert 3"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>Passion Fruit Mousse</h3></div>
+                            <p class="card-desc">Refreshing mousse with the perfect citrus touch.</p>
+                            <div class="card-footer">
+                                <span class="price">Rs 12,9</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/Dessert (4).avif" alt="Dessert 4"></div>
+                        <div class="card-content">
+                            <div class="card-header"><h3>House Ice Cream</h3></div>
+                            <p class="card-desc">Artisanal ice cream with your choice of toppings.</p>
+                            <div class="card-footer">
+                                <span class="price">Rs 16,9</span>
+                                <button class="btn btn-primary" style="padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600;">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </section>
@@ -722,7 +704,7 @@
     <div class="floating-cart-bar">
         <div class="cart-info">
             <span class="cart-count">3 items</span>
-            <span class="cart-total">Rs 339,70</span>
+            <span class="cart-total">Rs 339,7</span>
         </div>
         <button class="btn btn-primary cart-view-btn">View Cart</button>
     </div>

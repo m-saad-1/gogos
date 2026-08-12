@@ -87,19 +87,27 @@
 
                     <div class="profile-nav-buttons">
                         <a href="profile.html" class="profile-btn active">
-                            <span class="btn-icon">👤</span>
+                            <span class="btn-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            </span>
                             <span class="btn-text">My Details</span>
                         </a>
                         <a href="orders.html" class="profile-btn">
-                            <span class="btn-icon">📦</span>
+                            <span class="btn-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                            </span>
                             <span class="btn-text">My Orders</span>
                         </a>
                         <a href="#" class="profile-btn">
-                            <span class="btn-icon">📍</span>
+                            <span class="btn-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            </span>
                             <span class="btn-text">Address</span>
                         </a>
                         <a href="#" class="profile-btn danger">
-                            <span class="btn-icon">🚪</span>
+                            <span class="btn-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                            </span>
                             <span class="btn-text">Logout</span>
                         </a>
                     </div>
@@ -165,15 +173,19 @@
                             
                             <h3 style="margin-bottom: 1.5rem; color: var(--clr-text-primary); font-size: 1.5rem;">Payment Preference</h3>
                             <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 3rem;">
-                                <label style="flex: 1 1 200px; padding: 1.5rem; border: 2px solid var(--clr-primary); border-radius: 12px; cursor: pointer; text-align: center; position: relative; background: #fffbf8;">
+                                <label style="flex: 1 1 200px; padding: 1.5rem; border: 2px solid var(--clr-primary); border-radius: 12px; cursor: pointer; text-align: center; position: relative; background: #fffbf8; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                                     <input type="radio" name="payment" checked style="position: absolute; opacity: 0;">
-                                    <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">💳</span>
+                                    <span style="display: block; margin-bottom: 0.5rem; color: var(--clr-primary);">
+                                        <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block;"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                                    </span>
                                     <span style="font-weight: 600; display: block;">Credit Card</span>
                                     <span style="font-size: 0.85rem; color: #666;">Ending in 4321</span>
                                 </label>
-                                <label style="flex: 1 1 200px; padding: 1.5rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer; text-align: center; position: relative;">
+                                <label style="flex: 1 1 200px; padding: 1.5rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer; text-align: center; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                                     <input type="radio" name="payment" style="position: absolute; opacity: 0;">
-                                    <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">📱</span>
+                                    <span style="display: block; margin-bottom: 0.5rem; color: #555;">
+                                        <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block;"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                                    </span>
                                     <span style="font-weight: 600; display: block;">PIX</span>
                                     <span style="font-size: 0.85rem; color: #666;">Registered Key</span>
                                 </label>
@@ -252,7 +264,7 @@
     <div class="floating-cart-bar">
         <div class="cart-info">
             <span class="cart-count">0 items</span>
-            <span class="cart-total">Rs 0,00</span>
+            <span class="cart-total">Rs 0</span>
         </div>
         <a href="cart.html" class="btn btn-primary cart-view-btn" style="text-decoration:none; display:flex; align-items:center; justify-content:center;">View Cart</a>
     </div>
