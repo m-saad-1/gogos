@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Takeaway CSS Module: variables.css
+   Banging Burgers CSS Module: variables.css
    ========================================================================== */
 
 :root {
@@ -7,11 +7,11 @@
     --clr-background: #FDFBF7;
     --clr-surface: #FFFFFF;
     --clr-surface-dark: #1E1E1E;
-    --clr-primary: #D32F2F;
-    --clr-primary-dark: #B71C1C;
+    --clr-primary: #e79d1f;
+    --clr-primary-dark: #c58212;
     --clr-text-primary: #1E1E1E;
     --clr-text-on-dark: #FDFBF7;
-    --clr-badge-danger: #D32F2F;
+    --clr-badge-danger: #e79d1f;
     --clr-star: #F57F17;
     
     /* Typography */

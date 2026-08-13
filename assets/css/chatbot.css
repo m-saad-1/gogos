@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Takeaway CSS Module: chatbot.css
+   Banging Burgers CSS Module: chatbot.css
    ========================================================================== */
 
         justify-content: space-between;
@@ -11,7 +11,7 @@
    ============================================================ */
 :root {
   --chat-accent:       var(--clr-primary);
-  --chat-accent-dark:  #b71c1c;
+  --chat-accent-dark:  #c58212;
   --chat-bg:           rgba(255, 255, 255, 0.88);
   --chat-surface:      rgba(249, 249, 249, 0.7);
   --chat-border:       rgba(0, 0, 0, 0.08);
@@ -36,9 +36,9 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 1) !important;
   cursor: pointer;
-  background: linear-gradient(135deg, var(--clr-primary) 0%, #b71c1c 100%) !important;
+  background: linear-gradient(135deg, var(--clr-primary) 0%, #c58212 100%) !important;
   box-shadow: none !important;
   display: flex;
   align-items: center;
@@ -126,7 +126,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 1.25rem;
-  background: linear-gradient(135deg, var(--clr-primary) 0%, #b71c1c 100%);
+  background: linear-gradient(135deg, var(--clr-primary) 0%, #c58212 100%);
   color: white;
   flex-shrink: 0;
 }
@@ -247,10 +247,10 @@
 }
 
 .chat-message.user .msg-content {
-  background: linear-gradient(135deg, var(--clr-primary) 0%, #b71c1c 100%);
+  background: linear-gradient(135deg, var(--clr-primary) 0%, #c58212 100%);
   color: white;
   border-radius: 16px 16px 0 16px;
-  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.15);
+  box-shadow: 0 4px 12px rgba(231, 157, 31, 0.15);
 }
 
 .msg-content {
@@ -327,7 +327,7 @@
 }
 
 .chatbot-input button:hover:not(:disabled) {
-  color: #b71c1c;
+  color: #c58212;
   transform: scale(1.1);
 }
 

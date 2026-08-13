@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Takeaway CSS Module: pages.css
+   Banging Burgers CSS Module: pages.css
    ========================================================================== */
 
 /* Hero Section */
@@ -292,7 +292,7 @@
 
 /* About Redesign Styles */
 .about-hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.65)), url('../assets/images/about (1).avif') no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.65)), url('../assets/images/hero.avif') no-repeat center center;
     background-size: cover;
     padding: 6rem 0;
     color: white;
@@ -620,7 +620,7 @@
 /* Contact Section */
 .contact-section {
     padding: 3.5rem 0;
-    background-color: var(--clr-surface);
+    background-color: transparent;
 }
 
 .contact-info-cards {
@@ -903,7 +903,7 @@ input:focus, textarea:focus {
 /* Floating Cart Summary Box */
 .floating-cart-bar {
     background-color: var(--clr-primary) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 1) !important;
     box-shadow: none !important;
     bottom: 90px !important;
 }
@@ -912,7 +912,7 @@ input:focus, textarea:focus {
 .cart-view-btn, .cart-view-btn:hover {
     background: #FFFFFF !important;
     background-color: #FFFFFF !important;
-    color: var(--clr-primary-dark, #B71C1C) !important;
+    color: var(--clr-primary-dark, #c58212) !important;
     text-decoration: none !important;
     display: inline-flex;
     align-items: center;

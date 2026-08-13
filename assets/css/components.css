@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Takeaway CSS Module: components.css
+   Banging Burgers CSS Module: components.css
    ========================================================================== */
 
 /* Circular Categories */
@@ -161,7 +161,9 @@
 
 /* Product Card */
 .product-card {
-    background-color: white;
+    background-color: #e79d1f;
+    color: white;
+    border: none;
     border-radius: var(--border-radius-lg);
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
@@ -169,6 +171,22 @@
     position: relative;
     display: flex;
     flex-direction: column;
+}
+
+.product-card h3, 
+.product-card .card-desc, 
+.product-card .price {
+    color: white !important;
+}
+
+.product-card .btn-primary {
+    background-color: transparent !important;
+    color: white !important;
+    border: 1px solid white !important;
+}
+
+.product-card .btn-primary svg {
+    stroke: white !important;
 }
 
 .product-card:hover {

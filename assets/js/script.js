@@ -554,15 +554,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Auto-update active category on scroll using IntersectionObserver
-        const sections = document.querySelectorAll('[id="deals"], [id="chicken"], [id="skewers"], [id="soups"], [id="drinks"], [id="desserts"]');
-        const sectionIds = ['deals', 'chicken', 'skewers', 'soups', 'drinks', 'desserts'];
+        const sections = document.querySelectorAll('[id="deals"], [id="burgers"], [id="pizzas"], [id="chicken"], [id="drinks"], [id="desserts"]');
         const sectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const id = entry.target.id;
                     categoryLinks.forEach(btn => {
                         const href = btn.getAttribute('href');
-                        btn.classList.toggle('active', href === `#${id}`);
+                        if (href === `#${id}`) {
+                            btn.classList.add('active');
+                            // Horizontally scroll the active category into view
+                            btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                        } else {
+                            btn.classList.remove('active');
+                        }
                     });
                 }
             });
