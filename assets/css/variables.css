@@ -7,11 +7,11 @@
     --clr-background: #FDFBF7;
     --clr-surface: #FFFFFF;
     --clr-surface-dark: #1E1E1E;
-    --clr-primary: #e79d1f;
-    --clr-primary-dark: #c58212;
+    --clr-primary: #000000;
+    --clr-primary-dark: #000000;
     --clr-text-primary: #1E1E1E;
     --clr-text-on-dark: #FDFBF7;
-    --clr-badge-danger: #e79d1f;
+    --clr-badge-danger: #000000;
     --clr-star: #F57F17;
     
     /* Typography */

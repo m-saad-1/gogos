@@ -250,7 +250,7 @@
   background: linear-gradient(135deg, var(--clr-primary) 0%, #c58212 100%);
   color: white;
   border-radius: 16px 16px 0 16px;
-  box-shadow: 0 4px 12px rgba(231, 157, 31, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .msg-content {

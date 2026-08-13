@@ -9,3 +9,5 @@
 @import url('chatbot.css');
 @import url('modals.css');
 @import url('pages.css');
+
+.btn-primary { background: #000000 !important; color: #FFFFFF !important; }

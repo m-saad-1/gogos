@@ -63,11 +63,11 @@
 /* ── Background ──────────────────────────────────────────────────────────── */
 .bg-surface   { background-color: var(--clr-surface); }
 .bg-bg        { background-color: var(--clr-background); }
-.bg-primary-light { background: rgba(231, 157, 31, 0.05); }
+.bg-primary-light { background: rgba(0, 0, 0, 0.05); }
 
 /* ── Borders ─────────────────────────────────────────────────────────────── */
 .border-primary-dashed {
-  border: 1px dashed rgba(231, 157, 31, 0.3);
+  border: 1px dashed rgba(0, 0, 0, 0.3);
 }
 
 /* ── Transitions ─────────────────────────────────────────────────────────── */

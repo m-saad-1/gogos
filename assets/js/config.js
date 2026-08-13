@@ -7,14 +7,14 @@ const BB_CONFIG = {
 
   /* ── Brand Info ─────────────────────────────────────────── */
   brand: {
-    name: 'Banging Burgers',
-    tagline: 'Flame-Grilled Authentic Flavors',
-    instagram: 'https://www.instagram.com/bangingburgerscafe',
+    name: 'gogo\'s',
+    tagline: 'The Real Flavor',
+    instagram: 'https://www.instagram.com/gogoskarachi/',
     phone: '+923001234567',
     phonePretty: '+92 300 123 4567',
     whatsapp: 'https://wa.me/923001234567',
-    email: 'info@bangingburgerscafe.com',
-    copyright: '© 2026 Banging Burgers. All rights reserved.',
+    email: 'info@gogoskarachi.com',
+    copyright: '© 2026 gogo\'s. All rights reserved.',
   },
 
   /* ── Images (all relative to project root) ──────────────── */
@@ -24,10 +24,10 @@ const BB_CONFIG = {
     offer:  'assets/images/offer.avif',
 
     /* Burgers */
-    burger1: 'assets/images/burger (1).avif',
-    burger2: 'assets/images/burger (2).avif',
-    burger3: 'assets/images/burger (3).avif',
-    burger4: 'assets/images/burger (4).avif',
+    burger1: 'assets/images/burger_smash_1786227565327.avif',
+    burger2: 'assets/images/burger_chicken_1786227544480.avif',
+    burger3: 'assets/images/burger_zinger_1786227554642.avif',
+    burger4: 'assets/images/burger (3).avif',
     burgerPng: 'assets/images/burger.avif',
 
     /* Pizzas */
@@ -52,7 +52,7 @@ const BB_CONFIG = {
     drinkCola: 'assets/images/grocerapp-pepsi-drink--5f1815cc6dd00.avif',
     fanta:     'assets/images/fanta.avif',
     dew:       'assets/images/dew.avif',
-    lemonade:  'assets/images/drink_lemonade_1786227586036.avif',
+    lemonade:  'assets/images/drink (1).avif',
 
     /* Desserts */
     dessert1: 'assets/images/dessert (1).avif',

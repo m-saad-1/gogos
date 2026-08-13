@@ -8,10 +8,10 @@ PAGES = [
 ]
 
 TITLES = {
-    'pages/offers.html': 'Offers - Banging Burgers',
-    'pages/about.html': 'About Us - Banging Burgers',
-    'pages/menu.html': 'Menu - Banging Burgers',
-    'pages/gallery.html': 'Gallery - Banging Burgers'
+    'pages/offers.html': 'Offers - gogo\'s',
+    'pages/about.html': 'About Us - gogo\'s',
+    'pages/menu.html': 'Menu - gogo\'s',
+    'pages/gallery.html': 'Gallery - gogo\'s'
 }
 
 HEAD_BLOCK = '''<!DOCTYPE html>

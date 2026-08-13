@@ -25,14 +25,14 @@ We are now working on the **Banging Burger** project. Implement the following up
 
 4. **Website Theme**
 
-   * Change the overall website theme to **`#E79D1F`**.
+   * Change the overall website theme to **`Black`**.
 
 
 5. **Restaurant Information & Branding**
 
-   * Replace the existing restaurant information and branding throughout the entire website with accurate information for **Banging Burger**.
+   * Replace the existing restaurant information and branding throughout the entire website with accurate information for **gogo's**.
    * Use the official Instagram profile as the primary reference:
-     [Banging Burger — Instagram](https://www.instagram.com/bangingburgerscafe?utm_source=chatgpt.com)
+   https://www.instagram.com/gogoskarachi/
    * Update all relevant content, including:
 
      * Restaurant name
