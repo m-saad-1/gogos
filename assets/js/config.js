@@ -42,23 +42,23 @@ const BB_CONFIG = {
     deal4: 'assets/images/deal (4).avif',
 
     /* Chicken & Fries */
-    chicken:  'assets/images/Chicken.avif',
-    chicken2: 'assets/images/Chicken2.avif',
-    chicken3: 'assets/images/Chicken3.avif',
+    chicken:  'assets/images/chicken.avif',
+    chicken2: 'assets/images/chicken2.avif',
+    chicken3: 'assets/images/chicken3.avif',
     fries:    'assets/images/fries.avif',
 
     /* Drinks */
-    drink1:    'assets/images/Drink (1).avif',
+    drink1:    'assets/images/drink (1).avif',
     drinkCola: 'assets/images/grocerapp-pepsi-drink--5f1815cc6dd00.avif',
     fanta:     'assets/images/fanta.avif',
     dew:       'assets/images/dew.avif',
     lemonade:  'assets/images/drink_lemonade_1786227586036.avif',
 
     /* Desserts */
-    dessert1: 'assets/images/Dessert (1).avif',
-    dessert2: 'assets/images/Dessert (2).avif',
-    dessert4: 'assets/images/Dessert (4).avif',
-    dessert:  'assets/images/Dessert.avif',
+    dessert1: 'assets/images/dessert (1).avif',
+    dessert2: 'assets/images/dessert (2).avif',
+    dessert4: 'assets/images/dessert (4).avif',
+    dessert:  'assets/images/dessert.avif',
 
     /* Sauce */
     sauce:  'assets/images/sauce.avif',
