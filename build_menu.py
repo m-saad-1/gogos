@@ -108,7 +108,7 @@ def make_card(img, category, index):
     price = genuine_prices.get(lower_img, 400 + (index * 50))
     
     return f'''                    <div class="product-card">
-                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/{img}" alt="{title}"></div>
+                        <div class="card-image"><img loading="lazy" decoding="async" src="./assets/images/{lower_img}" alt="{title}"></div>
                         <div class="card-content">
                             <div class="card-header"><h3>{title}</h3></div>
                             <p class="card-desc">{desc}</p>
@@ -145,10 +145,10 @@ def update_file(filepath, is_menu=False):
         content = f.read()
         
     cat_circles = ""
-    if burgers: cat_circles += f'<a href="#burgers" class="category-circle-btn"><div class="circle-img"><img src="./assets/images/{burgers[0]}"></div><span class="circle-label">Burgers</span></a>\n'
-    if deals: cat_circles += f'<a href="#deals" class="category-circle-btn"><div class="circle-img"><img src="./assets/images/{deals[0]}"></div><span class="circle-label">Deals</span></a>\n'
-    if drinks: cat_circles += f'<a href="#drinks" class="category-circle-btn"><div class="circle-img"><img src="./assets/images/{drinks[0]}"></div><span class="circle-label">Drinks</span></a>\n'
-    if extras: cat_circles += f'<a href="#sauces" class="category-circle-btn"><div class="circle-img"><img src="./assets/images/{extras[0]}"></div><span class="circle-label">Sauces</span></a>\n'
+    if burgers: cat_circles += f'<a href="#burgers" class="category-circle-btn"><div class="circle-img"><img src="./assets/images/{burgers[0].lower()}"></div><span class="circle-label">Burgers</span></a>\n'
+    if deals: cat_circles += f'<a href="#deals" class="category-circle-btn"><div class="circle-img"><img src="./assets/images/{deals[0].lower()}"></div><span class="circle-label">Deals</span></a>\n'
+    if drinks: cat_circles += f'<a href="#drinks" class="category-circle-btn"><div class="circle-img"><img src="./assets/images/{drinks[0].lower()}"></div><span class="circle-label">Drinks</span></a>\n'
+    if extras: cat_circles += f'<a href="#sauces" class="category-circle-btn"><div class="circle-img"><img src="./assets/images/{extras[0].lower()}"></div><span class="circle-label">Sauces</span></a>\n'
 
     prefix = "../" if is_menu else "./"
     cat_circles = cat_circles.replace("./", prefix)
