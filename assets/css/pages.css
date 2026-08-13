@@ -950,7 +950,19 @@ input:focus, textarea:focus {
     color: var(--clr-primary) !important;
 }
 .tab-item svg {
-    color: inherit !important;
+}
+
+/* Mobile centering fixes for About Page */
+@media (max-width: 768px) {
+    .about-left {
+        text-align: center;
+    }
+    .why-us-card {
+        text-align: center;
+    }
+    .why-us-icon {
+        margin: 0 auto 1.5rem auto;
+    }
 }
 
 
