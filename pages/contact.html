@@ -57,14 +57,18 @@
                         
                         <h3 id="horarios" style="color: var(--clr-primary); margin-bottom: 1rem;">Opening Hours</h3>
                         <ul style="list-style: none; padding: 0; margin-bottom: 2.5rem; color: #555;">
-                            <li style="margin-bottom: 0.5rem;"><strong>Seg - Sex:</strong> 11h30 às 15h00 | 18h30 às 23h00</li>
-                            <li style="margin-bottom: 0.5rem;"><strong>Sat - Sun:</strong> 11h30 às 23h30</li>
+                            <li style="margin-bottom: 0.5rem;"><strong>Mon - Fri:</strong> 11:30 AM to 3:00 PM | 6:30 PM to 11:00 PM</li>
+                            <li style="margin-bottom: 0.5rem;"><strong>Sat - Sun:</strong> 11:30 AM to 11:30 PM</li>
                         </ul>
                         
                         <h3 style="color: var(--clr-primary); margin-bottom: 1rem;">Social Networks</h3>
                         <div class="social-links" style="display: flex; gap: 1rem;">
-                            <a href="#" style="background: var(--clr-surface); padding: 0.5rem 1rem; border-radius: 50px; color: var(--clr-text-primary); font-weight: 600; text-decoration: none;">Instagram</a>
-                            <a href="#" style="background: var(--clr-surface); padding: 0.5rem 1rem; border-radius: 50px; color: var(--clr-text-primary); font-weight: 600; text-decoration: none;">Facebook</a>
+                            <a href="#" style="background: var(--clr-surface); padding: 0.6rem 1.2rem; border-radius: 50px; color: var(--clr-text-primary); font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: all 0.3s ease;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg> Instagram
+                            </a>
+                            <a href="#" style="background: var(--clr-surface); padding: 0.6rem 1.2rem; border-radius: 50px; color: var(--clr-text-primary); font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: all 0.3s ease;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg> Facebook
+                            </a>
                         </div>
                     </div>
                     
@@ -108,15 +112,69 @@
 
                 <div style="margin-top: 2.5rem; text-align: center;">
                     <h3 style="color: var(--clr-primary); margin-bottom: 2rem;">Frequently Asked Questions</h3>
+                    <style>
+                        details {
+                            background: white;
+                            padding: 1.5rem;
+                            border-radius: 12px;
+                            margin-bottom: 1rem;
+                            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+                            transition: all 0.3s ease;
+                        }
+                        details[open] {
+                            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+                            background: var(--clr-surface);
+                        }
+                        summary {
+                            font-weight: 600;
+                            color: var(--clr-text-primary);
+                            cursor: pointer;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            list-style: none;
+                        }
+                        summary::-webkit-details-marker {
+                            display: none;
+                        }
+                        summary::after {
+                            content: '+';
+                            font-size: 1.5rem;
+                            color: var(--clr-primary);
+                            transition: transform 0.3s ease;
+                        }
+                        details[open] summary::after {
+                            content: '-';
+                            transform: rotate(180deg);
+                        }
+                        details p {
+                            margin-top: 1rem;
+                            color: #666;
+                            font-size: 0.95rem;
+                            line-height: 1.5;
+                        }
+                    </style>
                     <div style="max-width: 800px; margin: 0 auto; text-align: left;">
-                        <div style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.02);">
-                            <strong style="color: var(--clr-text-primary); display: block; margin-bottom: 0.5rem;">Do you accept meal vouchers?</strong>
-                            <p style="color: #666; font-size: 0.95rem;">Yes, we accept major meal vouchers.</p>
-                        </div>
-                        <div style="background: white; padding: 1.5rem; border-radius: 12px; margin-bottom: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.02);">
-                            <strong style="color: var(--clr-text-primary); display: block; margin-bottom: 0.5rem;">Does the restaurant have a kids area?</strong>
-                            <p style="color: #666; font-size: 0.95rem;">Yes, we have a recreational area with monitors on weekends.</p>
-                        </div>
+                        <details open>
+                            <summary>Do you accept meal vouchers?</summary>
+                            <p>Yes, we accept major meal vouchers. Ask our staff for the exact accepted providers when you arrive.</p>
+                        </details>
+                        <details>
+                            <summary>Does the restaurant have a kids area?</summary>
+                            <p>Yes, we have a recreational area with monitors on weekends. Your kids can safely play while you enjoy your meal!</p>
+                        </details>
+                        <details>
+                            <summary>Do you offer gluten-free or vegan options?</summary>
+                            <p>Absolutely! We have a specialized vegan menu and can customize most of our burgers with a gluten-free bun or a lettuce wrap upon request.</p>
+                        </details>
+                        <details>
+                            <summary>Can I book a table for a large party or event?</summary>
+                            <p>Yes, we accept reservations for large groups. Please head over to the Reservations page or call us directly to discuss the details for your event.</p>
+                        </details>
+                        <details>
+                            <summary>Do you offer delivery services?</summary>
+                            <p>Yes, we deliver within a 5-mile radius. You can order directly through our website or find us on your favorite food delivery apps.</p>
+                        </details>
                     </div>
                 </div>
             </div>
