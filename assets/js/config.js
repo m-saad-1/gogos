@@ -24,22 +24,22 @@ const BB_CONFIG = {
     offer:  'assets/images/offer.avif',
 
     /* Burgers */
-    burger1: 'assets/images/burger (1).jpg',
-    burger2: 'assets/images/burger (2).jpg',
-    burger3: 'assets/images/burger (3).jpg',
-    burger4: 'assets/images/burger (4).jpg',
+    burger1: 'assets/images/burger (1).avif',
+    burger2: 'assets/images/burger (2).avif',
+    burger3: 'assets/images/burger (3).avif',
+    burger4: 'assets/images/burger (4).avif',
     burgerPng: 'assets/images/burger.avif',
 
     /* Pizzas */
-    pizza1: 'assets/images/pizza (1).png',
-    pizza2: 'assets/images/pizza (2).png',
-    pizza3: 'assets/images/pizza (3).png',
-    pizza4: 'assets/images/pizza (4).png',
+    pizza1: 'assets/images/pizza (1).avif',
+    pizza2: 'assets/images/pizza (2).avif',
+    pizza3: 'assets/images/pizza (3).avif',
+    pizza4: 'assets/images/pizza (4).avif',
 
     /* Deals */
-    deal1: 'assets/images/deal (1).png',
-    deal2: 'assets/images/deal (2).png',
-    deal4: 'assets/images/deal (4).png',
+    deal1: 'assets/images/deal (1).avif',
+    deal2: 'assets/images/deal (2).avif',
+    deal4: 'assets/images/deal (4).avif',
 
     /* Chicken & Fries */
     chicken:  'assets/images/Chicken.avif',
@@ -70,7 +70,7 @@ const BB_CONFIG = {
 
   /* ── Gallery ─────────────────────────────────────────────── */
   gallery: {
-    images: [1,2,3,4,5,6,7].map(n => `assets/gallery/gallery (${n}).jpg`),
+    images: [1,2,3,4,5,6,7].map(n => `assets/gallery/gallery (${n}).avif`),
     videos: [1,2,3].map(n => `assets/gallery/gallery (${n}).mp4`),
   },
 
