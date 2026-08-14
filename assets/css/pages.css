@@ -888,45 +888,35 @@ input:focus, textarea:focus {
 
 /* Chatbot styling and color overrides */
 .chatbot-toggle {
-    background: #f0f0f0 !important;
-    background-color: #f0f0f0 !important;
-    color: #111111 !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
-    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    background: var(--clr-primary) !important;
+    background-color: var(--clr-primary) !important;
+    color: #FFFFFF !important;
+    box-shadow: none !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 .chatbot-toggle:hover {
     transform: scale(1.08) !important;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12) !important;
+    box-shadow: none !important;
 }
-.chatbot-toggle svg {
-    stroke: #111111 !important;
-}
+
 
 /* Floating Cart Summary Box */
 .floating-cart-bar {
-    background-color: #f0f0f0 !important;
-    border: 1px solid rgba(0, 0, 0, 0.08) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06) !important;
+    background-color: var(--clr-primary) !important;
+    border: 1px solid rgba(255, 255, 255, 1) !important;
+    box-shadow: none !important;
     bottom: 90px !important;
-    color: #111111 !important;
-}
-.cart-count {
-    color: #555555 !important;
-}
-.cart-total {
-    color: #111111 !important;
 }
 
 /* View Cart Button */
 .cart-view-btn, .cart-view-btn:hover {
-    background: #111111 !important;
-    background-color: #111111 !important;
-    color: #ffffff !important;
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    color: var(--clr-primary-dark, #c58212) !important;
     text-decoration: none !important;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: none !important;
 }
 
 /* Profile Form Grid Layouts */
