@@ -888,11 +888,11 @@ input:focus, textarea:focus {
 
 /* Chatbot styling and color overrides */
 .chatbot-toggle {
-    background: var(--clr-primary) !important;
-    background-color: var(--clr-primary) !important;
-    color: #FFFFFF !important;
-    box-shadow: none !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: #cccccc !important;
+    background-color: #cccccc !important;
+    color: black !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
 }
 .chatbot-toggle:hover {
     transform: scale(1.08) !important;
@@ -902,17 +902,18 @@ input:focus, textarea:focus {
 
 /* Floating Cart Summary Box */
 .floating-cart-bar {
-    background-color: var(--clr-primary) !important;
-    border: 1px solid rgba(255, 255, 255, 1) !important;
-    box-shadow: none !important;
+    background-color: #cccccc !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
     bottom: 90px !important;
+    color: black !important;
 }
 
 /* View Cart Button */
 .cart-view-btn, .cart-view-btn:hover {
-    background: #FFFFFF !important;
-    background-color: #FFFFFF !important;
-    color: var(--clr-primary-dark, #c58212) !important;
+    background: black !important;
+    background-color: black !important;
+    color: white !important;
     text-decoration: none !important;
     display: inline-flex;
     align-items: center;
