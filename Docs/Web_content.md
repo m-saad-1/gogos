@@ -1,11 +1,11 @@
 ### Refined Prompt
 
-We are now working on the **Banging Burger** project. Implement the following updates carefully across the entire website:
+We are now working on the **Rosano** project. Implement the following updates carefully across the entire website:
 
 1. **Menu**
 
    * Update all menu items, menu images, and categories using the assets in `assets/images`.
-   * Match each image to the correct menu item/category based on the **image filenames**.
+   * Match each image to the correct menu item/category based on the **image filenames**. And give each item proper name and description according to image name.
    * Remove outdated menu assets/content where necessary.
 
 2. **Gallery**
@@ -18,6 +18,7 @@ We are now working on the **Banging Burger** project. Implement the following up
    * Update the:
 
      * Logo
+     * favicon
      * Hero image
      * Offer images
      * About image
@@ -25,14 +26,14 @@ We are now working on the **Banging Burger** project. Implement the following up
 
 4. **Website Theme**
 
-   * Change the overall website theme to **`Black`**.
+   * Change the overall website theme to **`#1b3a3f`**.
 
 
 5. **Restaurant Information & Branding**
 
-   * Replace the existing restaurant information and branding throughout the entire website with accurate information for **gogo's**.
+   * Replace the existing restaurant information and branding throughout the entire website with accurate information for **Rosano**.
    * Use the official Instagram profile as the primary reference:
-   https://www.instagram.com/gogoskarachi/
+      https://www.instagram.com/rosano.pk/
    * Update all relevant content, including:
 
      * Restaurant name

@@ -1025,3 +1025,36 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Swipe down to close item modal
+    const modalSheet = document.querySelector('.modal-sheet');
+    let touchStartY = 0;
+    let touchEndY = 0;
+    
+    if (modalSheet) {
+        modalSheet.addEventListener('touchstart', e => {
+            touchStartY = e.changedTouches[0].screenY;
+        }, {passive: true});
+        
+        modalSheet.addEventListener('touchend', e => {
+            touchEndY = e.changedTouches[0].screenY;
+            if (touchEndY - touchStartY > 100 && itemModal && itemModal.classList.contains('active')) {
+                closeModal(itemModal);
+            }
+        }, {passive: true});
+    }
+
+    // Click on offer image to open modal
+    const offerImages = document.querySelectorAll('a[href="pages/offers.html"] .hero-image-frame img');
+    offerImages.forEach(img => {
+        img.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (window.openItemModal) {
+                window.openItemModal('Special Offer', 'Enjoy our special deal including 1x Zinger, 1x Fries, 1x Drink.', 'Rs 650', img.src, 'Offers');
+            }
+        });
+    });
+    const offerLink = document.querySelector('a[href="pages/offers.html"]');
+    if (offerLink) {
+        offerLink.removeAttribute('href'); // To prevent navigation when clicking image
+    }
