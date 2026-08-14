@@ -36,14 +36,14 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 1) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
   cursor: pointer;
-  background: linear-gradient(135deg, var(--clr-primary) 0%, #c58212 100%) !important;
-  box-shadow: none !important;
+  background: #f5f5f5 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white !important;
+  color: black !important;
   outline: none;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
